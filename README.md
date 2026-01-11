@@ -49,7 +49,20 @@ const currentStatus = {
   role: "Full Stack Software Engineer",
   location: "Tunisia 🇹🇳",
   openToWork: true,
-  interests: ["Web3", "Cloud Native", "AI/ML Integration"],
+  interests: [
+    "Web3 & Blockchain Technology",
+    "Cloud Native Architecture",
+    "AI/ML Integration",
+    "Microservices & Distributed Systems",
+    "Real-time Applications & WebSockets",
+    "DevOps & CI/CD Automation",
+    "Performance Optimization",
+    "System Design & Scalability",
+    "Serverless Computing",
+    "GraphQL & Modern APIs",
+    "Mobile Development",
+    "Open Source Contribution"
+  ],
   currentlyBuilding: "Innovative Full Stack Solutions",
   availableFor: ["Full-time Roles", "Freelance Projects", "Technical Consulting"],
   languages: ["English", "French", "Arabic"]
