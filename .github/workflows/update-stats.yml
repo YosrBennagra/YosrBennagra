@@ -1,0 +1,27 @@
+name: Update GitHub Stats
+
+on:
+  schedule:
+    # Runs every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Update README with latest stats
+        run: |
+          echo "Stats updated at $(date)" >> .stats-log
+          
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .stats-log || exit 0
+          git commit -m "📊 Auto-update stats" || exit 0
+          git push || exit 0
