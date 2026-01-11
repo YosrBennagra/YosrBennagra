@@ -126,19 +126,30 @@ const currentStatus = {
   <img src="https://skillicons.dev/icons?i=react,nextjs,angular,ts,js,dotnet,cs,spring,java,nestjs,nodejs,mongodb,postgres,mysql,redis,docker,git,github,vscode,vercel,tailwind,bootstrap,html,css,python,linux&perline=13&theme=dark" alt="Tech Stack"/>
 </div>
 
+<!-- Animated Tech Stack Carousel -->
+<div align="center">
+
+### 🎯 Currently Mastering
+
+<a href="https://github.com/YosrBennagra">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=3000&pause=1000&color=6366F1&center=true&vCenter=true&multiline=true&repeat=true&width=800&height=100&lines=Microservices+Architecture+%F0%9F%8F%97%EF%B8%8F;Cloud+Native+Development+%E2%98%81%EF%B8%8F;AI%2FML+Integration+%F0%9F%A4%96;GraphQL+%26+REST+APIs+%F0%9F%93%A1;Real-time+Applications+with+WebSockets+%E2%9A%A1" alt="Currently Mastering"/>
+</a>
+
+</div>
+
 ---
 
 <!-- GitHub Performance Metrics -->
 ## 📊 GitHub Performance & Analytics
 
 <div align="center">
-  <img width="49%" height="195px" src="https://github-readme-stats.vercel.app/api?username=YosrBennagra&show_icons=true&count_private=true&hide_border=true&title_color=6366f1&icon_color=6366f1&text_color=c9d1d9&bg_color=0d1117&include_all_commits=true&rank_icon=github" alt="GitHub Stats" /> 
-  <img width="49%" height="195px" src="https://github-readme-streak-stats.herokuapp.com/?user=YosrBennagra&theme=tokyonight&hide_border=true&stroke=0000&background=0D1117&ring=6366f1&fire=6366f1&currStreakLabel=6366f1" alt="GitHub Streak" />
+  <img width="49%" height="195px" src="https://github-readme-stats-sigma-five.vercel.app/api?username=YosrBennagra&show_icons=true&count_private=true&hide_border=true&title_color=6366f1&icon_color=6366f1&text_color=c9d1d9&bg_color=0d1117&include_all_commits=true&rank_icon=github" alt="GitHub Stats" /> 
+  <img width="49%" height="195px" src="https://streak-stats.demolab.com/?user=YosrBennagra&theme=tokyonight&hide_border=true&stroke=0000&background=0D1117&ring=6366f1&fire=6366f1&currStreakLabel=6366f1" alt="GitHub Streak" />
 </div>
 
 <div align="center">
-  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=YosrBennagra&layout=compact&hide_border=true&title_color=6366f1&text_color=c9d1d9&bg_color=0d1117&langs_count=8" alt="Most Used Languages" />
-  <img width="49%" src="https://github-contributor-stats.vercel.app/api?username=YosrBennagra&limit=5&theme=tokyonight&hide_border=true&combine_all_yearly_contributions=true" alt="Top Contributed Repos"/>
+  <img width="49%" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=YosrBennagra&layout=compact&hide_border=true&title_color=6366f1&text_color=c9d1d9&bg_color=0d1117&langs_count=8" alt="Most Used Languages" />
+  <img width="49%" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=YosrBennagra&layout=donut&hide_border=true&title_color=6366f1&text_color=c9d1d9&bg_color=0d1117&langs_count=6" alt="Language Distribution"/>
 </div>
 
 <!-- Professional Activity Visualization -->
@@ -150,8 +161,19 @@ const currentStatus = {
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=YosrBennagra&custom_title=12-Month%20Contribution%20Graph&bg_color=0d1117&color=6366f1&line=6366f1&point=ffffff&area_color=6366f1&title_color=ffffff&area=true&hide_border=true" alt="Contribution Graph" width="98%"/>
 </div>
 
+<br/>
+
+<!-- Animated Metrics Display -->
 <div align="center">
-  <img src="https://github-profile-3d-contrib.vercel.app/api?username=YosrBennagra&theme=tokyonight" alt="3D Contribution Profile" width="90%"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=YosrBennagra&theme=tokyonight" alt="Profile Details" width="98%"/>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=YosrBennagra&theme=tokyonight" alt="Repos per Language" width="32%"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=YosrBennagra&theme=tokyonight" alt="Most Commit Language" width="32%"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=YosrBennagra&theme=tokyonight&utcOffset=1" alt="Productive Time" width="32%"/>
 </div>
 
 </details>
@@ -167,6 +189,105 @@ const currentStatus = {
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/YosrBennagra/YosrBennagra/output/github-contribution-grid-snake.svg" />
     <img alt="Snake eating contributions" src="https://raw.githubusercontent.com/YosrBennagra/YosrBennagra/output/github-contribution-grid-snake.svg" width="100%"/>
   </picture>
+</div>
+
+</details>
+
+<!-- Unique Animations Section -->
+<details>
+<summary><b>⚡ Interactive Code Metrics & Animations</b></summary>
+<br/>
+
+<!-- Animated Coding Stats -->
+<div align="center">
+  
+### 💻 Coding Activity Pulse
+
+<img src="https://github-readme-stats-sigma-five.vercel.app/api/wakatime?username=YosrBennagra&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=6366f1&text_color=c9d1d9&custom_title=Weekly%20Coding%20Stats" alt="Wakatime Stats" width="49%"/>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=YosrBennagra&theme=tokyonight" alt="Stats" width="49%"/>
+
+</div>
+
+<br/>
+
+<!-- Animated Language Progress Bars -->
+<div align="center">
+
+### 🎨 Language Proficiency Matrix
+
+```text
+TypeScript   ████████████████████░░░   92%
+JavaScript   ███████████████████░░░░   87%
+C#           ██████████████████░░░░░   84%
+Java         ████████████████░░░░░░░   78%
+HTML/CSS     ███████████████████░░░░   89%
+Python       ██████████████░░░░░░░░░   68%
+SQL          ███████████████░░░░░░░░   73%
+```
+
+</div>
+
+<br/>
+
+<!-- Animated Activity Heatmap -->
+<div align="center">
+
+### 🔥 Contribution Heatmap
+
+<img src="https://ghchart.rshah.org/6366f1/YosrBennagra" alt="GitHub Contribution Chart" width="90%"/>
+
+</div>
+
+<br/>
+
+<!-- Code Time Stats -->
+<div align="center">
+
+### ⏱️ Development Metrics
+
+| Metric | Value |
+|--------|-------|
+| 🏆 Total Commits (2025) | 500+ |
+| 🔥 Day Streak | Building Daily |
+| 📦 Total Projects | 31+ Repositories |
+| ⭐ Stars Earned | Growing |
+| 🍴 Total Forks | Active |
+| 👥 Followers | Community Builder |
+
+</div>
+
+</details>
+
+<!-- GitHub Skyline -->
+<details>
+<summary><b>🌆 GitHub 3D Skyline</b></summary>
+<br/>
+
+<div align="center">
+  <img src="https://skyline.github.com/YosrBennagra/2025" alt="GitHub Skyline 2025" width="80%"/>
+  
+  **[🎮 View Interactive 3D Skyline](https://skyline.github.com/YosrBennagra/2025)**
+</div>
+
+</details>
+
+<!-- Profile Views with Animation -->
+<details>
+<summary><b>👀 Profile Analytics & Visitor Stats</b></summary>
+<br/>
+
+<div align="center">
+
+![Profile Views](https://visitcount.itsvg.in/api?id=YosrBennagra&label=Profile%20Views&color=6&icon=5&pretty=true)
+
+### 📍 Visitor Map
+
+<img src="https://github.com/YosrBennagra/YosrBennagra/blob/main/assets/visitor-map.svg" alt="Visitor Map" width="80%" onerror="this.style.display='none'"/>
+
+### 🌍 Global Reach
+
+<img src="https://count.getloli.com/get/@YosrBennagra?theme=rule34" alt="Profile Counter" />
+
 </div>
 
 </details>
@@ -241,14 +362,36 @@ RESTful API with authentication, validation, and database integration.
   <img src="https://github-profile-trophy.vercel.app/?username=YosrBennagra&theme=tokyonight&no-frame=true&no-bg=false&margin-w=4&row=2&column=4" alt="GitHub Trophies" />
 </div>
 
+<!-- Animated Achievement Cards -->
+<div align="center">
+
+### 🎖️ GitHub Achievements Showcase
+
+<img src="https://github-readme-achievement-badges.vercel.app/api?username=YosrBennagra&theme=tokyonight" alt="Achievement Badges" width="80%"/>
+
+</div>
+
+<br/>
+
 <div align="center">
   
-| 🎯 Metric | 📊 Value |
-|-----------|----------|
-| **Total Repositories** | 31+ Projects |
-| **Primary Languages** | TypeScript, C#, JavaScript, Java |
-| **Contributions** | Active Daily Contributor |
-| **Collaboration** | Open Source Enthusiast |
+| 🎯 Metric | 📊 Value | 🚀 Growth |
+|-----------|----------|-----------|
+| **Total Repositories** | 31+ Projects | 📈 Growing |
+| **Primary Languages** | TypeScript, C#, JavaScript, Java | 💪 Expert Level |
+| **Contributions** | Active Daily Contributor | 🔥 500+ in 2025 |
+| **Code Reviews** | Team Collaborator | ✅ Quality Focused |
+| **Open Source** | Community Builder | 🌟 Active Participant |
+
+</div>
+
+<!-- GitHub Stats Cards -->
+<div align="center">
+
+### 📊 Additional Stats
+
+<img src="https://github-readme-stats-sigma-five.vercel.app/api?username=YosrBennagra&show_icons=true&count_private=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=6366f1&icon_color=6366f1&custom_title=Detailed%20GitHub%20Analytics" width="49%"/>
+<img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=YosrBennagra&layout=pie&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=6366f1" width="49%"/>
 
 </div>
 
@@ -353,7 +496,44 @@ graph LR
 
 <!-- Inspirational Quote -->
 <div align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight&quote=Code%20is%20like%20humor.%20When%20you%20have%20to%20explain%20it%2C%20it%27s%20bad.&author=Cory%20House" alt="Dev Quote"/>
+
+### 💡 Developer Wisdom
+
+<img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight&quote=Code%20is%20like%20humor.%20When%20you%20have%20to%20explain%20it%2C%20it%27s%20bad.&author=Cory%20House" alt="Dev Quote"/>
+
+</div>
+
+<!-- Animated Terminal -->
+<div align="center">
+
+### 🖥️ Terminal Session
+
+```bash
+$ whoami
+yosr@developer:~$ Full Stack Software Engineer
+
+$ cat skills.txt
+✨ Building scalable web applications
+🚀 Turning ideas into production-ready solutions
+💡 Problem solver & continuous learner
+🤝 Collaborative team player
+
+$ ls current_focus/
+microservices/  cloud-native/  ai-integration/  real-time-apps/
+
+$ echo $STATUS
+🟢 Open to new opportunities & collaborations
+
+$ git log --oneline --graph --decorate --all
+* 🎯 Mastering cloud-native architectures
+* 🔥 Building with Next.js & TypeScript
+* ⚡ Implementing real-time features
+* 🌐 Creating impactful digital experiences
+
+$ npm run impact
+> Making a difference, one commit at a time 🚀
+```
+
 </div>
 
 ---
