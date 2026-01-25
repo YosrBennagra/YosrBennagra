@@ -475,7 +475,7 @@ graph LR
 ### 🤝 Reach Out to Discuss Opportunities
 
 <p>
-  <a href="mailto:yosr.bennagra@gmail.com">
+  <a href="mailto:yosrbennagra@gmail.com">
     <img src="https://img.shields.io/badge/Email-yosr.bennagra@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
   </a>
 </p>
