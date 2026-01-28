@@ -1,131 +1,141 @@
-<svg viewBox="0 0 1200 300" width="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="title desc" xmlns="http://www.w3.org/2000/svg">
-  <title id="title">Yosr Ben Nagra — header banner</title>
-  <desc id="desc">Animated header featuring subtle moving light, ambient glow and name text: YOSR BEN NAGRA.</desc>
+<svg viewBox="0 0 1200 320" width="100%" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Color variables (useful for theming) -->
-    <style>
-      :root{
-        --bg-0:#020617; --bg-1:#050B1A; --accent:#6366F1; --accent-2:#818CF8; --muted:#9CA3AF; --name-light:#F8FAFC; --name-dark:#C7D2FE;
-      }
-    </style>
-
-    <!-- Base background -->
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="var(--bg-0)"/>
-      <stop offset="100%" stop-color="var(--bg-1)"/>
+    <!-- Background -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="60%" stop-color="#070A2A"/>
+      <stop offset="100%" stop-color="#020617"/>
     </linearGradient>
 
-    <!-- Moving light sweep -->
-    <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="var(--accent)" stop-opacity="0"/>
-      <stop offset="50%" stop-color="var(--accent)" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+    <!-- Accent gradient -->
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22D3EE"/>
+      <stop offset="50%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
     </linearGradient>
 
-    <!-- Ambient glow -->
-    <radialGradient id="glow" cx="40%" cy="45%" r="55%">
-      <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="var(--bg-0)" stop-opacity="0"/>
-    </radialGradient>
-
-    <!-- Name gradient -->
-    <linearGradient id="nameGrad" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(10)">
-      <stop offset="0%" stop-color="var(--name-light)"/>
-      <stop offset="100%" stop-color="var(--name-dark)"/>
-    </linearGradient>
-
-    <!-- Divider shimmer -->
-    <linearGradient id="dividerGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="var(--accent)" stop-opacity="0"/>
-      <stop offset="50%" stop-color="var(--accent-2)" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
-    </linearGradient>
-
-    <!-- Living noise (tamer for lower CPU) -->
-    <filter id="noise" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
-      <feTurbulence type="fractalNoise" baseFrequency="0.45" numOctaves="2" seed="2" result="turb">
-        <animate attributeName="seed" from="0" to="100" dur="30s" repeatCount="indefinite"/>
-      </feTurbulence>
-      <feColorMatrix in="turb" type="saturate" values="0"/>
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.02"/>
-      </feComponentTransfer>
-    </filter>
-
-    <!-- Subtle text glow for the name (non-intrusive) -->
-    <filter id="textGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+    <!-- Soft glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="10" result="b"/>
       <feMerge>
-        <feMergeNode in="blur"/>
+        <feMergeNode in="b"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
+    <!-- Ribbon blur -->
+    <filter id="ribbonBlur">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+
+    <!-- Subtle texture -->
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="1" seed="3">
+        <animate attributeName="seed" from="0" to="80" dur="22s" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.03"/>
+      </feComponentTransfer>
+    </filter>
+
     <style>
-      .name { font-family: Inter, system-ui, -apple-system, sans-serif; font-weight:500; letter-spacing:0.22em; }
-      .tag  { font-family: Inter, system-ui, -apple-system, sans-serif; letter-spacing:0.35em; }
-
-      /* CSS keyframe animations as a performant alternative to SMIL */
-      @keyframes sweepMove { from { transform: translateX(-120px); } to { transform: translateX(120px); } }
-      @keyframes parallaxY { from { transform: translateY(-2px); } to { transform: translateY(2px); } }
-      @keyframes breath    { 0%{opacity:0.55}50%{opacity:0.85}100%{opacity:0.55} }
-      @keyframes namePulse { 0%{opacity:0.92}50%{opacity:1}100%{opacity:0.92} }
-
-      .sweep { transform-box: fill-box; transform-origin: center; animation: sweepMove 70s ease-in-out infinite alternate; }
-      .parallax { transform-box: fill-box; transform-origin: center; animation: parallaxY 55s ease-in-out infinite alternate; }
-      .glow-rect { animation: breath 42s ease-in-out infinite; }
-      .name { animation: namePulse 38s ease-in-out infinite; }
-
-      /* Decorative elements should be ignored by assistive tech */
-      .decorative { pointer-events:none; }
-
-      /* Reduced-motion and low-power fallback: disable CSS and SMIL animations, and remove heavy filters */
-      @media (prefers-reduced-motion: reduce), (update: slow) {
-        animate, animateTransform { display: none !important; }
-        .sweep, .parallax, .glow-rect, .name { animation: none !important; }
-        .noise { filter: none !important; opacity: 0.12 !important; }
+      .name {
+        font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+        font-weight: 800;
+        letter-spacing: 0.01em;
+        fill: #F8FAFC;
+      }
+      .role {
+        font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        fill: #A1A1AA;
+      }
+      .tags {
+        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+        fill: #C7D2FE;
+        opacity: 0.95;
       }
     </style>
   </defs>
 
   <!-- Base -->
-  <rect width="1200" height="300" fill="url(#bg)" class="decorative" aria-hidden="true"/>
+  <rect width="1200" height="320" fill="url(#bg)"/>
 
-  <!-- Horizontal light sweep -->
-  <rect width="1400" height="300" x="-100" fill="url(#sweep)" class="sweep decorative" aria-hidden="true">
-    <animateTransform attributeName="transform" type="translate" from="-120 0" to="120 0" dur="70s" repeatCount="indefinite" direction="alternate"/>
-  </rect>
+  <!-- Ribbon (two layers: glow + crisp) -->
+  <g opacity="0.95">
+    <!-- big soft ribbon glow -->
+    <path id="ribbon"
+          d="M-220 210 C 60 90, 300 310, 560 175 S 980 40, 1280 170 S 1500 320, 1760 160"
+          fill="none" stroke="url(#accent)" stroke-width="120" opacity="0.13"
+          filter="url(#ribbonBlur)">
+      <animateTransform attributeName="transform" type="translate"
+        values="0 0;-140 0;0 0" dur="28s" repeatCount="indefinite"/>
+    </path>
 
-  <!-- Breathing glow -->
-  <rect width="1200" height="300" fill="url(#glow)" class="glow-rect decorative" aria-hidden="true">
-    <animate attributeName="opacity" values="0.55;0.85;0.55" dur="42s" repeatCount="indefinite"/>
-  </rect>
+    <!-- crisp ribbon line -->
+    <path
+          d="M-220 210 C 60 90, 300 310, 560 175 S 980 40, 1280 170 S 1500 320, 1760 160"
+          fill="none" stroke="url(#accent)" stroke-width="3.2" opacity="0.55"
+          filter="url(#glow)">
+      <animateTransform attributeName="transform" type="translate"
+        values="0 0;-90 0;0 0" dur="34s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.42;0.62;0.42" dur="10s" repeatCount="indefinite"/>
+    </path>
 
-  <!-- Living texture -->
-  <rect width="1200" height="300" filter="url(#noise)" opacity="0.35" class="noise decorative" aria-hidden="true"/>
-
-  <!-- Content parallax -->
-  <g class="parallax">
-    <animateTransform
-      attributeName="transform"
-      type="translate"
-      from="0 -2"
-      to="0 2"
-      dur="55s"
-      repeatCount="indefinite"
-      direction="alternate"/>
-
-    <!-- Name with luminance pulse + subtle glow -->
-    <text x="600" y="145" text-anchor="middle" font-size="32" fill="url(#nameGrad)" class="name" filter="url(#textGlow)">
-      YOSR BEN NAGRA
-    </text>
-
-    <!-- Divider shimmer -->
-    <rect x="520" y="165" width="160" height="1" fill="url(#dividerGlow)" opacity="0.3" class="decorative" aria-hidden="true">
-      <animate attributeName="opacity" values="0.15;0.5;0.15" dur="33s" repeatCount="indefinite"/>
-    </rect>
-
-    <!-- Tagline -->
-    <text x="600" y="202" text-anchor="middle" font-size="10" fill="var(--muted)" class="tag">SOFTWARE • SYSTEMS • CLARITY</text>
+    <!-- tiny “energy” dots moving along ribbon (memorable detail) -->
+    <circle r="3.2" fill="#E2E8F0" opacity="0.95" filter="url(#glow)">
+      <animateMotion dur="7.5s" repeatCount="indefinite">
+        <mpath href="#ribbon"/>
+      </animateMotion>
+    </circle>
+    <circle r="2.4" fill="#BAE6FD" opacity="0.85" filter="url(#glow)">
+      <animateMotion dur="9.8s" repeatCount="indefinite" begin="2.1s">
+        <mpath href="#ribbon"/>
+      </animateMotion>
+    </circle>
   </g>
+
+  <!-- Texture -->
+  <rect width="1200" height="320" filter="url(#grain)" opacity="0.25"/>
+
+  <!-- Content card (keeps it super readable) -->
+  <rect x="90" y="70" width="1020" height="180" rx="22"
+        fill="#020617" opacity="0.78" stroke="#1E293B"/>
+
+  <!-- Monogram seal -->
+  <g transform="translate(0,0)">
+    <circle cx="1020" cy="160" r="46" fill="#020617" stroke="url(#accent)" stroke-width="2" opacity="0.95"/>
+    <circle cx="1020" cy="160" r="34" fill="none" stroke="#1E293B" opacity="0.9"/>
+
+    <g>
+      <animateTransform attributeName="transform" type="rotate"
+        values="0 1020 160;360 1020 160" dur="26s" repeatCount="indefinite"/>
+      <!-- subtle orbit stroke -->
+      <circle cx="1020" cy="160" r="38" fill="none" stroke="#334155" opacity="0.35" stroke-dasharray="6 10"/>
+    </g>
+
+    <!-- The Y -->
+    <text x="1020" y="175" text-anchor="middle"
+          font-family="Inter, system-ui, -apple-system, Segoe UI, sans-serif"
+          font-weight="800" font-size="34" fill="url(#accent)">
+      Y
+      <animate attributeName="opacity" values="0.75;1;0.75" dur="5.5s" repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <!-- Text -->
+  <text x="140" y="138" font-size="48" class="name">Yosr Ben Nagra</text>
+  <text x="140" y="170" font-size="12" class="role">FULL-STACK SOFTWARE ENGINEER</text>
+
+  <!-- Accent underline -->
+  <rect x="140" y="188" width="420" height="3" rx="2" fill="url(#accent)" opacity="0.85">
+    <animate attributeName="opacity" values="0.55;0.95;0.55" dur="6.5s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Tags -->
+  <text x="140" y="228" font-size="13" class="tags">
+    systems • cloud • modern web • desktop UX
+  </text>
 </svg>
