@@ -1,64 +1,131 @@
-<svg viewBox="0 0 1200 300" width="100%" xmlns="http://www.w3.org/2000/svg">
-
+<svg viewBox="0 0 1200 300" width="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="title desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="title">Yosr Ben Nagra — header banner</title>
+  <desc id="desc">Animated header featuring subtle moving light, ambient glow and name text: YOSR BEN NAGRA.</desc>
   <defs>
-    <!-- Terminal glow -->
-    <filter id="cursor-glow">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
+    <!-- Color variables (useful for theming) -->
+    <style>
+      :root{
+        --bg-0:#020617; --bg-1:#050B1A; --accent:#6366F1; --accent-2:#818CF8; --muted:#9CA3AF; --name-light:#F8FAFC; --name-dark:#C7D2FE;
+      }
+    </style>
+
+    <!-- Base background -->
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="var(--bg-0)"/>
+      <stop offset="100%" stop-color="var(--bg-1)"/>
+    </linearGradient>
+
+    <!-- Moving light sweep -->
+    <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="var(--accent)" stop-opacity="0"/>
+      <stop offset="50%" stop-color="var(--accent)" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Ambient glow -->
+    <radialGradient id="glow" cx="40%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="var(--bg-0)" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Name gradient -->
+    <linearGradient id="nameGrad" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(10)">
+      <stop offset="0%" stop-color="var(--name-light)"/>
+      <stop offset="100%" stop-color="var(--name-dark)"/>
+    </linearGradient>
+
+    <!-- Divider shimmer -->
+    <linearGradient id="dividerGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="var(--accent)" stop-opacity="0"/>
+      <stop offset="50%" stop-color="var(--accent-2)" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Living noise (tamer for lower CPU) -->
+    <filter id="noise" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+      <feTurbulence type="fractalNoise" baseFrequency="0.45" numOctaves="2" seed="2" result="turb">
+        <animate attributeName="seed" from="0" to="100" dur="30s" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feColorMatrix in="turb" type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.02"/>
+      </feComponentTransfer>
+    </filter>
+
+    <!-- Subtle text glow for the name (non-intrusive) -->
+    <filter id="textGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
-    <!-- Accent gradient -->
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#22D3EE"/>
-      <stop offset="100%" stop-color="#6366F1"/>
-    </linearGradient>
-
     <style>
-      .term {
-        font-family: "JetBrains Mono", monospace;
+      .name { font-family: Inter, system-ui, -apple-system, sans-serif; font-weight:500; letter-spacing:0.22em; }
+      .tag  { font-family: Inter, system-ui, -apple-system, sans-serif; letter-spacing:0.35em; }
+
+      /* CSS keyframe animations as a performant alternative to SMIL */
+      @keyframes sweepMove { from { transform: translateX(-120px); } to { transform: translateX(120px); } }
+      @keyframes parallaxY { from { transform: translateY(-2px); } to { transform: translateY(2px); } }
+      @keyframes breath    { 0%{opacity:0.55}50%{opacity:0.85}100%{opacity:0.55} }
+      @keyframes namePulse { 0%{opacity:0.92}50%{opacity:1}100%{opacity:0.92} }
+
+      .sweep { transform-box: fill-box; transform-origin: center; animation: sweepMove 70s ease-in-out infinite alternate; }
+      .parallax { transform-box: fill-box; transform-origin: center; animation: parallaxY 55s ease-in-out infinite alternate; }
+      .glow-rect { animation: breath 42s ease-in-out infinite; }
+      .name { animation: namePulse 38s ease-in-out infinite; }
+
+      /* Decorative elements should be ignored by assistive tech */
+      .decorative { pointer-events:none; }
+
+      /* Reduced-motion and low-power fallback: disable CSS and SMIL animations, and remove heavy filters */
+      @media (prefers-reduced-motion: reduce), (update: slow) {
+        animate, animateTransform { display: none !important; }
+        .sweep, .parallax, .glow-rect, .name { animation: none !important; }
+        .noise { filter: none !important; opacity: 0.12 !important; }
       }
     </style>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="300" fill="#020617"/>
+  <!-- Base -->
+  <rect width="1200" height="300" fill="url(#bg)" class="decorative" aria-hidden="true"/>
 
-  <!-- Terminal window bar -->
-  <rect x="80" y="40" width="1040" height="200" rx="16" fill="#020617" stroke="#1E293B"/>
-
-  <!-- Fake window buttons -->
-  <circle cx="110" cy="70" r="6" fill="#EF4444"/>
-  <circle cx="130" cy="70" r="6" fill="#F59E0B"/>
-  <circle cx="150" cy="70" r="6" fill="#22C55E"/>
-
-  <!-- Prompt -->
-  <text x="110" y="115" class="term" font-size="20" fill="#38BDF8">
-    yosr@cloud-system:~$
-  </text>
-
-  <!-- Command -->
-  <text x="110" y="145" class="term" font-size="20" fill="#E5E7EB">
-    whoami
-  </text>
-
-  <!-- Output -->
-  <text x="110" y="180" class="term" font-size="22" fill="url(#accent)">
-    Yosr Ben Nagra — Full Stack Software Engineer
-  </text>
-
-  <text x="110" y="210" class="term" font-size="16" fill="#94A3B8">
-    Building scalable systems • Cloud • Modern Web
-  </text>
-
-  <!-- Blinking cursor -->
-  <rect x="530" y="166" width="10" height="22" fill="#22D3EE" filter="url(#cursor-glow)">
-    <animate attributeName="opacity"
-             values="1;0;1"
-             dur="1s"
-             repeatCount="indefinite"/>
+  <!-- Horizontal light sweep -->
+  <rect width="1400" height="300" x="-100" fill="url(#sweep)" class="sweep decorative" aria-hidden="true">
+    <animateTransform attributeName="transform" type="translate" from="-120 0" to="120 0" dur="70s" repeatCount="indefinite" direction="alternate"/>
   </rect>
 
+  <!-- Breathing glow -->
+  <rect width="1200" height="300" fill="url(#glow)" class="glow-rect decorative" aria-hidden="true">
+    <animate attributeName="opacity" values="0.55;0.85;0.55" dur="42s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Living texture -->
+  <rect width="1200" height="300" filter="url(#noise)" opacity="0.35" class="noise decorative" aria-hidden="true"/>
+
+  <!-- Content parallax -->
+  <g class="parallax">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      from="0 -2"
+      to="0 2"
+      dur="55s"
+      repeatCount="indefinite"
+      direction="alternate"/>
+
+    <!-- Name with luminance pulse + subtle glow -->
+    <text x="600" y="145" text-anchor="middle" font-size="32" fill="url(#nameGrad)" class="name" filter="url(#textGlow)">
+      YOSR BEN NAGRA
+    </text>
+
+    <!-- Divider shimmer -->
+    <rect x="520" y="165" width="160" height="1" fill="url(#dividerGlow)" opacity="0.3" class="decorative" aria-hidden="true">
+      <animate attributeName="opacity" values="0.15;0.5;0.15" dur="33s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Tagline -->
+    <text x="600" y="202" text-anchor="middle" font-size="10" fill="var(--muted)" class="tag">SOFTWARE • SYSTEMS • CLARITY</text>
+  </g>
 </svg>
