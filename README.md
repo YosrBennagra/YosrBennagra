@@ -1,6 +1,6 @@
 <!-- Professional Header -->
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=transparent&color=gradient&customColorList=12,16,20,24&height=200&section=header&text=Yosr%20Ben%20Nagra&fontSize=44&fontColor=ffffff&fontAlignY=50" width="100%"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,16,20,24&height=200&section=header&text=Yosr%20Ben%20Nagra&fontSize=50&fontColor=fff&animation=fadeIn&fontAlignY=35" width="100%"/>
 </div>
 
 <!-- Professional Title with Animation -->
@@ -60,7 +60,7 @@ const currentStatus = {
     "GraphQL & Modern APIs",
   ],
   currentlyBuilding: "Scalable and user-centric full stack solutions",
-  availableFor: ["Full-time Opportunities", "Freelance Projects", "Technical Consulting"],
+  availableFor: ["Full-time Roles", "Freelance Projects", "Technical Consulting"],
   languages: ["English", "French", "Arabic"]
 };
 ```
