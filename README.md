@@ -33,7 +33,7 @@
 
 ## 👨‍💻 Professional Summary
 
-**Software Engineer** with expertise in **Full Stack Development**, passionate about building scalable and user-centric applications. Proficient in modern frameworks and cloud technologies with a proven track record of delivering high-quality solutions.
+**Full Stack Software Engineer** with strong experience in designing and delivering scalable, production-grade applications across web and backend ecosystems. **Specialized** in modern **frontend** frameworks, enterprise **backends**, and cloud-native architectures, with a focus on **clean code**, **performance**, and **maintainability**. Comfortable working end-to-end—from system design and API development to **CI/CD** and **deployment**.
 
 ### 🎯 Core Competencies
 - ✅ **Full Stack Development** (Frontend + Backend + DevOps)
@@ -50,7 +50,6 @@ const currentStatus = {
   location: "Tunisia 🇹🇳",
   openToWork: true,
   interests: [
-    "Web3 & Blockchain Technology",
     "Cloud Native Architecture",
     "AI/ML Integration",
     "Microservices & Distributed Systems",
@@ -58,13 +57,10 @@ const currentStatus = {
     "DevOps & CI/CD Automation",
     "Performance Optimization",
     "System Design & Scalability",
-    "Serverless Computing",
     "GraphQL & Modern APIs",
-    "Mobile Development",
-    "Open Source Contribution"
   ],
-  currentlyBuilding: "Innovative Full Stack Solutions",
-  availableFor: ["Full-time Roles", "Freelance Projects", "Technical Consulting"],
+  currentlyBuilding: "Scalable and user-centric full stack solutions",
+  availableFor: ["Full-time Opportunities", "Freelance Projects", "Technical Consulting"],
   languages: ["English", "French", "Arabic"]
 };
 ```
