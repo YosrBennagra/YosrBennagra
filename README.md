@@ -1,8 +1,7 @@
 <!-- Professional Header -->
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,16,20,24&height=220&section=header&text=Yosr%20Ben%20Nagra&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=Full%20Stack%20Software%20Engineer&descAlignY=56&descSize=20" width="100%"/>
+  <img src="https://capsule-render.vercel.app/api?type=transparent&color=gradient&customColorList=12,16,20,24&height=200&section=header&text=Yosr%20Ben%20Nagra&fontSize=44&fontColor=ffffff&fontAlignY=50" width="100%"/>
 </div>
-
 
 <!-- Professional Title with Animation -->
 <h1 align="center">
