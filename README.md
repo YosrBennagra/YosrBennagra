@@ -1,52 +1,15 @@
-<!-- ========================= -->
-<!-- 🌊 Professional Header -->
-<!-- ========================= -->
+<!-- Professional Header -->
 <div align="center">
-  <img 
-    src="https://capsule-render.vercel.app/api
-      ?type=waving
-      &color=gradient
-      &customColorList=12,16,20,24
-      &height=230
-      &section=header
-      &text=Yosr%20Ben%20Nagra
-      &fontSize=48
-      &fontColor=ffffff
-      &animation=fadeIn
-      &fontAlignY=36
-      &desc=Full%20Stack%20Software%20Engineer
-      &descAlignY=56
-      &descSize=20"
-    width="100%"
-  />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,16,20,24&height=220&section=header&text=Yosr%20Ben%20Nagra&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=Full%20Stack%20Software%20Engineer&descAlignY=56&descSize=20" width="100%"/>
 </div>
 
-<!-- ========================= -->
-<!-- ✨ Animated Professional Tagline -->
-<!-- ========================= -->
+
+<!-- Professional Title with Animation -->
 <h1 align="center">
   <a href="https://git.io/typing-svg">
-    <img 
-      src="https://readme-typing-svg.demolab.com
-        ?font=JetBrains+Mono
-        &weight=700
-        &size=26
-        &duration=2800
-        &pause=1200
-        &color=6366F1
-        &center=true
-        &vCenter=true
-        &width=850
-        &lines=
-          Designing+Scalable+Full+Stack+Systems;
-          Modern+Web+%7C+Cloud+%7C+Microservices;
-          Clean+Architecture+%26+Performance+Focused;
-          Open+to+Global+Opportunities+%F0%9F%9A%80"
-      alt="Typing SVG"
-    />
+    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=28&duration=3000&pause=1000&color=6366F1&center=true&vCenter=true&width=800&lines=Full+Stack+Software+Engineer;Specialized+in+Modern+Web+Technologies;Building+Scalable+%26+Innovative+Solutions;Open+to+New+Opportunities+%F0%9F%9A%80" alt="Typing SVG" />
   </a>
 </h1>
-
 
 <!-- Professional Badges -->
 <p align="center">
