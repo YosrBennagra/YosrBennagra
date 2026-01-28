@@ -1,44 +1,7 @@
 <!-- Professional Header -->
-<svg width="100%" height="260" viewBox="0 0 1200 260" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#6366F1"/>
-      <stop offset="50%" stop-color="#22D3EE"/>
-      <stop offset="100%" stop-color="#14B8A6"/>
-    </linearGradient>
-
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
-
-  <rect width="1200" height="260" fill="#0F172A"/>
-
-  <text x="600" y="120"
-        text-anchor="middle"
-        font-size="52"
-        font-family="Inter, system-ui"
-        fill="url(#grad)"
-        filter="url(#glow)">
-    Yosr Ben Nagra
-  </text>
-
-  <text x="600" y="165"
-        text-anchor="middle"
-        font-size="22"
-        font-family="JetBrains Mono, monospace"
-        fill="#CBD5F5">
-    Full Stack Software Engineer • Cloud • Systems
-  </text>
-
-  <circle cx="200" cy="80" r="2" fill="#38BDF8"/>
-  <circle cx="1000" cy="200" r="2" fill="#2DD4BF"/>
-</svg>
-
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=transparent&color=gradient&customColorList=12,16,20,24&height=200&section=header&text=Yosr%20Ben%20Nagra&fontSize=44&fontColor=ffffff&fontAlignY=50" width="100%"/>
+</div>
 
 <!-- Professional Title with Animation -->
 <h1 align="center">
