@@ -1,6 +1,6 @@
 <!-- Professional Header -->
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,16,20,24&height=200&section=header&text=Yosr%20Ben%20Nagra&fontSize=50&fontColor=fff&animation=fadeIn&fontAlignY=35" width="100%"/>
+  <img src="./header.svg" width="100%" alt="Yosr Ben Nagra - Full Stack Software Engineer" />
 </div>
 
 <!-- Professional Title with Animation -->

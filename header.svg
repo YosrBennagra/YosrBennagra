@@ -1,0 +1,64 @@
+<svg viewBox="0 0 1200 300" width="100%" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <!-- Terminal glow -->
+    <filter id="cursor-glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Accent gradient -->
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22D3EE"/>
+      <stop offset="100%" stop-color="#6366F1"/>
+    </linearGradient>
+
+    <style>
+      .term {
+        font-family: "JetBrains Mono", monospace;
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="300" fill="#020617"/>
+
+  <!-- Terminal window bar -->
+  <rect x="80" y="40" width="1040" height="200" rx="16" fill="#020617" stroke="#1E293B"/>
+
+  <!-- Fake window buttons -->
+  <circle cx="110" cy="70" r="6" fill="#EF4444"/>
+  <circle cx="130" cy="70" r="6" fill="#F59E0B"/>
+  <circle cx="150" cy="70" r="6" fill="#22C55E"/>
+
+  <!-- Prompt -->
+  <text x="110" y="115" class="term" font-size="20" fill="#38BDF8">
+    yosr@cloud-system:~$
+  </text>
+
+  <!-- Command -->
+  <text x="110" y="145" class="term" font-size="20" fill="#E5E7EB">
+    whoami
+  </text>
+
+  <!-- Output -->
+  <text x="110" y="180" class="term" font-size="22" fill="url(#accent)">
+    Yosr Ben Nagra — Full Stack Software Engineer
+  </text>
+
+  <text x="110" y="210" class="term" font-size="16" fill="#94A3B8">
+    Building scalable systems • Cloud • Modern Web
+  </text>
+
+  <!-- Blinking cursor -->
+  <rect x="530" y="166" width="10" height="22" fill="#22D3EE" filter="url(#cursor-glow)">
+    <animate attributeName="opacity"
+             values="1;0;1"
+             dur="1s"
+             repeatCount="indefinite"/>
+  </rect>
+
+</svg>
