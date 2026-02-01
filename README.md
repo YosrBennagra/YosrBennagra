@@ -50,7 +50,6 @@ const currentStatus = {
   location: "Tunisia 🇹🇳",
   openToWork: true,
   interests: [
-    "Cloud Native Architecture",
     "AI/ML Integration",
     "Microservices & Distributed Systems",
     "Real-time Applications & WebSockets",
