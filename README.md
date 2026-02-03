@@ -1,19 +1,7 @@
 <!-- Header -->
 <div align="center">
   <img src="./header.svg" width="100%" alt="Yosr Ben Nagra - Full Stack Software Engineer" />
-</div>
-
-<br/>
-
-<!-- About Section -->
-<div align="center">
   <img src="./about.svg" width="100%" alt="About Me" />
-</div>
-
-<br/>
-
-<!-- Tech Stack Section -->
-<div align="center">
   <img src="./tech-stack.svg" width="100%" alt="Technical Expertise" />
 </div>
 
