@@ -20,18 +20,18 @@
       <feComponentTransfer><feFuncA type="linear" slope="0.03"/></feComponentTransfer>
     </filter>
     <style>
-      .about-text { font-family: Inter, system-ui, sans-serif; fill: #F1F5F9; font-size: 15px; }
-      .about-highlight { font-family: "JetBrains Mono", monospace; fill: url(#accent-about); font-size: 14px; font-weight: 600; }
-      .about-title { font-family: Inter, system-ui, sans-serif; font-weight: 800; fill: #F8FAFC; font-size: 22px; }
-      .tag { font-family: "JetBrains Mono", monospace; fill: #E0E7FF; font-size: 12px; font-weight: 500; }
+      .about-text { font-family: Inter, system-ui, sans-serif; fill: #FFFFFF; font-size: 16px; font-weight: 500; }
+      .about-highlight { font-family: "JetBrains Mono", monospace; fill: url(#accent-about); font-size: 16px; font-weight: 700; }
+      .about-title { font-family: Inter, system-ui, sans-serif; font-weight: 900; fill: #FFFFFF; font-size: 26px; letter-spacing: -0.02em; }
+      .tag { font-family: "JetBrains Mono", monospace; fill: #F1F5F9; font-size: 13px; font-weight: 600; }
     </style>
   </defs>
   
   <rect width="1200" height="180" fill="url(#bg-about)"/>
-  <rect width="1200" height="180" filter="url(#grain-about)" opacity="0.25"/>
+  <rect width="1200" height="180" filter="url(#grain-about)" opacity="0.3"/>
   
-  <!-- Connecting top edge -->
-  <rect x="0" y="0" width="1200" height="3" fill="url(#accent-about)" opacity="0.4"/>
+  <!-- Seamless connector from header -->
+  <rect x="0" y="0" width="1200" height="1" fill="url(#accent-about)" opacity="0.9"/>
   
   <!-- Decorative ribbon -->
   <path d="M0 90 Q 300 40, 600 90 T 1200 90" fill="none" stroke="url(#accent-about)" stroke-width="80" opacity="0.08"/>
@@ -52,19 +52,22 @@
   
   <!-- Tags -->
   <g transform="translate(600, 145)">
-    <rect x="-420" y="-12" width="90" height="22" rx="11" fill="#1E293B" stroke="#334155"/>
-    <text x="-375" y="4" text-anchor="middle" class="tag">🌍 Tunisia</text>
+    <rect x="-420" y="-14" width="95" height="26" rx="13" fill="#1E293B" stroke="url(#accent-about)" stroke-width="2" opacity="0.95"/>
+    <text x="-372.5" y="5" text-anchor="middle" class="tag">🌍 Tunisia</text>
     
-    <rect x="-310" y="-12" width="120" height="22" rx="11" fill="#1E293B" stroke="#334155"/>
-    <text x="-250" y="4" text-anchor="middle" class="tag">🟢 Open to Work</text>
+    <rect x="-305" y="-14" width="125" height="26" rx="13" fill="#1E293B" stroke="#22D3EE" stroke-width="2" opacity="0.95"/>
+    <text x="-242.5" y="5" text-anchor="middle" class="tag">🟢 Open to Work</text>
     
-    <rect x="-170" y="-12" width="100" height="22" rx="11" fill="#1E293B" stroke="#334155"/>
-    <text x="-120" y="4" text-anchor="middle" class="tag">💼 Full-time</text>
+    <rect x="-160" y="-14" width="105" height="26" rx="13" fill="#1E293B" stroke="url(#accent-about)" stroke-width="2" opacity="0.95"/>
+    <text x="-107.5" y="5" text-anchor="middle" class="tag">💼 Full-time</text>
     
-    <rect x="-50" y="-12" width="100" height="22" rx="11" fill="#1E293B" stroke="#334155"/>
-    <text x="0" y="4" text-anchor="middle" class="tag">🔧 Freelance</text>
+    <rect x="-35" y="-14" width="105" height="26" rx="13" fill="#1E293B" stroke="url(#accent-about)" stroke-width="2" opacity="0.95"/>
+    <text x="17.5" y="5" text-anchor="middle" class="tag">🔧 Freelance</text>
     
-    <rect x="70" y="-12" width="100" height="22" rx="11" fill="#1E293B" stroke="#334155"/>
-    <text x="120" y="4" text-anchor="middle" class="tag">🗣 EN/FR/AR</text>
+    <rect x="90" y="-14" width="105" height="26" rx="13" fill="#1E293B" stroke="url(#accent-about)" stroke-width="2" opacity="0.95"/>
+    <text x="142.5" y="5" text-anchor="middle" class="tag">🗣 EN/FR/AR</text>
   </g>
+  
+  <!-- Bottom connector -->
+  <rect x="0" y="179" width="1200" height="1" fill="url(#accent-about)" opacity="0.9"/>
 </svg>

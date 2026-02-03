@@ -25,17 +25,17 @@
       </feComponentTransfer>
     </filter>
     <style>
-      .tech-title { font-family: Inter, system-ui, sans-serif; font-weight: 800; fill: #F8FAFC; font-size: 22px; }
-      .tech-label { font-family: "JetBrains Mono", monospace; fill: #E0E7FF; font-size: 12px; opacity: 1; font-weight: 500; }
-      .tech-icon { fill: #F1F5F9; }
+      .tech-title { font-family: Inter, system-ui, sans-serif; font-weight: 900; fill: #FFFFFF; font-size: 26px; letter-spacing: -0.02em; }
+      .tech-label { font-family: "JetBrains Mono", monospace; fill: #F8FAFC; font-size: 13px; opacity: 1; font-weight: 600; }
+      .tech-icon { fill: #FFFFFF; }
     </style>
   </defs>
   
   <rect width="1200" height="200" fill="url(#bg-tech)"/>
-  <rect width="1200" height="200" filter="url(#grain-tech)" opacity="0.25"/>
+  <rect width="1200" height="200" filter="url(#grain-tech)" opacity="0.3"/>
   
-  <!-- Connecting top edge -->
-  <rect x="0" y="0" width="1200" height="3" fill="url(#accent-tech)" opacity="0.4"/>
+  <!-- Seamless connector from above -->
+  <rect x="0" y="0" width="1200" height="1" fill="url(#accent-tech)" opacity="0.9"/>
   
   <!-- Section Title -->
   <text x="600" y="38" text-anchor="middle" class="tech-title">💼 Technical Expertise</text>
@@ -74,27 +74,31 @@
   
   <!-- Database -->
   <g transform="translate(640, 70)">
-    <rect x="0" y="0" width="250" height="110" rx="10" fill="#0F172A" stroke="#1E293B" stroke-width="1"/>
-    <text x="125" y="25" text-anchor="middle" class="tech-label" fill="url(#accent-tech)">DATABASE</text>
+    <rect x="0" y="0" width="250" height="110" rx="10" fill="#0F172A" stroke="#475569" stroke-width="2"/>
+    <rect x="0" y="0" width="250" height="4" fill="url(#accent-tech)" opacity="0.7"/>
+    <text x="125" y="30" text-anchor="middle" class="tech-label" fill="url(#accent-tech)" font-size="14" font-weight="700">DATABASE</text>
     <g transform="translate(35, 45)">
-      <circle cx="20" cy="15" r="12" fill="#4EA94B"/><text x="20" y="19" text-anchor="middle" font-size="8" fill="#fff">🍃</text>
-      <circle cx="70" cy="15" r="12" fill="#336791"/><text x="70" y="19" text-anchor="middle" font-size="8" fill="#fff">PG</text>
-      <circle cx="120" cy="15" r="12" fill="#00758F"/><text x="120" y="19" text-anchor="middle" font-size="8" fill="#fff">My</text>
-      <circle cx="170" cy="15" r="12" fill="#DC382D"/><text x="170" y="19" text-anchor="middle" font-size="10" fill="#fff">R</text>
+      <circle cx="20" cy="15" r="14" fill="#4EA94B"/><text x="20" y="21" text-anchor="middle" font-size="10" fill="#fff">🍃</text>
+      <circle cx="70" cy="15" r="14" fill="#336791"/><text x="70" y="20" text-anchor="middle" font-size="9" fill="#fff" font-weight="bold">PG</text>
+      <circle cx="120" cy="15" r="14" fill="#00758F"/><text x="120" y="20" text-anchor="middle" font-size="9" fill="#fff" font-weight="bold">My</text>
+      <circle cx="170" cy="15" r="14" fill="#DC382D"/><text x="170" y="21" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">R</text>
     </g>
-    <text x="125" y="95" text-anchor="middle" class="tech-label" font-size="9">MongoDB • PostgreSQL • MySQL • Redis</text>
+    <text x="125" y="98" text-anchor="middle" class="tech-label" font-size="10">MongoDB • PostgreSQL • MySQL • Redis</text>
   </g>
-  334155" stroke-width="1.5"/>
-    <rect x="0" y="0" width="200" height="3" rx="10" fill="url(#accent-tech)" opacity="0.5"/>
-    <text x="100" y="28" text-anchor="middle" class="tech-label" fill="url(#accent-tech)" font-size="13
+  
+  <!-- DevOps -->
   <g transform="translate(920, 70)">
-    <rect x="0" y="0" width="200" height="110" rx="10" fill="#0F172A" stroke="#1E293B" stroke-width="1"/>
-    <text x="100" y="25" text-anchor="middle" class="tech-label" fill="url(#accent-tech)">DEVOPS</text>
+    <rect x="0" y="0" width="200" height="110" rx="10" fill="#0F172A" stroke="#475569" stroke-width="2"/>
+    <rect x="0" y="0" width="200" height="4" fill="url(#accent-tech)" opacity="0.7"/>
+    <text x="100" y="30" text-anchor="middle" class="tech-label" fill="url(#accent-tech)" font-size="14" font-weight="700">DEVOPS</text>
     <g transform="translate(30, 45)">
-      <circle cx="20" cy="15" r="12" fill="#2496ED"/><text x="20" y="19" text-anchor="middle" font-size="8" fill="#fff">🐳</text>
-      <circle cx="70" cy="15" r="12" fill="#F05032"/><text x="70" y="19" text-anchor="middle" font-size="10" fill="#fff">G</text>
-      <circle cx="120" cy="15" r="12" fill="#000" stroke="#fff"/><text x="120" y="19" text-anchor="middle" font-size="10" fill="#fff">V</text>
+      <circle cx="20" cy="15" r="14" fill="#2496ED"/><text x="20" y="21" text-anchor="middle" font-size="10" fill="#fff">🐳</text>
+      <circle cx="70" cy="15" r="14" fill="#F05032"/><text x="70" y="21" text-anchor="middle" font-size="12" fill="#fff" font-weight="bold">G</text>
+      <circle cx="120" cy="15" r="14" fill="#000" stroke="#fff" stroke-width="2"/><text x="120" y="21" text-anchor="middle" font-size="12" fill="#fff" font-weight="bold">V</text>
     </g>
-    <text x="100" y="95" text-anchor="middle" class="tech-label" font-size="9">Docker • Git • Vercel</text>
+    <text x="100" y="98" text-anchor="middle" class="tech-label" font-size="10">Docker • Git • Vercel</text>
   </g>
+  
+  <!-- Bottom connector -->
+  <rect x="0" y="199" width="1200" height="1" fill="url(#accent-tech)" opacity="0.9"/>
 </svg>
