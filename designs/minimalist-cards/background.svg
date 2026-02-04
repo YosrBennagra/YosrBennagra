@@ -1,0 +1,6 @@
+<!-- Minimalist background -->
+<rect width="1200" height="1100" fill="#0f172a"/>
+<rect width="1200" height="1100" fill="url(#dots)" opacity="0.5"/>
+
+<!-- Subtle gradient overlay -->
+<rect width="1200" height="300" fill="url(#accentGradient)" opacity="0.1"/>

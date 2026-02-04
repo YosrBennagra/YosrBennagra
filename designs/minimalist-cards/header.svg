@@ -1,0 +1,25 @@
+<!-- Clean header card -->
+<g transform="translate(100, 60)">
+  <rect width="1000" height="220" rx="16" fill="url(#cardGradient)" stroke="#6366f1" stroke-width="1" opacity="0.8"/>
+  
+  <!-- Avatar circle -->
+  <circle cx="110" cy="110" r="60" fill="#1e293b" stroke="url(#accentGradient)" stroke-width="3"/>
+  <text x="110" y="125" text-anchor="middle" class="minimal-title" font-size="48px" fill="#6366f1">Y</text>
+  
+  <!-- Name and info -->
+  <text x="200" y="80" class="minimal-title" font-size="42px">YOSR BEN NAGRA</text>
+  <text x="200" y="115" class="minimal-body" font-size="18px">Full-Stack Developer • UI/UX Designer</text>
+  <text x="200" y="145" class="minimal-body" font-size="16px" opacity="0.7">🇹🇳 Tunisia • Available for work</text>
+  
+  <!-- Tag pills -->
+  <g transform="translate(200, 165)">
+    <rect width="90" height="28" rx="14" fill="#6366f1" opacity="0.2"/>
+    <text x="45" y="19" text-anchor="middle" class="minimal-body" font-size="13px" fill="#818cf8">React</text>
+    
+    <rect x="100" width="110" height="28" rx="14" fill="#8b5cf6" opacity="0.2"/>
+    <text x="155" y="19" text-anchor="middle" class="minimal-body" font-size="13px" fill="#a78bfa">TypeScript</text>
+    
+    <rect x="220" width="90" height="28" rx="14" fill="#6366f1" opacity="0.2"/>
+    <text x="265" y="19" text-anchor="middle" class="minimal-body" font-size="13px" fill="#818cf8">Node.js</text>
+  </g>
+</g>

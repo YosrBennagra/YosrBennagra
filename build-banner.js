@@ -1,11 +1,45 @@
 /**
- * Build Script: Combines SVG components into a single profile-banner.svg
+ * Build Script: RANDOM DESIGN GENERATOR
+ * Completely different layouts each time!
  * 
  * Usage: node build-banner.js
  */
 
 const fs = require('fs');
 const path = require('path');
+
+// Available design systems
+const designs = [
+  {
+    name: 'Cyberpunk Terminal',
+    folder: 'cyberpunk-terminal',
+    viewBox: '0 0 1200 1270',
+    description: 'Futuristic HUD interface with terminal windows'
+  },
+  {
+    name: 'Minimalist Cards',
+    folder: 'minimalist-cards',
+    viewBox: '0 0 1200 1100',
+    description: 'Clean card-based layout with subtle effects'
+  },
+  {
+    name: 'Neon Billboard',
+    folder: 'neon-billboard',
+    viewBox: '0 0 1200 1200',
+    description: 'Bold neon signs with intense glows'
+  }
+];
+
+// Randomly select a design
+const selectedDesign = designs[Math.floor(Math.random() * designs.length)];
+
+console.log('🎨 ========================================');
+console.log('   RANDOM DESIGN GENERATOR');
+console.log('========================================');
+console.log(`🎲 Selected: ${selectedDesign.name}`);
+console.log(`📝 Style: ${selectedDesign.description}`);
+console.log('========================================\n');
+console.log('🔨 Building banner...\n');
 
 // Component files in order
 const components = [
@@ -17,10 +51,8 @@ const components = [
     'connect.svg'
 ];
 
-const componentsDir = path.join(__dirname, 'components');
+const componentsDir = path.join(__dirname, 'designs', selectedDesign.folder);
 const outputFile = path.join(__dirname, 'profile-banner.svg');
-
-console.log('🔨 Building profile banner...\n');
 
 // Read all component files
 let svgContent = '';
@@ -38,12 +70,16 @@ components.forEach(component => {
 });
 
 // Wrap in SVG root element with responsive sizing
-const finalSvg = `<svg viewBox="0 0 1200 1270" width="100%" height="auto" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" style="max-width: 1200px; display: block; margin: 0 auto; background: #000000;">
+const finalSvg = `<svg viewBox="${selectedDesign.viewBox}" width="100%" height="auto" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" style="max-width: 1200px; display: block; margin: 0 auto; background: #000000;">
 ${svgContent}
 </svg>`;
 
 // Write to output file
 fs.writeFileSync(outputFile, finalSvg, 'utf8');
 
-console.log(`\n✨ Success! Profile banner created at: profile-banner.svg`);
-console.log(`📊 File size: ${(finalSvg.length / 1024).toFixed(2)} KB\n`);
+console.log('\n========================================');
+console.log(`✨ SUCCESS!`);
+console.log(`📐 Design: ${selectedDesign.name}`);
+console.log(`📊 File size: ${(finalSvg.length / 1024).toFixed(2)} KB`);
+console.log('========================================');
+console.log('\n💡 Run again for a completely different design!\n');
