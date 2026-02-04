@@ -1,82 +1,40 @@
-<!-- ============================================ -->
-<!-- BACKGROUND & PARTICLES - MASSIVE VERTICAL -->
-<!-- ============================================ -->
+<!-- ========================================
+     BACKGROUND - CYBERPUNK CIRCUIT BOARD
+     ======================================== -->
 
-<!-- Deep space background - TALLER -->
-<rect width="1200" height="1400" fill="url(#bgRadial)"/>
+<!-- Dark background -->
+<rect width="1200" height="1550" fill="url(#bgRadial)"/>
 
-<!-- Mesh gradient overlay -->
-<rect width="1200" height="1400" fill="url(#meshGradient)" opacity="0.3"/>
+<!-- Circuit board pattern overlay -->
+<rect width="1200" height="1550" fill="url(#circuit)" opacity="0.6"/>
 
-<!-- Animated grain overlay -->
-<rect width="1200" height="1400" filter="url(#grain)" opacity="0.4"/>
+<!-- Hexagonal grid overlay -->
+<rect width="1200" height="1550" fill="url(#hexGrid)"/>
 
-<!-- Connection lines (creating a network effect) -->
-<g opacity="0.15">
-  <line x1="150" y1="100" x2="300" y2="180" stroke="url(#accent)" stroke-width="1">
-    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite"/>
+<!-- Animated scanlines -->
+<g opacity="0.3">
+  <line x1="0" y1="0" x2="1200" y2="0" stroke="#00ffff" stroke-width="1">
+    <animate attributeName="y1" values="0;1550" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="y2" values="0;1550" dur="4s" repeatCount="indefinite"/>
   </line>
-  <line x1="300" y1="180" x2="500" y2="120" stroke="url(#accent)" stroke-width="1">
-    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="5s" repeatCount="indefinite"/>
-  </line>
-  <line x1="800" y1="150" x2="950" y2="200" stroke="url(#accent)" stroke-width="1">
-    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="6s" repeatCount="indefinite"/>
-  </line>
-  <line x1="200" y1="400" x2="350" y2="450" stroke="url(#accent)" stroke-width="1">
-    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="5.5s" repeatCount="indefinite"/>
-  </line>
-  <line x1="700" y1="380" x2="900" y2="420" stroke="url(#accent)" stroke-width="1">
-    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4.5s" repeatCount="indefinite"/>
+  <line x1="0" y1="700" x2="1200" y2="700" stroke="#ff00ff" stroke-width="1">
+    <animate attributeName="y1" values="700;2250" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="y2" values="700;2250" dur="5s" repeatCount="indefinite"/>
   </line>
 </g>
 
-<!-- Enhanced floating particles with trails -->
-<g filter="url(#neon)">
-  <!-- Particle with trail effect -->
-  <g opacity="0.8">
-    <ellipse rx="15" ry="1" fill="url(#accent)" opacity="0.2">
-      <animateMotion dur="8s" repeatCount="indefinite" path="M 150,100 Q 140,80 150,80 T 150,100"/>
-    </ellipse>
-    <circle cx="150" cy="100" r="3" fill="#22D3EE">
-      <animate attributeName="cy" values="100;80;100" dur="8s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.3;1;0.3" dur="4s" repeatCount="indefinite"/>
-      <animate attributeName="r" values="3;4;3" dur="4s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-  <circle cx="300" cy="180" r="2.5" fill="#6366F1">
-    <animate attributeName="cy" values="180;200;180" dur="7s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="500" cy="120" r="3.5" fill="#C084FC">
-    <animate attributeName="cy" values="120;100;120" dur="9s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="4.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="800" cy="150" r="2" fill="#22D3EE">
-    <animate attributeName="cy" values="150;130;150" dur="6s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="950" cy="200" r="3" fill="#8B5CF6">
-    <animate attributeName="cy" values="200;220;200" dur="8.5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="5.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="200" cy="400" r="2.5" fill="#06B6D4">
-    <animate attributeName="cy" values="400;380;400" dur="7.5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="4s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="350" cy="450" r="3" fill="#6366F1">
-    <animate attributeName="cy" values="450;430;450" dur="8s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="6s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="700" cy="380" r="2" fill="#C084FC">
-    <animate attributeName="cy" values="380;400;380" dur="9s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="900" cy="420" r="2.5" fill="#22D3EE">
-    <animate attributeName="cy" values="420;400;420" dur="7s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.4;1;0.4" dur="5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="1050" cy="350" r="3" fill="#8B5CF6">
-    <animate attributeName="cy" values="350;370;350" dur="8.5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4.5s" repeatCount="indefinite"/>
-  </circle>
+<!-- Corner brackets (HUD interface elements) -->
+<g stroke="#00ffff" stroke-width="2" fill="none" opacity="0.6">
+  <!-- Top-left -->
+  <path d="M 30,30 L 30,80 M 30,30 L 80,30"/>
+  <!-- Top-right -->
+  <path d="M 1170,30 L 1120,30 M 1170,30 L 1170,80"/>
+  <!-- Bottom-left -->
+  <path d="M 30,1520 L 30,1470 M 30,1520 L 80,1520"/>
+  <!-- Bottom-right -->
+  <path d="M 1170,1520 L 1120,1520 M 1170,1520 L 1170,1470"/>
 </g>
+
+<!-- Data streams on sides -->
+<rect x="10" y="0" width="4" height="1550" fill="url(#dataStream)" opacity="0.5"/>
+<rect x="1186" y="0" width="4" height="1550" fill="url(#dataStream)" opacity="0.5"/>

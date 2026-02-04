@@ -37,8 +37,8 @@ components.forEach(component => {
     console.log(`✅ Loaded: ${component}`);
 });
 
-// Wrap in SVG root element
-const finalSvg = `<svg viewBox="0 0 1200 850" width="100%" xmlns="http://www.w3.org/2000/svg">
+// Wrap in SVG root element with responsive sizing
+const finalSvg = `<svg viewBox="0 0 1200 1550" width="100%" height="auto" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" style="max-width: 1200px; display: block; margin: 0 auto; background: #000000;">
 ${svgContent}
 </svg>`;
 

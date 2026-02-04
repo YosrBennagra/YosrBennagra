@@ -1,754 +1,491 @@
-<svg viewBox="0 0 1200 850" width="100%" xmlns="http://www.w3.org/2000/svg">
-<!-- ============================================ -->
-<!-- DEFINITIONS: Gradients, Filters, Styles -->
-<!-- ============================================ -->
-
+<svg viewBox="0 0 1200 1550" width="100%" height="auto" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" style="max-width: 1200px; display: block; margin: 0 auto; background: #000000;">
+<!-- ========================================
+     DEFINITIONS - CYBERPUNK HUD THEME
+     Gradients, filters, and patterns
+     ======================================== -->
 <defs>
-  <!-- ============ GRADIENTS ============ -->
-  <!-- Main Background -->
+  
+  <!-- ============ CYBERPUNK GRADIENTS ============ -->
+  
+  <!-- Dark grid background -->
   <radialGradient id="bgRadial" cx="50%" cy="50%">
-    <stop offset="0%" stop-color="#0F172A"/>
-    <stop offset="50%" stop-color="#020617"/>
+    <stop offset="0%" stop-color="#0a0e1a"/>
     <stop offset="100%" stop-color="#000000"/>
   </radialGradient>
-
-  <!-- Accent Gradient -->
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0%" stop-color="#06B6D4">
-      <animate attributeName="stop-color" values="#06B6D4;#22D3EE;#06B6D4" dur="8s" repeatCount="indefinite"/>
+  
+  <!-- Neon cyan gradient -->
+  <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#00ffff">
+      <animate attributeName="stop-color" values="#00ffff;#00d4ff;#00ffff" dur="3s" repeatCount="indefinite"/>
     </stop>
-    <stop offset="50%" stop-color="#6366F1">
-      <animate attributeName="stop-color" values="#6366F1;#8B5CF6;#6366F1" dur="8s" repeatCount="indefinite"/>
-    </stop>
-    <stop offset="100%" stop-color="#C084FC">
-      <animate attributeName="stop-color" values="#C084FC;#E879F9;#C084FC" dur="8s" repeatCount="indefinite"/>
+    <stop offset="100%" stop-color="#00aaff">
+      <animate attributeName="stop-color" values="#00aaff;#0088ff;#00aaff" dur="3s" repeatCount="indefinite"/>
     </stop>
   </linearGradient>
-
-  <!-- Glassmorphism gradient -->
-  <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.15"/>
-    <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.05"/>
+  
+  <!-- Neon magenta gradient -->
+  <linearGradient id="neonMagenta" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#ff00ff"/>
+    <stop offset="100%" stop-color="#ff0080"/>
   </linearGradient>
-
-  <!-- Neon Glow Gradient -->
-  <radialGradient id="neonGlow">
-    <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.8"/>
-    <stop offset="100%" stop-color="#6366F1" stop-opacity="0"/>
-  </radialGradient>
-
-  <!-- ============ FILTERS ============ -->
-  <!-- Glassmorphism blur -->
-  <filter id="glass-blur">
-    <feGaussianBlur stdDeviation="8" in="SourceGraphic"/>
-  </filter>
-
-  <!-- Neon glow effect -->
-  <filter id="neon">
-    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+  
+  <!-- Terminal green gradient -->
+  <linearGradient id="terminalGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#00ff41">
+      <animate attributeName="stop-color" values="#00ff41;#00dd35;#00ff41" dur="2s" repeatCount="indefinite"/>
+    </stop>
+    <stop offset="100%" stop-color="#00aa2b"/>
+  </linearGradient>
+  
+  <!-- Holographic gradient -->
+  <linearGradient id="holo" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#00ffff" stop-opacity="0.8"/>
+    <stop offset="50%" stop-color="#ff00ff" stop-opacity="0.6"/>
+    <stop offset="100%" stop-color="#ffff00" stop-opacity="0.8"/>
+    <animateTransform attributeName="gradientTransform" type="rotate" from="0 0.5 0.5" to="360 0.5 0.5" dur="10s" repeatCount="indefinite"/>
+  </linearGradient>
+  
+  <!-- ============ CYBERPUNK FILTERS ============ -->
+  
+  <!-- Strong neon glow -->
+  <filter id="neon" x="-100%" y="-100%" width="300%" height="300%">
+    <feGaussianBlur stdDeviation="3" result="blur1"/>
+    <feGaussianBlur stdDeviation="6" result="blur2"/>
+    <feGaussianBlur stdDeviation="12" result="blur3"/>
     <feMerge>
-      <feMergeNode in="coloredBlur"/>
-      <feMergeNode in="coloredBlur"/>
+      <feMergeNode in="blur3"/>
+      <feMergeNode in="blur2"/>
+      <feMergeNode in="blur1"/>
       <feMergeNode in="SourceGraphic"/>
     </feMerge>
   </filter>
-
-  <!-- Strong glow -->
-  <filter id="glow">
-    <feGaussianBlur stdDeviation="12" result="b"/>
-    <feMerge>
-      <feMergeNode in="b"/>
-      <feMergeNode in="b"/>
-      <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-  </filter>
-
-  <!-- Soft shadow -->
-  <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
-    <feOffset dx="0" dy="5" result="offsetblur"/>
-    <feComponentTransfer>
-      <feFuncA type="linear" slope="0.3"/>
-    </feComponentTransfer>
-    <feMerge>
-      <feMergeNode/>
-      <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-  </filter>
-
-  <!-- Animated grain texture -->
-  <filter id="grain">
-    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="2">
-      <animate attributeName="baseFrequency" values="0.9;0.95;0.9" dur="30s" repeatCount="indefinite"/>
+  
+  <!-- Glitch effect -->
+  <filter id="glitch">
+    <feTurbulence baseFrequency="0.05" numOctaves="3" seed="1" result="turbulence">
+      <animate attributeName="seed" values="1;5;1" dur="0.5s" repeatCount="indefinite"/>
     </feTurbulence>
-    <feColorMatrix type="saturate" values="0"/>
-    <feComponentTransfer>
-      <feFuncA type="linear" slope="0.08"/>
-    </feComponentTransfer>
+    <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="5" xChannelSelector="R" yChannelSelector="G"/>
   </filter>
-
-  <!-- Text shadow for depth without blur -->
-  <filter id="textShadow" x="-50%" y="-50%" width="200%" height="200%">
-    <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#6366F1" flood-opacity="0.6"/>
-    <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#22D3EE" flood-opacity="0.4"/>
+  
+  <!-- Scanline effect -->
+  <filter id="scanlines">
+    <feFlood flood-color="#00ffff" flood-opacity="0.05" result="flood"/>
+    <feComposite in="flood" in2="SourceGraphic" operator="over"/>
   </filter>
-
-  <!-- Liquid morphing effect -->
-  <filter id="liquid">
-    <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="5" result="turbulence" seed="1">
-      <animate attributeName="baseFrequency" values="0.01;0.02;0.01" dur="20s" repeatCount="indefinite"/>
-    </feTurbulence>
-    <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="3" xChannelSelector="R" yChannelSelector="G"/>
-  </filter>
-
-  <!-- Holographic effect -->
-  <filter id="holographic">
-    <feColorMatrix type="saturate" values="1.5"/>
-    <feComponentTransfer>
-      <feFuncR type="table" tableValues="0 0.8 1"/>
-      <feFuncG type="table" tableValues="0 0.5 1"/>
-      <feFuncB type="table" tableValues="0.2 0.8 1"/>
-    </feComponentTransfer>
-  </filter>
-
-  <!-- Chromatic aberration -->
-  <filter id="chromatic" x="-50%" y="-50%" width="200%" height="200%">
-    <feOffset in="SourceGraphic" dx="2" dy="0" result="r"/>
-    <feOffset in="SourceGraphic" dx="-2" dy="0" result="b"/>
-    <feBlend mode="screen" in="r" in2="SourceGraphic" result="rb"/>
-    <feBlend mode="screen" in="rb" in2="b"/>
-  </filter>
-
-  <!-- 3D depth effect -->
-  <filter id="depth3d">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur"/>
-    <feOffset in="blur" dx="0" dy="10" result="offsetBlur"/>
-    <feFlood flood-color="#6366F1" flood-opacity="0.5"/>
-    <feComposite in2="offsetBlur" operator="in"/>
-    <feMerge>
-      <feMergeNode/>
-      <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-  </filter>
-
-  <!-- Mesh gradient pattern -->
-  <pattern id="meshGradient" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-    <rect width="100" height="100" fill="url(#bgRadial)" opacity="0.3"/>
-    <path d="M 0,50 Q 25,25 50,50 T 100,50" stroke="url(#accent)" stroke-width="0.5" fill="none" opacity="0.2">
-      <animate attributeName="d" values="M 0,50 Q 25,25 50,50 T 100,50;M 0,50 Q 25,75 50,50 T 100,50;M 0,50 Q 25,25 50,50 T 100,50" dur="10s" repeatCount="indefinite"/>
+  
+  <!-- ============ CYBERPUNK PATTERNS ============ -->
+  
+  <!-- Hexagonal grid pattern -->
+  <pattern id="hexGrid" x="0" y="0" width="60" height="52" patternUnits="userSpaceOnUse">
+    <path d="M 30,0 L 45,13 L 45,39 L 30,52 L 15,39 L 15,13 Z" 
+          stroke="#00ffff" stroke-width="0.5" fill="none" opacity="0.15">
+      <animate attributeName="opacity" values="0.15;0.25;0.15" dur="4s" repeatCount="indefinite"/>
     </path>
   </pattern>
-
+  
+  <!-- Circuit board pattern -->
+  <pattern id="circuit" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+    <path d="M 0,20 L 30,20 M 30,10 L 30,30 M 30,20 L 60,20 M 70,20 L 100,20" 
+          stroke="#00ff41" stroke-width="1" opacity="0.2">
+      <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <circle cx="30" cy="20" r="3" fill="#00ff41" opacity="0.4"/>
+    <path d="M 80,10 L 80,30 M 70,20 L 90,20" 
+          stroke="#ff00ff" stroke-width="1" opacity="0.2">
+      <animate attributeName="opacity" values="0.2;0.4;0.2" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
+    </path>
+    <circle cx="80" cy="20" r="3" fill="#ff00ff" opacity="0.4"/>
+  </pattern>
+  
+  <!-- Data stream pattern -->
+  <pattern id="dataStream" x="0" y="0" width="20" height="100" patternUnits="userSpaceOnUse">
+    <rect width="2" height="20" fill="#00ffff" opacity="0.3">
+      <animate attributeName="y" values="-20;100" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect width="2" height="15" fill="#ff00ff" opacity="0.3" x="10">
+      <animate attributeName="y" values="-15;100" dur="3s" repeatCount="indefinite"/>
+    </rect>
+  </pattern>
+  
   <!-- ============ STYLES ============ -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Rajdhani:wght@500;600;700&amp;family=Share+Tech+Mono&amp;display=swap');
     
-    .name {
-      font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
-      font-weight: 700;
-      font-size: 56px;
-      letter-spacing: -0.02em;
-      fill: url(#accent);
-      filter: url(#textShadow);
+    .terminal {
+      font-family: 'Share Tech Mono', 'Courier New', monospace;
+      fill: #00ff41;
     }
     
-    .name-crisp {
-      font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
-      font-weight: 700;
-      font-size: 56px;
-      letter-spacing: -0.02em;
-      fill: #F8FAFC;
-      filter: url(#textShadow);
+    .cyber-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      fill: #00ffff;
+      filter: url(#neon);
     }
     
-    .role {
-      font-family: 'JetBrains Mono', monospace;
+    .hud-text {
+      font-family: 'Rajdhani', sans-serif;
       font-weight: 600;
-      font-size: 11px;
-      letter-spacing: 0.25em;
-      fill: #94A3B8;
-      text-transform: uppercase;
+      fill: #ffffff;
     }
     
-    .section-title {
-      font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
-      font-weight: 700;
-      font-size: 24px;
-      letter-spacing: -0.01em;
-      fill: #F8FAFC;
-    }
-    
-    .tag {
-      font-family: 'JetBrains Mono', monospace;
+    .data-label {
+      font-family: 'Share Tech Mono', monospace;
       font-size: 12px;
-      font-weight: 600;
-      fill: #CBD5E1;
-    }
-    
-    .tech-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      fill: url(#accent);
-    }
-    
-    .tech-item {
-      font-family: 'Space Grotesk', system-ui, sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      fill: #E2E8F0;
-    }
-    
-    .about-text {
-      font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1.6;
-      fill: #CBD5E1;
-    }
-    
-    .connect-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      font-weight: 700;
-      fill: #F8FAFC;
+      fill: #00ffff;
+      opacity: 0.7;
     }
   </style>
+  
 </defs>
 
-<!-- ============================================ -->
-<!-- BACKGROUND & PARTICLES - MASSIVE VERTICAL -->
-<!-- ============================================ -->
+<!-- ========================================
+     BACKGROUND - CYBERPUNK CIRCUIT BOARD
+     ======================================== -->
 
-<!-- Deep space background - TALLER -->
-<rect width="1200" height="1400" fill="url(#bgRadial)"/>
+<!-- Dark background -->
+<rect width="1200" height="1550" fill="url(#bgRadial)"/>
 
-<!-- Mesh gradient overlay -->
-<rect width="1200" height="1400" fill="url(#meshGradient)" opacity="0.3"/>
+<!-- Circuit board pattern overlay -->
+<rect width="1200" height="1550" fill="url(#circuit)" opacity="0.6"/>
 
-<!-- Animated grain overlay -->
-<rect width="1200" height="1400" filter="url(#grain)" opacity="0.4"/>
+<!-- Hexagonal grid overlay -->
+<rect width="1200" height="1550" fill="url(#hexGrid)"/>
 
-<!-- Connection lines (creating a network effect) -->
-<g opacity="0.15">
-  <line x1="150" y1="100" x2="300" y2="180" stroke="url(#accent)" stroke-width="1">
-    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite"/>
+<!-- Animated scanlines -->
+<g opacity="0.3">
+  <line x1="0" y1="0" x2="1200" y2="0" stroke="#00ffff" stroke-width="1">
+    <animate attributeName="y1" values="0;1550" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="y2" values="0;1550" dur="4s" repeatCount="indefinite"/>
   </line>
-  <line x1="300" y1="180" x2="500" y2="120" stroke="url(#accent)" stroke-width="1">
-    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="5s" repeatCount="indefinite"/>
-  </line>
-  <line x1="800" y1="150" x2="950" y2="200" stroke="url(#accent)" stroke-width="1">
-    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="6s" repeatCount="indefinite"/>
-  </line>
-  <line x1="200" y1="400" x2="350" y2="450" stroke="url(#accent)" stroke-width="1">
-    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="5.5s" repeatCount="indefinite"/>
-  </line>
-  <line x1="700" y1="380" x2="900" y2="420" stroke="url(#accent)" stroke-width="1">
-    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4.5s" repeatCount="indefinite"/>
+  <line x1="0" y1="700" x2="1200" y2="700" stroke="#ff00ff" stroke-width="1">
+    <animate attributeName="y1" values="700;2250" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="y2" values="700;2250" dur="5s" repeatCount="indefinite"/>
   </line>
 </g>
 
-<!-- Enhanced floating particles with trails -->
-<g filter="url(#neon)">
-  <!-- Particle with trail effect -->
-  <g opacity="0.8">
-    <ellipse rx="15" ry="1" fill="url(#accent)" opacity="0.2">
-      <animateMotion dur="8s" repeatCount="indefinite" path="M 150,100 Q 140,80 150,80 T 150,100"/>
-    </ellipse>
-    <circle cx="150" cy="100" r="3" fill="#22D3EE">
-      <animate attributeName="cy" values="100;80;100" dur="8s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.3;1;0.3" dur="4s" repeatCount="indefinite"/>
-      <animate attributeName="r" values="3;4;3" dur="4s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-  <circle cx="300" cy="180" r="2.5" fill="#6366F1">
-    <animate attributeName="cy" values="180;200;180" dur="7s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="500" cy="120" r="3.5" fill="#C084FC">
-    <animate attributeName="cy" values="120;100;120" dur="9s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="4.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="800" cy="150" r="2" fill="#22D3EE">
-    <animate attributeName="cy" values="150;130;150" dur="6s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="950" cy="200" r="3" fill="#8B5CF6">
-    <animate attributeName="cy" values="200;220;200" dur="8.5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="5.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="200" cy="400" r="2.5" fill="#06B6D4">
-    <animate attributeName="cy" values="400;380;400" dur="7.5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="4s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="350" cy="450" r="3" fill="#6366F1">
-    <animate attributeName="cy" values="450;430;450" dur="8s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="6s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="700" cy="380" r="2" fill="#C084FC">
-    <animate attributeName="cy" values="380;400;380" dur="9s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="900" cy="420" r="2.5" fill="#22D3EE">
-    <animate attributeName="cy" values="420;400;420" dur="7s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.4;1;0.4" dur="5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="1050" cy="350" r="3" fill="#8B5CF6">
-    <animate attributeName="cy" values="350;370;350" dur="8.5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4.5s" repeatCount="indefinite"/>
-  </circle>
+<!-- Corner brackets (HUD interface elements) -->
+<g stroke="#00ffff" stroke-width="2" fill="none" opacity="0.6">
+  <!-- Top-left -->
+  <path d="M 30,30 L 30,80 M 30,30 L 80,30"/>
+  <!-- Top-right -->
+  <path d="M 1170,30 L 1120,30 M 1170,30 L 1170,80"/>
+  <!-- Bottom-left -->
+  <path d="M 30,1520 L 30,1470 M 30,1520 L 80,1520"/>
+  <!-- Bottom-right -->
+  <path d="M 1170,1520 L 1120,1520 M 1170,1520 L 1170,1470"/>
 </g>
 
-<!-- ============================================ -->
-<!-- HEADER SECTION (0-280) -->
-<!-- ============================================ -->
+<!-- Data streams on sides -->
+<rect x="10" y="0" width="4" height="1550" fill="url(#dataStream)" opacity="0.5"/>
+<rect x="1186" y="0" width="4" height="1550" fill="url(#dataStream)" opacity="0.5"/>
 
-<!-- Large neon glow orb background -->
-<circle cx="200" cy="140" r="180" fill="url(#neonGlow)" opacity="0.15">
-  <animate attributeName="r" values="180;200;180" dur="10s" repeatCount="indefinite"/>
-</circle>
+<!-- ========================================
+     HEADER - CYBERPUNK HUD INTERFACE
+     ======================================== -->
+<g id="header" transform="translate(0, 60)">
 
-<!-- Secondary glow orbs for depth -->
-<circle cx="900" cy="140" r="120" fill="url(#neonGlow)" opacity="0.08">
-  <animate attributeName="r" values="120;140;120" dur="8s" repeatCount="indefinite"/>
-</circle>
-
-<!-- Glassmorphism card -->
-<g filter="url(#shadow)">
-  <rect x="80" y="60" width="1040" height="180" rx="24" fill="url(#glass)" opacity="0.9"/>
-  <rect x="80" y="60" width="1040" height="180" rx="24" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
-  
-  <!-- Animated accent line on top -->
-  <rect x="80" y="60" width="1040" height="3" rx="24" fill="url(#accent)" opacity="0.8">
-    <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
-  </rect>
-  
-  <!-- Animated accent line on bottom -->
-  <rect x="80" y="237" width="1040" height="3" rx="24" fill="url(#accent)" opacity="0.3">
-    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4s" repeatCount="indefinite"/>
-  </rect>
-</g>
-
-<!-- Profile content -->
-<g>
-  <!-- Monogram with ultra-enhanced design -->
-  <g filter="url(#neon)">
-    <!-- Outer glow ring -->
-    <circle cx="180" cy="150" r="70" fill="none" stroke="url(#accent)" stroke-width="0.5" opacity="0.2">
-      <animate attributeName="r" values="70;75;70" dur="6s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.1;0.3;0.1" dur="6s" repeatCount="indefinite"/>
-    </circle>
-    
-    <!-- Main circle background -->
-    <circle cx="180" cy="150" r="55" fill="#0F172A" opacity="0.9"/>
-    
-    <!-- Animated gradient border -->
-    <circle cx="180" cy="150" r="55" fill="none" stroke="url(#accent)" stroke-width="3">
-      <animate attributeName="stroke-dasharray" values="0 350;350 0" dur="15s" repeatCount="indefinite"/>
-    </circle>
-    
-    <!-- Inner pulsing ring -->
-    <circle cx="180" cy="150" r="45" fill="none" stroke="url(#accent)" stroke-width="1" opacity="0.4">
-      <animate attributeName="r" values="45;48;45" dur="4s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/>
-    </circle>
-    
-    <!-- Decorative orbit particles -->
-    <circle r="3" fill="#22D3EE" filter="url(#neon)">
-      <animateMotion dur="8s" repeatCount="indefinite" path="M 180,95 A 55,55 0 0,1 180,205 A 55,55 0 0,1 180,95"/>
-      <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="2.5" fill="#C084FC" filter="url(#neon)">
-      <animateMotion dur="12s" repeatCount="indefinite" path="M 180,95 A 55,55 0 0,0 180,205 A 55,55 0 0,0 180,95"/>
-      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="5s" repeatCount="indefinite"/>
-    </circle>
-    
-    <!-- Letter Y with enhanced styling -->
-    <text x="180" y="170" text-anchor="middle" font-family="Space Grotesk, sans-serif" 
-          font-weight="700" font-size="42" fill="url(#accent)">
-      Y
-      <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
-    </text>
-  </g>
-  
-  <!-- MASSIVE Name section with 3D effects -->
+  <!-- Terminal window frame -->
   <g>
-    <!-- 3D shadow layers -->
-    <text x="340" y="200" font-family="Space Grotesk, sans-serif" font-weight="800" font-size="82px" 
-          letter-spacing="-0.02em" fill="#1E293B" opacity="0.4">
-      <tspan x="340" y="202">Yosr Ben Nagra</tspan>
-    </text>
+    <!-- Frame borders with neon glow -->
+    <rect x="80" y="0" width="1040" height="350" rx="0" fill="#000000" opacity="0.8"/>
+    <rect x="80" y="0" width="1040" height="350" rx="0" fill="none" stroke="url(#neonCyan)" stroke-width="2" filter="url(#neon)"/>
     
-    <!-- Glowing background for name -->
-    <text x="340" y="200" font-family="Space Grotesk, sans-serif" font-weight="800" font-size="82px" 
-          letter-spacing="-0.02em" fill="url(#accent)" opacity="0.25" filter="url(#glow)">
-      Yosr Ben Nagra
-    </text>
+    <!-- Corner accent lines -->
+    <path d="M 80,0 L 100,0 L 100,20 M 1120,0 L 1100,0 L 1100,20" stroke="#00ffff" stroke-width="3" fill="none" opacity="0.8"/>
+    <path d="M 80,350 L 100,350 L 100,330 M 1120,350 L 1100,350 L 1100,330" stroke="#00ffff" stroke-width="3" fill="none" opacity="0.8"/>
     
-    <!-- Sharp, clear MASSIVE name text with per-character gradient -->
-    <text x="340" y="200" font-family="Space Grotesk, sans-serif" font-weight="800" font-size="82px" 
-          letter-spacing="-0.02em" style="paint-order: stroke; stroke: #0F172A; stroke-width: 2px;">
-      <tspan fill="#22D3EE">Y</tspan><tspan fill="#2ED8F3">o</tspan><tspan fill="#3ADDF0">s</tspan><tspan fill="#46E2ED">r</tspan>
-      <tspan dx="15"> </tspan>
-      <tspan fill="#5FD4EA">B</tspan><tspan fill="#72CCE7">e</tspan><tspan fill="#85C4E4">n</tspan>
-      <tspan dx="15"> </tspan>
-      <tspan fill="#98BCE1">N</tspan><tspan fill="#ABB4DE">a</tspan><tspan fill="#BEACDB">g</tspan><tspan fill="#D1A4D8">r</tspan><tspan fill="#E49CD5">a</tspan>
-    </text>
+    <!-- Terminal header bar -->
+    <rect x="80" y="0" width="1040" height="30" fill="#00ffff" opacity="0.1"/>
+    <text x="95" y="20" class="terminal" font-size="14px" opacity="0.7">&gt; PROFILE_DISPLAY.exe</text>
     
-    <!-- Decorative accent marks around name -->
-    <g opacity="0.6">
-      <!-- Left accent -->
-      <line x1="260" y1="135" x2="265" y2="135" stroke="url(#accent)" stroke-width="2" stroke-linecap="round">
-        <animate attributeName="x1" values="260;255;260" dur="3s" repeatCount="indefinite"/>
-      </line>
-      <circle cx="257" cy="135" r="2" fill="url(#accent)">
-        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
-      </circle>
-      
-      <!-- Right accent (positioned after name, approximate width) -->
-      <line x1="625" y1="135" x2="630" y2="135" stroke="url(#accent)" stroke-width="2" stroke-linecap="round">
-        <animate attributeName="x2" values="630;635;630" dur="3s" repeatCount="indefinite"/>
-      </line>
-      <circle cx="632" cy="135" r="2" fill="url(#accent)">
-        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
-      </circle>
+    <!-- Holographic display indicators -->
+    <circle cx="1090" cy="15" r="4" fill="#00ff41">
+      <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1075" cy="15" r="4" fill="#ffff00">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1060" cy="15" r="4" fill="#ff00ff">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Hexagonal profile avatar placeholder -->
+  <g transform="translate(150, 110)">
+    <!-- Rotating hexagon rings -->
+    <path d="M 0,-70 L 60,-35 L 60,35 L 0,70 L -60,35 L -60,-35 Z" 
+          fill="none" stroke="url(#holo)" stroke-width="2" opacity="0.6">
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="20s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 0,-55 L 48,-27 L 48,27 L 0,55 L -48,27 L -48,-27 Z" 
+          fill="none" stroke="#00ffff" stroke-width="2" opacity="0.8">
+      <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="15s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Central monogram -->
+    <circle r="45" fill="#000000" opacity="0.9"/>
+    <text text-anchor="middle" dominant-baseline="middle" class="cyber-title" font-size="60px">Y</text>
+    
+    <!-- Corner markers -->
+    <g stroke="#ff00ff" stroke-width="2" fill="none">
+      <path d="M -35,-35 L -45,-45 L -55,-45 M -35,-35 L -45,-45 L -45,-55"/>
+      <path d="M 35,-35 L 45,-45 L 55,-45 M 35,-35 L 45,-45 L 45,-55"/>
+      <path d="M -35,35 L -45,45 L -55,45 M -35,35 L -45,45 L -45,55"/>
+      <path d="M 35,35 L 45,45 L 55,45 M 35,35 L 45,45 L 45,55"/>
     </g>
   </g>
-  
-  <!-- Title with enhanced styling -->
-  <text x="270" y="165" class="role">Full-Stack Software Engineer</text>
-  
-  <!-- Multi-layer animated underline -->
-  <g>
-    <!-- Main underline -->
-    <rect x="270" y="178" width="450" height="3" rx="1.5" fill="url(#accent)" opacity="0.6">
-      <animate attributeName="width" values="0;450" dur="2s" fill="freeze"/>
-      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite" begin="2s"/>
-    </rect>
-    
-    <!-- Moving highlight on underline -->
-    <rect x="270" y="178" width="80" height="3" rx="1.5" fill="#22D3EE" opacity="0.8" filter="url(#glow)">
-      <animate attributeName="x" values="270;640;270" dur="6s" repeatCount="indefinite" begin="2s"/>
-      <animate attributeName="opacity" values="0;0.8;0" dur="6s" repeatCount="indefinite" begin="2s"/>
-    </rect>
-    
-    <!-- Subtle shadow underline -->
-    <rect x="270" y="182" width="450" height="1" rx="0.5" fill="url(#accent)" opacity="0.2">
-      <animate attributeName="width" values="0;450" dur="2s" fill="freeze"/>
-    </rect>
-  </g>
-  
-  <!-- Tags with enhanced modern design -->
-  <g transform="translate(270, 205)">
-    <text class="tag">
-      <tspan>⚡</tspan>
-      <tspan dx="5">Systems</tspan>
-      <tspan dx="15" opacity="0.5">•</tspan>
-      <tspan dx="15">☁️</tspan>
-      <tspan dx="5">Cloud</tspan>
-      <tspan dx="15" opacity="0.5">•</tspan>
-      <tspan dx="15">🌐</tspan>
-      <tspan dx="5">Modern Web</tspan>
-      <tspan dx="15" opacity="0.5">•</tspan>
-      <tspan dx="15">🎨</tspan>
-      <tspan dx="5">Design</tspan>
-    </text>
-    
-    <!-- Animated highlight that sweeps across tags -->
-    <rect x="-5" y="-15" width="60" height="20" rx="10" fill="url(#accent)" opacity="0">
-      <animate attributeName="x" values="-5;380;-5" dur="10s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.15;0" dur="10s" repeatCount="indefinite"/>
-    </rect>
-  </g>
-  
-  <!-- Corner decorative elements -->
-  <g opacity="0.3">
-    <!-- Top right corner accent -->
-    <line x1="1090" y1="80" x2="1100" y2="80" stroke="url(#accent)" stroke-width="2" stroke-linecap="round"/>
-    <line x1="1100" y1="80" x2="1100" y2="90" stroke="url(#accent)" stroke-width="2" stroke-linecap="round"/>
-    
-    <!-- Bottom left corner accent -->
-    <line x1="100" y1="220" x2="100" y2="230" stroke="url(#accent)" stroke-width="2" stroke-linecap="round"/>
-    <line x1="100" y1="230" x2="110" y2="230" stroke="url(#accent)" stroke-width="2" stroke-linecap="round"/>
-  </g>
-</g>
 
-<!-- ============================================ -->
-<!-- ABOUT SECTION (280-450) -->
-<!-- ============================================ -->
-
-<g transform="translate(0, 280)">
-  <!-- Divider line with glow -->
-  <line x1="100" y1="0" x2="1100" y2="0" stroke="url(#accent)" stroke-width="1" opacity="0.3" filter="url(#neon)"/>
-  
-  <!-- MASSIVE Section title with 3D effect -->
-  <g>
-    <!-- 3D shadow -->
-    <text x="600" y="42" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" 
-          font-size="42px" fill="#1E293B" opacity="0.5">
-      👨‍💻 About Me
+  <!-- Name and info display -->
+  <g transform="translate(270, 100)">
+    <!-- Glitch effect name -->
+    <text x="0" y="0" class="cyber-title" font-size="72px" letter-spacing="2px">
+      YOSR BEN NAGRA
+      <animate attributeName="opacity" values="1;0.95;1" dur="0.1s" repeatCount="indefinite"/>
     </text>
-    <!-- Glowing background -->
-    <text x="600" y="40" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" 
-          font-size="42px" fill="url(#accent)" opacity="0.25" filter="url(#glow)">
-      👨‍💻 About Me
-    </text>
-    <!-- Sharp foreground -->
-    <text x="600" y="40" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" 
-          font-size="42px" fill="#F8FAFC">
-      <tspan fill="url(#accent)">👨‍💻</tspan> <tspan fill="url(#accent)">About Me</tspan>
-    </text>
-    <!-- Animated underline -->
-    <line x1="480" y1="56" x2="720" y2="56" stroke="url(#accent)" stroke-width="3" opacity="0.6" stroke-linecap="round">
-      <animate attributeName="stroke-dasharray" values="0 240;240 0" dur="4s" repeatCount="indefinite"/>
+    
+    <!-- Data separator line -->
+    <line x1="0" y1="20" x2="780" y2="20" stroke="url(#neonCyan)" stroke-width="2" opacity="0.6">
+      <animate attributeName="x2" values="0;780" dur="2s" fill="freeze"/>
     </line>
-  </g>
-  
-  <!-- Content -->
-  <text x="600" y="75" text-anchor="middle" class="about-text">
-    Full Stack Software Engineer specializing in modern web technologies
-  </text>
-  <text x="600" y="100" text-anchor="middle" class="about-text">
-    Building scalable, production-grade applications with clean code &amp; performance focus
-  </text>
-  
-  <!-- Info badges with glassmorphism -->
-  <g transform="translate(600, 130)">
-    <!-- Tunisia -->
-    <g transform="translate(-360, 0)">
-      <rect x="0" y="0" width="100" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
-      <rect x="0" y="0" width="100" height="30" rx="15" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
-      <text x="50" y="20" text-anchor="middle" class="tag" font-size="11">🌍 Tunisia</text>
-    </g>
     
-    <!-- Open to Work -->
-    <g transform="translate(-240, 0)">
-      <rect x="0" y="0" width="140" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
-      <rect x="0" y="0" width="140" height="30" rx="15" fill="none" stroke="#22D3EE" stroke-width="1.5" opacity="0.6">
-        <animate attributeName="stroke-opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/>
+    <!-- Role designation -->
+    <text x="0" y="65" class="terminal" font-size="24px">
+      [ROLE]: <tspan fill="#ffffff">FULL-STACK_DEVELOPER</tspan>
+    </text>
+    
+    <!-- Specializations -->
+    <text x="0" y="100" class="terminal" font-size="20px">
+      [SPEC]: <tspan fill="#00ffff">UI/UX_DESIGNER</tspan> | 
+      <tspan fill="#ff00ff">OPEN_SOURCE_CONTRIBUTOR</tspan>
+    </text>
+    
+    <!-- Status bar -->
+    <g transform="translate(0, 130)">
+      <rect width="700" height="30" rx="4" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.5"/>
+      <rect width="520" height="30" rx="4" fill="url(#terminalGreen)" opacity="0.2"/>
+      
+      <!-- Skills tags -->
+      <text x="10" y="20" class="data-label" font-size="14px">
+        #REACT #TYPESCRIPT #NODE.JS #PYTHON #DOCKER
+      </text>
+      
+      <!-- Animated progress indicator -->
+      <rect x="650" y="8" width="40" height="14" rx="2" fill="none" stroke="#00ff41" stroke-width="1">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
       </rect>
-      <circle cx="25" cy="15" r="4" fill="#22D3EE">
-        <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
-      </circle>
-      <text x="80" y="20" text-anchor="middle" class="tag" font-size="11">Open to Work</text>
+      <text x="655" y="18" class="terminal" font-size="10px">&gt;&gt;&gt;</text>
     </g>
     
-    <!-- Full-time -->
-    <g transform="translate(-80, 0)">
-      <rect x="0" y="0" width="100" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
-      <rect x="0" y="0" width="100" height="30" rx="15" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
-      <text x="50" y="20" text-anchor="middle" class="tag" font-size="11">💼 Full-time</text>
-    </g>
-    
-    <!-- Freelance -->
-    <g transform="translate(40, 0)">
-      <rect x="0" y="0" width="105" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
-      <rect x="0" y="0" width="105" height="30" rx="15" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
-      <text x="52" y="20" text-anchor="middle" class="tag" font-size="11">🔧 Freelance</text>
-    </g>
-    
-    <!-- Languages -->
-    <g transform="translate(165, 0)">
-      <rect x="0" y="0" width="115" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
-      <rect x="0" y="0" width="115" height="30" rx="15" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
-      <text x="57" y="20" text-anchor="middle" class="tag" font-size="11">🗣 EN/FR/AR</text>
-    </g>
+    <!-- System time/status -->
+    <text x="0" y="190" class="data-label">
+      [STATUS]: <tspan fill="#00ff41" font-weight="bold">ONLINE</tspan> | 
+      [AVAILABLE]: <tspan fill="#00ff41">TRUE</tspan> |
+      [LOCATION]: <tspan fill="#00ffff">TUNISIA 🇹🇳</tspan>
+    </text>
   </g>
+
 </g>
 
 <!-- ========================================
-     TECH STACK SECTION (700-1100px) - MASSIVE 2x2 GRID
-     Technical expertise showcase
+     ABOUT - HEXAGONAL DATA PANELS
+     ======================================== -->
+<g id="about" transform="translate(0, 480)">
+
+  <!-- Section header with glitch -->
+  <g>
+    <line x1="100" y1="0" x2="1100" y2="0" stroke="url(#neonCyan)" stroke-width="2" opacity="0.5"/>
+    <text x="600" y="40" text-anchor="middle" class="cyber-title" font-size="36px">
+      &lt; PROFILE_DATA /&gt;
+    </text>
+  </g>
+
+  <!-- Hexagonal info panels -->
+  <g transform="translate(200, 100)">
+    
+    <!-- Languages hexagon -->
+    <g>
+      <path d="M 100,0 L 150,29 L 150,87 L 100,116 L 50,87 L 50,29 Z" 
+            fill="#000000" opacity="0.8" stroke="url(#neonCyan)" stroke-width="2" filter="url(#neon)"/>
+      <text x="100" y="50" text-anchor="middle" class="hud-text" font-size="16px" fill="#00ffff">
+        🌐 LANGUAGES
+      </text>
+      <text x="100" y="75" text-anchor="middle" class="data-label" font-size="11px">
+        <tspan x="100">Arabic</tspan>
+        <tspan x="100" dy="14">French • English</tspan>
+      </text>
+    </g>
+    
+    <!-- Work Type hexagon -->
+    <g transform="translate(230, 0)">
+      <path d="M 100,0 L 150,29 L 150,87 L 100,116 L 50,87 L 50,29 Z" 
+            fill="#000000" opacity="0.8" stroke="url(#terminalGreen)" stroke-width="2" filter="url(#neon)"/>
+      <text x="100" y="50" text-anchor="middle" class="hud-text" font-size="16px" fill="#00ff41">
+        💼 MODE
+      </text>
+      <text x="100" y="75" text-anchor="middle" class="data-label" font-size="11px" fill="#00ff41">
+        <tspan x="100">FULL-TIME</tspan>
+        <tspan x="100" dy="14">+ FREELANCE</tspan>
+      </text>
+    </g>
+    
+    <!-- Availability hexagon -->
+    <g transform="translate(460, 0)">
+      <path d="M 100,0 L 150,29 L 150,87 L 100,116 L 50,87 L 50,29 Z" 
+            fill="#000000" opacity="0.8" stroke="url(#neonMagenta)" stroke-width="2" filter="url(#neon)"/>
+      <!-- Pulsing status indicator -->
+      <circle cx="70" cy="58" r="6" fill="#ff00ff">
+        <animate attributeName="r" values="6;8;6" dur="1.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <text x="100" y="50" text-anchor="middle" class="hud-text" font-size="16px" fill="#ff00ff">
+        🚀 STATUS
+      </text>
+      <text x="100" y="75" text-anchor="middle" class="data-label" font-size="11px" fill="#ff00ff">
+        <tspan x="100">OPEN TO</tspan>
+        <tspan x="100" dy="14">WORK</tspan>
+      </text>
+    </g>
+    
+    <!-- Experience hexagon -->
+    <g transform="translate(690, 0)">
+      <path d="M 100,0 L 150,29 L 150,87 L 100,116 L 50,87 L 50,29 Z" 
+            fill="#000000" opacity="0.8" stroke="#ffff00" stroke-width="2" filter="url(#neon)"/>
+      <text x="100" y="50" text-anchor="middle" class="hud-text" font-size="16px" fill="#ffff00">
+        ⭐ LEVEL
+      </text>
+      <text x="100" y="75" text-anchor="middle" class="data-label" font-size="11px" fill="#ffff00">
+        <tspan x="100">SENIOR</tspan>
+        <tspan x="100" dy="14">DEVELOPER</tspan>
+      </text>
+    </g>
+    
+  </g>
+
+</g>
+
+<!-- ========================================
+     TECH STACK - TERMINAL WINDOWS
      ======================================== -->
 <g id="tech-stack" transform="translate(0, 720)">
 
-  <!-- MASSIVE Section title with 3D effect -->
+  <!-- Section header -->
   <g>
-    <!-- 3D shadow -->
-    <text x="600" y="42" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" 
-          font-size="42px" fill="#1E293B" opacity="0.5">
-      ⚡ Tech Stack
+    <line x1="100" y1="0" x2="1100" y2="0" stroke="url(#neonCyan)" stroke-width="2" opacity="0.5"/>
+    <text x="600" y="40" text-anchor="middle" class="cyber-title" font-size="36px">
+      &lt; TECH_ARSENAL /&gt;
     </text>
-    <!-- Glowing background -->
-    <text x="600" y="40" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" 
-          font-size="42px" fill="url(#accent)" opacity="0.25" filter="url(#glow)">
-      ⚡ Tech Stack
-    </text>
-    <!-- Sharp foreground -->
-    <text x="600" y="40" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" 
-          font-size="42px" fill="#F8FAFC">
-      <tspan fill="url(#accent)">⚡</tspan> <tspan fill="url(#accent)">Tech Stack</tspan>
-    </text>
-    <!-- Animated underline -->
-    <line x1="470" y1="56" x2="730" y2="56" stroke="url(#accent)" stroke-width="3" opacity="0.6" stroke-linecap="round">
-      <animate attributeName="stroke-dasharray" values="0 260;260 0" dur="4s" repeatCount="indefinite"/>
-    </line>
   </g>
 
-  <!-- MASSIVE Tech category cards in 2x2 grid -->
-  <g transform="translate(100, 100)">
+  <!-- Terminal-style tech cards in 2x2 grid -->
+  <g transform="translate(100, 90)">
     
-    <!-- Frontend Card - MASSIVE -->
+    <!-- Frontend Terminal -->
     <g>
-      <rect width="490" height="160" rx="24" fill="url(#glass)" opacity="0.7" filter="url(#depth3d)"/>
-      <rect width="490" height="160" rx="24" fill="none" stroke="url(#accent)" stroke-width="3" opacity="0.5">
-        <animate attributeName="opacity" values="0.5;0.8;0.5" dur="4s" repeatCount="indefinite"/>
-      </rect>
-      <!-- Scan line effect -->
-      <rect width="490" height="4" rx="2" fill="url(#accent)" opacity="0.5">
-        <animate attributeName="y" values="0;160;0" dur="6s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0;0.7;0" dur="6s" repeatCount="indefinite"/>
-      </rect>
+      <rect width="490" height="180" rx="0" fill="#000000" opacity="0.9"/>
+      <rect width="490" height="180" rx="0" fill="none" stroke="#00ffff" stroke-width="2" opacity="0.8"/>
       
-      <!-- Category gradient line -->
-      <rect width="490" height="5" rx="2.5" fill="url(#accent)" opacity="0.6"/>
+      <!-- Terminal header -->
+      <rect width="490" height="25" fill="#00ffff" opacity="0.15"/>
+      <text x="10" y="17" class="terminal" font-size="12px">&gt; frontend_stack.sh</text>
+      <circle cx="470" cy="12" r="3" fill="#00ff41"/>
       
-      <!-- Category title -->
-      <text x="245" y="45" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="28px" fill="#F8FAFC">
-        Frontend
+      <!-- Animated scanline -->
+      <line x1="0" y1="30" x2="490" y2="30" stroke="#00ffff" stroke-width="1" opacity="0.4">
+        <animate attributeName="y1" values="30;180" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="y2" values="30;180" dur="3s" repeatCount="indefinite"/>
+      </line>
+      
+      <!-- Content -->
+      <text x="15" y="55" class="terminal" font-size="20px" font-weight="bold">
+        [FRONTEND]
       </text>
-      
-      <!-- Tech icons - BIGGER -->
-      <g transform="translate(60, 85)">
-        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
-        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">⚛️</text>
+      <g class="terminal" font-size="14px">
+        <text x="15" y="85">&gt; ⚛️  React.js</text>
+        <text x="15" y="105">&gt; 📘 TypeScript</text>
+        <text x="15" y="125">&gt; 🎨 Tailwind CSS</text>
+        <text x="15" y="145">&gt; ⚡ Next.js</text>
+        <text x="15" y="165">&gt; 📦 Webpack/Vite</text>
       </g>
-      <g transform="translate(140, 85)">
-        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
-        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">📘</text>
-      </g>
-      <g transform="translate(220, 85)">
-        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
-        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">🎨</text>
-      </g>
-      <g transform="translate(300, 85)">
-        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
-        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">⚡</text>
-      </g>
-      <g transform="translate(380, 85)">
-        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
-        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">📦</text>
-      </g>
-      
-      <!-- Tech list -->
-      <text x="245" y="135" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="500" font-size="18px" fill="#94A3B8">
-        React • TypeScript • Tailwind • Next.js
-      </text>
     </g>
 
-    <!-- Backend Card - MASSIVE -->
+    <!-- Backend Terminal -->
     <g transform="translate(510, 0)">
-      <rect width="490" height="160" rx="24" fill="url(#glass)" opacity="0.7" filter="url(#depth3d)"/>
-      <rect width="490" height="160" rx="24" fill="none" stroke="url(#accent)" stroke-width="3" opacity="0.5">
-        <animate attributeName="opacity" values="0.5;0.8;0.5" dur="4.5s" repeatCount="indefinite"/>
-      </rect>
-      <rect width="490" height="4" rx="2" fill="url(#accent)" opacity="0.5">
-        <animate attributeName="y" values="0;160;0" dur="6.5s" repeatCount="indefinite" begin="0.5s"/>
-        <animate attributeName="opacity" values="0;0.7;0" dur="6.5s" repeatCount="indefinite" begin="0.5s"/>
-      </rect>
+      <rect width="490" height="180" rx="0" fill="#000000" opacity="0.9"/>
+      <rect width="490" height="180" rx="0" fill="none" stroke="#00ff41" stroke-width="2" opacity="0.8"/>
       
-      <rect width="490" height="5" rx="2.5" fill="url(#accent)" opacity="0.6"/>
+      <rect width="490" height="25" fill="#00ff41" opacity="0.15"/>
+      <text x="10" y="17" class="terminal" font-size="12px" fill="#00ff41">&gt; backend_stack.sh</text>
+      <circle cx="470" cy="12" r="3" fill="#00ff41"/>
       
-      <text x="245" y="45" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="28px" fill="#F8FAFC">
-        Backend
+      <line x1="0" y1="30" x2="490" y2="30" stroke="#00ff41" stroke-width="1" opacity="0.4">
+        <animate attributeName="y1" values="30;180" dur="3.5s" repeatCount="indefinite"/>
+        <animate attributeName="y2" values="30;180" dur="3.5s" repeatCount="indefinite"/>
+      </line>
+      
+      <text x="15" y="55" class="terminal" font-size="20px" font-weight="bold" fill="#00ff41">
+        [BACKEND]
       </text>
-      
-      <g transform="translate(90, 85)">
-        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
-        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">🟢</text>
+      <g class="terminal" font-size="14px" fill="#00ff41">
+        <text x="15" y="85">&gt; 🟢 Node.js</text>
+        <text x="15" y="105">&gt; 🐍 Python</text>
+        <text x="15" y="125">&gt; 🔥 Express.js</text>
+        <text x="15" y="145">&gt; ⚙️  REST APIs</text>
+        <text x="15" y="165">&gt; 🔐 JWT Auth</text>
       </g>
-      <g transform="translate(200, 85)">
-        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
-        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">🐍</text>
-      </g>
-      <g transform="translate(310, 85)">
-        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
-        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">🔥</text>
-      </g>
-      <g transform="translate(420, 85)">
-        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
-        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">⚙️</text>
-      </g>
-      
-      <text x="245" y="135" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="500" font-size="18px" fill="#94A3B8">
-        Node.js • Python • Express • REST
-      </text>
     </g>
 
-    <!-- Database Card - MASSIVE, Second Row -->
-    <g transform="translate(0, 180)">
-      <rect width="490" height="160" rx="24" fill="url(#glass)" opacity="0.7" filter="url(#depth3d)"/>
-      <rect width="490" height="160" rx="24" fill="none" stroke="url(#accent)" stroke-width="3" opacity="0.5">
-        <animate attributeName="opacity" values="0.5;0.8;0.5" dur="5s" repeatCount="indefinite"/>
-      </rect>
-      <rect width="490" height="4" rx="2" fill="url(#accent)" opacity="0.5">
-        <animate attributeName="y" values="0;160;0" dur="7s" repeatCount="indefinite" begin="1s"/>
-        <animate attributeName="opacity" values="0;0.7;0" dur="7s" repeatCount="indefinite" begin="1s"/>
-      </rect>
+    <!-- Database Terminal -->
+    <g transform="translate(0, 200)">
+      <rect width="490" height="180" rx="0" fill="#000000" opacity="0.9"/>
+      <rect width="490" height="180" rx="0" fill="none" stroke="#ff00ff" stroke-width="2" opacity="0.8"/>
       
-      <rect width="490" height="5" rx="2.5" fill="url(#accent)" opacity="0.6"/>
+      <rect width="490" height="25" fill="#ff00ff" opacity="0.15"/>
+      <text x="10" y="17" class="terminal" font-size="12px" fill="#ff00ff">&gt; database_config.sh</text>
+      <circle cx="470" cy="12" r="3" fill="#ff00ff"/>
       
-      <text x="245" y="45" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="28px" fill="#F8FAFC">
-        Database
+      <line x1="0" y1="30" x2="490" y2="30" stroke="#ff00ff" stroke-width="1" opacity="0.4">
+        <animate attributeName="y1" values="30;180" dur="4s" repeatCount="indefinite"/>
+        <animate attributeName="y2" values="30;180" dur="4s" repeatCount="indefinite"/>
+      </line>
+      
+      <text x="15" y="55" class="terminal" font-size="20px" font-weight="bold" fill="#ff00ff">
+        [DATABASE]
       </text>
-      
-      <g transform="translate(90, 85)">
-        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
-        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">🍃</text>
+      <g class="terminal" font-size="14px" fill="#ff00ff">
+        <text x="15" y="85">&gt; 🍃 MongoDB</text>
+        <text x="15" y="105">&gt; 🐘 PostgreSQL</text>
+        <text x="15" y="125">&gt; 🔴 Redis</text>
+        <text x="15" y="145">&gt; 🔥 Firebase</text>
+        <text x="15" y="165">&gt; 📊 GraphQL</text>
       </g>
-      <g transform="translate(200, 85)">
-        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
-        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">🐘</text>
-      </g>
-      <g transform="translate(310, 85)">
-        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
-        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">🔴</text>
-      </g>
-      <g transform="translate(420, 85)">
-        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
-        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">🔥</text>
-      </g>
-      
-      <text x="245" y="135" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="500" font-size="18px" fill="#94A3B8">
-        MongoDB • PostgreSQL • Redis • Firebase
-      </text>
     </g>
 
-    <!-- DevOps Card - MASSIVE, Second Row -->
-    <g transform="translate(510, 180)">
-      <rect width="490" height="160" rx="24" fill="url(#glass)" opacity="0.7" filter="url(#depth3d)"/>
-      <rect width="490" height="160" rx="24" fill="none" stroke="url(#accent)" stroke-width="3" opacity="0.5">
-        <animate attributeName="opacity" values="0.5;0.8;0.5" dur="5.5s" repeatCount="indefinite"/>
-      </rect>
-      <rect width="490" height="4" rx="2" fill="url(#accent)" opacity="0.5">
-        <animate attributeName="y" values="0;160;0" dur="7.5s" repeatCount="indefinite" begin="1.5s"/>
-        <animate attributeName="opacity" values="0;0.7;0" dur="7.5s" repeatCount="indefinite" begin="1.5s"/>
-      </rect>
+    <!-- DevOps Terminal -->
+    <g transform="translate(510, 200)">
+      <rect width="490" height="180" rx="0" fill="#000000" opacity="0.9"/>
+      <rect width="490" height="180" rx="0" fill="none" stroke="#ffff00" stroke-width="2" opacity="0.8"/>
       
-      <rect width="490" height="5" rx="2.5" fill="url(#accent)" opacity="0.6"/>
+      <rect width="490" height="25" fill="#ffff00" opacity="0.15"/>
+      <text x="10" y="17" class="terminal" font-size="12px" fill="#ffff00">&gt; devops_tools.sh</text>
+      <circle cx="470" cy="12" r="3" fill="#ffff00"/>
       
-      <text x="245" y="45" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="28px" fill="#F8FAFC">
-        DevOps
+      <line x1="0" y1="30" x2="490" y2="30" stroke="#ffff00" stroke-width="1" opacity="0.4">
+        <animate attributeName="y1" values="30;180" dur="4.5s" repeatCount="indefinite"/>
+        <animate attributeName="y2" values="30;180" dur="4.5s" repeatCount="indefinite"/>
+      </line>
+      
+      <text x="15" y="55" class="terminal" font-size="20px" font-weight="bold" fill="#ffff00">
+        [DEVOPS]
       </text>
-      
-      <g transform="translate(140, 85)">
-        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
-        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">🐳</text>
+      <g class="terminal" font-size="14px" fill="#ffff00">
+        <text x="15" y="85">&gt; 🐳 Docker</text>
+        <text x="15" y="105">&gt; ☸️  Kubernetes</text>
+        <text x="15" y="125">&gt; 🔄 CI/CD</text>
+        <text x="15" y="145">&gt; 📦 GitHub Actions</text>
+        <text x="15" y="165">&gt; ☁️  Cloud Deploy</text>
       </g>
-      <g transform="translate(260, 85)">
-        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
-        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">☸️</text>
-      </g>
-      <g transform="translate(380, 85)">
-        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
-        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">📦</text>
-      </g>
-      
-      <text x="245" y="135" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="500" font-size="18px" fill="#94A3B8">
-        Docker • Kubernetes • CI/CD
-      </text>
     </g>
 
   </g>
@@ -756,105 +493,122 @@
 </g>
 
 <!-- ========================================
-     CONNECT SECTION (1100-1400px) - MASSIVE
-     Social links and contact info
+     CONNECT - GLITCH-STYLE LINKS
      ======================================== -->
-<g id="connect" transform="translate(0, 1120)">
+<g id="connect" transform="translate(0, 1140)">
 
-  <!-- Multiple layered background glow orbs -->
-  <circle cx="600" cy="140" r="220" fill="url(#neonGlow)" opacity="0.12">
-    <animate attributeName="r" values="220;250;220" dur="8s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="600" cy="140" r="180" fill="#22D3EE" opacity="0.05">
-    <animate attributeName="r" values="180;210;180" dur="6s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="600" cy="140" r="140" fill="#C084FC" opacity="0.08">
-    <animate attributeName="r" values="140;170;140" dur="7s" repeatCount="indefinite"/>
-  </circle>
-
-  <!-- MASSIVE Section title with 3D effect -->
+  <!-- Section header with glitch -->
   <g>
-    <!-- 3D shadow -->
-    <text x="600" y="42" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" 
-          font-size="42px" fill="#1E293B" opacity="0.5">
-      💬 Let's Connect
+    <line x1="100" y1="0" x2="1100" y2="0" stroke="url(#neonCyan)" stroke-width="2" opacity="0.5"/>
+    <text x="600" y="40" text-anchor="middle" class="cyber-title" font-size="36px">
+      &lt; CONNECT_PROTOCOL /&gt;
     </text>
-    <!-- Glowing background -->
-    <text x="600" y="40" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" 
-          font-size="42px" fill="url(#accent)" opacity="0.25" filter="url(#glow)">
-      💬 Let's Connect
-    </text>
-    <!-- Sharp foreground -->
-    <text x="600" y="40" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" 
-          font-size="42px" fill="#F8FAFC">
-      <tspan fill="url(#accent)">💬</tspan> <tspan fill="url(#accent)">Let's Connect</tspan>
-    </text>
-    <!-- Animated underline -->
-    <line x1="450" y1="56" x2="750" y2="56" stroke="url(#accent)" stroke-width="3" opacity="0.6" stroke-linecap="round">
-      <animate attributeName="stroke-dasharray" values="0 300;300 0" dur="4s" repeatCount="indefinite"/>
-    </line>
   </g>
 
-  <!-- MASSIVE Social link buttons in 2x2 grid -->
-  <g transform="translate(200, 100)">
+  <!-- Link buttons with holographic effect -->
+  <g transform="translate(150, 90)">
     
-    <!-- Email button - MASSIVE -->
+    <!-- Email Link -->
     <a href="mailto:yosr.bennagra@example.com">
       <g>
-        <rect width="380" height="80" rx="40" fill="url(#glass)" opacity="0.7" filter="url(#depth3d)">
-          <animate attributeName="opacity" values="0.7;0.95;0.7" dur="3s" repeatCount="indefinite"/>
+        <rect width="450" height="70" rx="4" fill="#000000" opacity="0.9"/>
+        <rect width="450" height="70" rx="4" fill="none" stroke="url(#neonCyan)" stroke-width="2" opacity="0.8"/>
+        
+        <!-- Animated border glow -->
+        <rect width="450" height="70" rx="4" fill="none" stroke="url(#neonCyan)" stroke-width="2" opacity="0.3">
+          <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
         </rect>
-        <rect width="380" height="80" rx="40" fill="none" stroke="url(#accent)" stroke-width="3" opacity="0.6"/>
-        <text x="190" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="26px" fill="#F8FAFC">
-          📧 Email
+        
+        <!-- Data stream indicator -->
+        <rect x="5" y="5" width="3" height="60" fill="url(#dataStream)" opacity="0.6"/>
+        
+        <text x="25" y="28" class="terminal" font-size="14px">&gt; PROTOCOL:</text>
+        <text x="25" y="50" class="hud-text" font-size="22px" fill="#00ffff">
+          📧 EMAIL_CONTACT
         </text>
+        
+        <!-- Status indicator -->
+        <circle cx="420" cy="35" r="8" fill="#00ff41">
+          <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
       </g>
     </a>
 
-    <!-- LinkedIn button - MASSIVE -->
+    <!-- LinkedIn Link -->
     <a href="https://linkedin.com/in/yosr-bennagra" target="_blank">
-      <g transform="translate(400, 0)">
-        <rect width="400" height="80" rx="40" fill="url(#glass)" opacity="0.7" filter="url(#depth3d)">
-          <animate attributeName="opacity" values="0.7;0.95;0.7" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+      <g transform="translate(480, 0)">
+        <rect width="450" height="70" rx="4" fill="#000000" opacity="0.9"/>
+        <rect width="450" height="70" rx="4" fill="none" stroke="#0077B5" stroke-width="2" opacity="0.8"/>
+        
+        <rect width="450" height="70" rx="4" fill="none" stroke="#0077B5" stroke-width="2" opacity="0.3">
+          <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.2s" repeatCount="indefinite"/>
         </rect>
-        <rect width="400" height="80" rx="40" fill="none" stroke="#0A66C2" stroke-width="3" opacity="0.6"/>
-        <text x="200" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="26px" fill="#F8FAFC">
-          💼 LinkedIn
+        
+        <rect x="5" y="5" width="3" height="60" fill="url(#dataStream)" opacity="0.6"/>
+        
+        <text x="25" y="28" class="terminal" font-size="14px" fill="#0077B5">&gt; NETWORK:</text>
+        <text x="25" y="50" class="hud-text" font-size="22px" fill="#0077B5">
+          💼 LINKEDIN_PROFILE
         </text>
+        
+        <circle cx="420" cy="35" r="8" fill="#00ff41">
+          <animate attributeName="opacity" values="1;0.3;1" dur="1.7s" repeatCount="indefinite"/>
+        </circle>
       </g>
     </a>
 
-    <!-- Portfolio button - MASSIVE, Second Row -->
+    <!-- Portfolio Link -->
     <a href="https://yosr-portfolio.dev" target="_blank">
-      <g transform="translate(0, 100)">
-        <rect width="380" height="80" rx="40" fill="url(#glass)" opacity="0.7" filter="url(#depth3d)">
-          <animate attributeName="opacity" values="0.7;0.95;0.7" dur="3s" repeatCount="indefinite" begin="1s"/>
+      <g transform="translate(0, 90)">
+        <rect width="450" height="70" rx="4" fill="#000000" opacity="0.9"/>
+        <rect width="450" height="70" rx="4" fill="none" stroke="url(#neonMagenta)" stroke-width="2" opacity="0.8"/>
+        
+        <rect width="450" height="70" rx="4" fill="none" stroke="url(#neonMagenta)" stroke-width="2" opacity="0.3">
+          <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.4s" repeatCount="indefinite"/>
         </rect>
-        <rect width="380" height="80" rx="40" fill="none" stroke="url(#accent)" stroke-width="3" opacity="0.6"/>
-        <text x="190" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="26px" fill="#F8FAFC">
-          🌐 Portfolio
+        
+        <rect x="5" y="5" width="3" height="60" fill="url(#dataStream)" opacity="0.6"/>
+        
+        <text x="25" y="28" class="terminal" font-size="14px" fill="#ff00ff">&gt; SHOWCASE:</text>
+        <text x="25" y="50" class="hud-text" font-size="22px" fill="#ff00ff">
+          🌐 PORTFOLIO_SITE
         </text>
+        
+        <circle cx="420" cy="35" r="8" fill="#00ff41">
+          <animate attributeName="opacity" values="1;0.3;1" dur="1.9s" repeatCount="indefinite"/>
+        </circle>
       </g>
     </a>
 
-    <!-- GitHub button - MASSIVE, Second Row -->
+    <!-- GitHub Link -->
     <a href="https://github.com/YosrBennagra" target="_blank">
-      <g transform="translate(400, 100)">
-        <rect width="400" height="80" rx="40" fill="url(#glass)" opacity="0.7" filter="url(#depth3d)">
-          <animate attributeName="opacity" values="0.7;0.95;0.7" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+      <g transform="translate(480, 90)">
+        <rect width="450" height="70" rx="4" fill="#000000" opacity="0.9"/>
+        <rect width="450" height="70" rx="4" fill="none" stroke="url(#terminalGreen)" stroke-width="2" opacity="0.8"/>
+        
+        <rect width="450" height="70" rx="4" fill="none" stroke="url(#terminalGreen)" stroke-width="2" opacity="0.3">
+          <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.6s" repeatCount="indefinite"/>
         </rect>
-        <rect width="400" height="80" rx="40" fill="none" stroke="url(#accent)" stroke-width="3" opacity="0.6"/>
-        <text x="200" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="26px" fill="#F8FAFC">
-          🐙 GitHub
+        
+        <rect x="5" y="5" width="3" height="60" fill="url(#dataStream)" opacity="0.6"/>
+        
+        <text x="25" y="28" class="terminal" font-size="14px">&gt; REPOSITORY:</text>
+        <text x="25" y="50" class="hud-text" font-size="22px" fill="#00ff41">
+          🐙 GITHUB_REPOS
         </text>
+        
+        <circle cx="420" cy="35" r="8" fill="#00ff41">
+          <animate attributeName="opacity" values="1;0.3;1" dur="2.1s" repeatCount="indefinite"/>
+        </circle>
       </g>
     </a>
 
   </g>
 
-  <!-- Footer text - MASSIVE -->
-  <text x="600" y="250" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="500" font-size="20px" fill="#64748B" opacity="0.8">
-    ✨ Let's build something amazing together! ✨
+  <!-- Footer terminal prompt -->
+  <text x="600" y="280" text-anchor="middle" class="terminal" font-size="16px" opacity="0.7">
+    &gt; READY_TO_COLLABORATE... ✨ AWAITING_CONNECTION
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
   </text>
 
 </g>

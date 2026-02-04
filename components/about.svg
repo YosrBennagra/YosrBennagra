@@ -1,82 +1,76 @@
-<!-- ============================================ -->
-<!-- ABOUT SECTION (280-450) -->
-<!-- ============================================ -->
+<!-- ========================================
+     ABOUT - HEXAGONAL DATA PANELS
+     ======================================== -->
+<g id="about" transform="translate(0, 480)">
 
-<g transform="translate(0, 280)">
-  <!-- Divider line with glow -->
-  <line x1="100" y1="0" x2="1100" y2="0" stroke="url(#accent)" stroke-width="1" opacity="0.3" filter="url(#neon)"/>
-  
-  <!-- MASSIVE Section title with 3D effect -->
+  <!-- Section header with glitch -->
   <g>
-    <!-- 3D shadow -->
-    <text x="600" y="42" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" 
-          font-size="42px" fill="#1E293B" opacity="0.5">
-      👨‍💻 About Me
+    <line x1="100" y1="0" x2="1100" y2="0" stroke="url(#neonCyan)" stroke-width="2" opacity="0.5"/>
+    <text x="600" y="40" text-anchor="middle" class="cyber-title" font-size="36px">
+      &lt; PROFILE_DATA /&gt;
     </text>
-    <!-- Glowing background -->
-    <text x="600" y="40" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" 
-          font-size="42px" fill="url(#accent)" opacity="0.25" filter="url(#glow)">
-      👨‍💻 About Me
-    </text>
-    <!-- Sharp foreground -->
-    <text x="600" y="40" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" 
-          font-size="42px" fill="#F8FAFC">
-      <tspan fill="url(#accent)">👨‍💻</tspan> <tspan fill="url(#accent)">About Me</tspan>
-    </text>
-    <!-- Animated underline -->
-    <line x1="480" y1="56" x2="720" y2="56" stroke="url(#accent)" stroke-width="3" opacity="0.6" stroke-linecap="round">
-      <animate attributeName="stroke-dasharray" values="0 240;240 0" dur="4s" repeatCount="indefinite"/>
-    </line>
   </g>
-  
-  <!-- Content -->
-  <text x="600" y="75" text-anchor="middle" class="about-text">
-    Full Stack Software Engineer specializing in modern web technologies
-  </text>
-  <text x="600" y="100" text-anchor="middle" class="about-text">
-    Building scalable, production-grade applications with clean code &amp; performance focus
-  </text>
-  
-  <!-- Info badges with glassmorphism -->
-  <g transform="translate(600, 130)">
-    <!-- Tunisia -->
-    <g transform="translate(-360, 0)">
-      <rect x="0" y="0" width="100" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
-      <rect x="0" y="0" width="100" height="30" rx="15" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
-      <text x="50" y="20" text-anchor="middle" class="tag" font-size="11">🌍 Tunisia</text>
+
+  <!-- Hexagonal info panels -->
+  <g transform="translate(200, 100)">
+    
+    <!-- Languages hexagon -->
+    <g>
+      <path d="M 100,0 L 150,29 L 150,87 L 100,116 L 50,87 L 50,29 Z" 
+            fill="#000000" opacity="0.8" stroke="url(#neonCyan)" stroke-width="2" filter="url(#neon)"/>
+      <text x="100" y="50" text-anchor="middle" class="hud-text" font-size="16px" fill="#00ffff">
+        🌐 LANGUAGES
+      </text>
+      <text x="100" y="75" text-anchor="middle" class="data-label" font-size="11px">
+        <tspan x="100">Arabic</tspan>
+        <tspan x="100" dy="14">French • English</tspan>
+      </text>
     </g>
     
-    <!-- Open to Work -->
-    <g transform="translate(-240, 0)">
-      <rect x="0" y="0" width="140" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
-      <rect x="0" y="0" width="140" height="30" rx="15" fill="none" stroke="#22D3EE" stroke-width="1.5" opacity="0.6">
-        <animate attributeName="stroke-opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/>
-      </rect>
-      <circle cx="25" cy="15" r="4" fill="#22D3EE">
-        <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+    <!-- Work Type hexagon -->
+    <g transform="translate(230, 0)">
+      <path d="M 100,0 L 150,29 L 150,87 L 100,116 L 50,87 L 50,29 Z" 
+            fill="#000000" opacity="0.8" stroke="url(#terminalGreen)" stroke-width="2" filter="url(#neon)"/>
+      <text x="100" y="50" text-anchor="middle" class="hud-text" font-size="16px" fill="#00ff41">
+        💼 MODE
+      </text>
+      <text x="100" y="75" text-anchor="middle" class="data-label" font-size="11px" fill="#00ff41">
+        <tspan x="100">FULL-TIME</tspan>
+        <tspan x="100" dy="14">+ FREELANCE</tspan>
+      </text>
+    </g>
+    
+    <!-- Availability hexagon -->
+    <g transform="translate(460, 0)">
+      <path d="M 100,0 L 150,29 L 150,87 L 100,116 L 50,87 L 50,29 Z" 
+            fill="#000000" opacity="0.8" stroke="url(#neonMagenta)" stroke-width="2" filter="url(#neon)"/>
+      <!-- Pulsing status indicator -->
+      <circle cx="70" cy="58" r="6" fill="#ff00ff">
+        <animate attributeName="r" values="6;8;6" dur="1.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
       </circle>
-      <text x="80" y="20" text-anchor="middle" class="tag" font-size="11">Open to Work</text>
+      <text x="100" y="50" text-anchor="middle" class="hud-text" font-size="16px" fill="#ff00ff">
+        🚀 STATUS
+      </text>
+      <text x="100" y="75" text-anchor="middle" class="data-label" font-size="11px" fill="#ff00ff">
+        <tspan x="100">OPEN TO</tspan>
+        <tspan x="100" dy="14">WORK</tspan>
+      </text>
     </g>
     
-    <!-- Full-time -->
-    <g transform="translate(-80, 0)">
-      <rect x="0" y="0" width="100" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
-      <rect x="0" y="0" width="100" height="30" rx="15" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
-      <text x="50" y="20" text-anchor="middle" class="tag" font-size="11">💼 Full-time</text>
+    <!-- Experience hexagon -->
+    <g transform="translate(690, 0)">
+      <path d="M 100,0 L 150,29 L 150,87 L 100,116 L 50,87 L 50,29 Z" 
+            fill="#000000" opacity="0.8" stroke="#ffff00" stroke-width="2" filter="url(#neon)"/>
+      <text x="100" y="50" text-anchor="middle" class="hud-text" font-size="16px" fill="#ffff00">
+        ⭐ LEVEL
+      </text>
+      <text x="100" y="75" text-anchor="middle" class="data-label" font-size="11px" fill="#ffff00">
+        <tspan x="100">SENIOR</tspan>
+        <tspan x="100" dy="14">DEVELOPER</tspan>
+      </text>
     </g>
     
-    <!-- Freelance -->
-    <g transform="translate(40, 0)">
-      <rect x="0" y="0" width="105" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
-      <rect x="0" y="0" width="105" height="30" rx="15" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
-      <text x="52" y="20" text-anchor="middle" class="tag" font-size="11">🔧 Freelance</text>
-    </g>
-    
-    <!-- Languages -->
-    <g transform="translate(165, 0)">
-      <rect x="0" y="0" width="115" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
-      <rect x="0" y="0" width="115" height="30" rx="15" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
-      <text x="57" y="20" text-anchor="middle" class="tag" font-size="11">🗣 EN/FR/AR</text>
-    </g>
   </g>
+
 </g>

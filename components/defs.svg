@@ -1,218 +1,140 @@
-<!-- ============================================ -->
-<!-- DEFINITIONS: Gradients, Filters, Styles -->
-<!-- ============================================ -->
-
+<!-- ========================================
+     DEFINITIONS - CYBERPUNK HUD THEME
+     Gradients, filters, and patterns
+     ======================================== -->
 <defs>
-  <!-- ============ GRADIENTS ============ -->
-  <!-- Main Background -->
+  
+  <!-- ============ CYBERPUNK GRADIENTS ============ -->
+  
+  <!-- Dark grid background -->
   <radialGradient id="bgRadial" cx="50%" cy="50%">
-    <stop offset="0%" stop-color="#0F172A"/>
-    <stop offset="50%" stop-color="#020617"/>
+    <stop offset="0%" stop-color="#0a0e1a"/>
     <stop offset="100%" stop-color="#000000"/>
   </radialGradient>
-
-  <!-- Accent Gradient -->
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0%" stop-color="#06B6D4">
-      <animate attributeName="stop-color" values="#06B6D4;#22D3EE;#06B6D4" dur="8s" repeatCount="indefinite"/>
+  
+  <!-- Neon cyan gradient -->
+  <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#00ffff">
+      <animate attributeName="stop-color" values="#00ffff;#00d4ff;#00ffff" dur="3s" repeatCount="indefinite"/>
     </stop>
-    <stop offset="50%" stop-color="#6366F1">
-      <animate attributeName="stop-color" values="#6366F1;#8B5CF6;#6366F1" dur="8s" repeatCount="indefinite"/>
-    </stop>
-    <stop offset="100%" stop-color="#C084FC">
-      <animate attributeName="stop-color" values="#C084FC;#E879F9;#C084FC" dur="8s" repeatCount="indefinite"/>
+    <stop offset="100%" stop-color="#00aaff">
+      <animate attributeName="stop-color" values="#00aaff;#0088ff;#00aaff" dur="3s" repeatCount="indefinite"/>
     </stop>
   </linearGradient>
-
-  <!-- Glassmorphism gradient -->
-  <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.15"/>
-    <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.05"/>
+  
+  <!-- Neon magenta gradient -->
+  <linearGradient id="neonMagenta" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#ff00ff"/>
+    <stop offset="100%" stop-color="#ff0080"/>
   </linearGradient>
-
-  <!-- Neon Glow Gradient -->
-  <radialGradient id="neonGlow">
-    <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.8"/>
-    <stop offset="100%" stop-color="#6366F1" stop-opacity="0"/>
-  </radialGradient>
-
-  <!-- ============ FILTERS ============ -->
-  <!-- Glassmorphism blur -->
-  <filter id="glass-blur">
-    <feGaussianBlur stdDeviation="8" in="SourceGraphic"/>
-  </filter>
-
-  <!-- Neon glow effect -->
-  <filter id="neon">
-    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+  
+  <!-- Terminal green gradient -->
+  <linearGradient id="terminalGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#00ff41">
+      <animate attributeName="stop-color" values="#00ff41;#00dd35;#00ff41" dur="2s" repeatCount="indefinite"/>
+    </stop>
+    <stop offset="100%" stop-color="#00aa2b"/>
+  </linearGradient>
+  
+  <!-- Holographic gradient -->
+  <linearGradient id="holo" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#00ffff" stop-opacity="0.8"/>
+    <stop offset="50%" stop-color="#ff00ff" stop-opacity="0.6"/>
+    <stop offset="100%" stop-color="#ffff00" stop-opacity="0.8"/>
+    <animateTransform attributeName="gradientTransform" type="rotate" from="0 0.5 0.5" to="360 0.5 0.5" dur="10s" repeatCount="indefinite"/>
+  </linearGradient>
+  
+  <!-- ============ CYBERPUNK FILTERS ============ -->
+  
+  <!-- Strong neon glow -->
+  <filter id="neon" x="-100%" y="-100%" width="300%" height="300%">
+    <feGaussianBlur stdDeviation="3" result="blur1"/>
+    <feGaussianBlur stdDeviation="6" result="blur2"/>
+    <feGaussianBlur stdDeviation="12" result="blur3"/>
     <feMerge>
-      <feMergeNode in="coloredBlur"/>
-      <feMergeNode in="coloredBlur"/>
+      <feMergeNode in="blur3"/>
+      <feMergeNode in="blur2"/>
+      <feMergeNode in="blur1"/>
       <feMergeNode in="SourceGraphic"/>
     </feMerge>
   </filter>
-
-  <!-- Strong glow -->
-  <filter id="glow">
-    <feGaussianBlur stdDeviation="12" result="b"/>
-    <feMerge>
-      <feMergeNode in="b"/>
-      <feMergeNode in="b"/>
-      <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-  </filter>
-
-  <!-- Soft shadow -->
-  <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
-    <feOffset dx="0" dy="5" result="offsetblur"/>
-    <feComponentTransfer>
-      <feFuncA type="linear" slope="0.3"/>
-    </feComponentTransfer>
-    <feMerge>
-      <feMergeNode/>
-      <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-  </filter>
-
-  <!-- Animated grain texture -->
-  <filter id="grain">
-    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="2">
-      <animate attributeName="baseFrequency" values="0.9;0.95;0.9" dur="30s" repeatCount="indefinite"/>
+  
+  <!-- Glitch effect -->
+  <filter id="glitch">
+    <feTurbulence baseFrequency="0.05" numOctaves="3" seed="1" result="turbulence">
+      <animate attributeName="seed" values="1;5;1" dur="0.5s" repeatCount="indefinite"/>
     </feTurbulence>
-    <feColorMatrix type="saturate" values="0"/>
-    <feComponentTransfer>
-      <feFuncA type="linear" slope="0.08"/>
-    </feComponentTransfer>
+    <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="5" xChannelSelector="R" yChannelSelector="G"/>
   </filter>
-
-  <!-- Text shadow for depth without blur -->
-  <filter id="textShadow" x="-50%" y="-50%" width="200%" height="200%">
-    <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#6366F1" flood-opacity="0.6"/>
-    <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#22D3EE" flood-opacity="0.4"/>
+  
+  <!-- Scanline effect -->
+  <filter id="scanlines">
+    <feFlood flood-color="#00ffff" flood-opacity="0.05" result="flood"/>
+    <feComposite in="flood" in2="SourceGraphic" operator="over"/>
   </filter>
-
-  <!-- Liquid morphing effect -->
-  <filter id="liquid">
-    <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="5" result="turbulence" seed="1">
-      <animate attributeName="baseFrequency" values="0.01;0.02;0.01" dur="20s" repeatCount="indefinite"/>
-    </feTurbulence>
-    <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="3" xChannelSelector="R" yChannelSelector="G"/>
-  </filter>
-
-  <!-- Holographic effect -->
-  <filter id="holographic">
-    <feColorMatrix type="saturate" values="1.5"/>
-    <feComponentTransfer>
-      <feFuncR type="table" tableValues="0 0.8 1"/>
-      <feFuncG type="table" tableValues="0 0.5 1"/>
-      <feFuncB type="table" tableValues="0.2 0.8 1"/>
-    </feComponentTransfer>
-  </filter>
-
-  <!-- Chromatic aberration -->
-  <filter id="chromatic" x="-50%" y="-50%" width="200%" height="200%">
-    <feOffset in="SourceGraphic" dx="2" dy="0" result="r"/>
-    <feOffset in="SourceGraphic" dx="-2" dy="0" result="b"/>
-    <feBlend mode="screen" in="r" in2="SourceGraphic" result="rb"/>
-    <feBlend mode="screen" in="rb" in2="b"/>
-  </filter>
-
-  <!-- 3D depth effect -->
-  <filter id="depth3d">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur"/>
-    <feOffset in="blur" dx="0" dy="10" result="offsetBlur"/>
-    <feFlood flood-color="#6366F1" flood-opacity="0.5"/>
-    <feComposite in2="offsetBlur" operator="in"/>
-    <feMerge>
-      <feMergeNode/>
-      <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-  </filter>
-
-  <!-- Mesh gradient pattern -->
-  <pattern id="meshGradient" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-    <rect width="100" height="100" fill="url(#bgRadial)" opacity="0.3"/>
-    <path d="M 0,50 Q 25,25 50,50 T 100,50" stroke="url(#accent)" stroke-width="0.5" fill="none" opacity="0.2">
-      <animate attributeName="d" values="M 0,50 Q 25,25 50,50 T 100,50;M 0,50 Q 25,75 50,50 T 100,50;M 0,50 Q 25,25 50,50 T 100,50" dur="10s" repeatCount="indefinite"/>
+  
+  <!-- ============ CYBERPUNK PATTERNS ============ -->
+  
+  <!-- Hexagonal grid pattern -->
+  <pattern id="hexGrid" x="0" y="0" width="60" height="52" patternUnits="userSpaceOnUse">
+    <path d="M 30,0 L 45,13 L 45,39 L 30,52 L 15,39 L 15,13 Z" 
+          stroke="#00ffff" stroke-width="0.5" fill="none" opacity="0.15">
+      <animate attributeName="opacity" values="0.15;0.25;0.15" dur="4s" repeatCount="indefinite"/>
     </path>
   </pattern>
-
+  
+  <!-- Circuit board pattern -->
+  <pattern id="circuit" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+    <path d="M 0,20 L 30,20 M 30,10 L 30,30 M 30,20 L 60,20 M 70,20 L 100,20" 
+          stroke="#00ff41" stroke-width="1" opacity="0.2">
+      <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <circle cx="30" cy="20" r="3" fill="#00ff41" opacity="0.4"/>
+    <path d="M 80,10 L 80,30 M 70,20 L 90,20" 
+          stroke="#ff00ff" stroke-width="1" opacity="0.2">
+      <animate attributeName="opacity" values="0.2;0.4;0.2" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
+    </path>
+    <circle cx="80" cy="20" r="3" fill="#ff00ff" opacity="0.4"/>
+  </pattern>
+  
+  <!-- Data stream pattern -->
+  <pattern id="dataStream" x="0" y="0" width="20" height="100" patternUnits="userSpaceOnUse">
+    <rect width="2" height="20" fill="#00ffff" opacity="0.3">
+      <animate attributeName="y" values="-20;100" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect width="2" height="15" fill="#ff00ff" opacity="0.3" x="10">
+      <animate attributeName="y" values="-15;100" dur="3s" repeatCount="indefinite"/>
+    </rect>
+  </pattern>
+  
   <!-- ============ STYLES ============ -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Rajdhani:wght@500;600;700&amp;family=Share+Tech+Mono&amp;display=swap');
     
-    .name {
-      font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
-      font-weight: 700;
-      font-size: 56px;
-      letter-spacing: -0.02em;
-      fill: url(#accent);
-      filter: url(#textShadow);
+    .terminal {
+      font-family: 'Share Tech Mono', 'Courier New', monospace;
+      fill: #00ff41;
     }
     
-    .name-crisp {
-      font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
-      font-weight: 700;
-      font-size: 56px;
-      letter-spacing: -0.02em;
-      fill: #F8FAFC;
-      filter: url(#textShadow);
+    .cyber-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      fill: #00ffff;
+      filter: url(#neon);
     }
     
-    .role {
-      font-family: 'JetBrains Mono', monospace;
+    .hud-text {
+      font-family: 'Rajdhani', sans-serif;
       font-weight: 600;
-      font-size: 11px;
-      letter-spacing: 0.25em;
-      fill: #94A3B8;
-      text-transform: uppercase;
+      fill: #ffffff;
     }
     
-    .section-title {
-      font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
-      font-weight: 700;
-      font-size: 24px;
-      letter-spacing: -0.01em;
-      fill: #F8FAFC;
-    }
-    
-    .tag {
-      font-family: 'JetBrains Mono', monospace;
+    .data-label {
+      font-family: 'Share Tech Mono', monospace;
       font-size: 12px;
-      font-weight: 600;
-      fill: #CBD5E1;
-    }
-    
-    .tech-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      fill: url(#accent);
-    }
-    
-    .tech-item {
-      font-family: 'Space Grotesk', system-ui, sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      fill: #E2E8F0;
-    }
-    
-    .about-text {
-      font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1.6;
-      fill: #CBD5E1;
-    }
-    
-    .connect-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      font-weight: 700;
-      fill: #F8FAFC;
+      fill: #00ffff;
+      opacity: 0.7;
     }
   </style>
+  
 </defs>
