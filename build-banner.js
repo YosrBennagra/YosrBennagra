@@ -10,24 +10,24 @@ const path = require('path');
 
 // Available design systems
 const designs = [
-  {
-    name: 'Cyberpunk Terminal',
-    folder: 'cyberpunk-terminal',
-    viewBox: '0 0 1200 1270',
-    description: 'Futuristic HUD interface with terminal windows'
-  },
-  {
-    name: 'Minimalist Cards',
-    folder: 'minimalist-cards',
-    viewBox: '0 0 1200 1100',
-    description: 'Clean card-based layout with subtle effects'
-  },
-  {
-    name: 'Neon Billboard',
-    folder: 'neon-billboard',
-    viewBox: '0 0 1200 1200',
-    description: 'Bold neon signs with intense glows'
-  }
+    {
+        name: 'Cyberpunk Terminal',
+        folder: 'cyberpunk-terminal',
+        viewBox: '0 0 1200 1270',
+        description: 'Futuristic HUD interface with terminal windows'
+    },
+    {
+        name: 'Minimalist Cards',
+        folder: 'minimalist-cards',
+        viewBox: '0 0 1200 1100',
+        description: 'Clean card-based layout with subtle effects'
+    },
+    {
+        name: 'Neon Billboard',
+        folder: 'neon-billboard',
+        viewBox: '0 0 1200 1200',
+        description: 'Bold neon signs with intense glows'
+    }
 ];
 
 // Randomly select a design
