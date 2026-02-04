@@ -1,5 +1,26 @@
 <!-- Profile Banner -->
 <div align="center">
-  <img src="./profile-banner.svg" width="100%" alt="Yosr Ben Nagra - Full Stack Software Engineer Profile" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./profile-banner.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./profile-banner.svg">
+    <img src="./profile-banner.svg" width="100%" alt="Yosr Ben Nagra - Profile Banner" />
+  </picture>
 </div>
 
+<!-- Direct Contact Links (GitHub doesn't support interactive SVGs, so these are backup links) -->
+<div align="center">
+  <a href="mailto:yosr.bennagra@example.com">
+    <img src="https://img.shields.io/badge/📧_Email-00ffff?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
+  </a>
+  <a href="https://linkedin.com/in/yosr-bennagra" target="_blank">
+    <img src="https://img.shields.io/badge/💼_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+  </a>
+  <a href="https://yosr-portfolio.dev" target="_blank">
+    <img src="https://img.shields.io/badge/🌐_Portfolio-ff00ff?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio"/>
+  </a>
+  <a href="https://github.com/YosrBennagra" target="_blank">
+    <img src="https://img.shields.io/badge/🐙_GitHub-00ff41?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+  </a>
+</div>
+
+---
