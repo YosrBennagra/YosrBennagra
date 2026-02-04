@@ -86,36 +86,34 @@
   
   <!-- Styles -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&amp;display=swap');
-    
     .windows-title {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
       font-weight: 400;
       fill: #000000;
       font-size: 13px;
     }
     
     .windows-heading {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
       font-weight: 600;
       fill: #000000;
     }
     
     .windows-body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
       font-weight: 400;
       fill: #1f1f1f;
     }
     
     .windows-label {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
       font-weight: 300;
       fill: #6b6b6b;
       font-size: 12px;
     }
     
     .taskbar-text {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
       font-weight: 400;
       fill: #ffffff;
       font-size: 14px;

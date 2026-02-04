@@ -1,7 +1,0 @@
-<!-- Footer neon arrow -->
-<g transform="translate(600, 1080)">
-  <text text-anchor="middle" class="neon-text" font-size="24px" fill="url(#neonPink)" filter="url(#neonGlow)">
-    ✨ LET'S COLLABORATE ✨
-    <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
-  </text>
-</g>

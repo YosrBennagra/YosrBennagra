@@ -1,7 +1,0 @@
-<!-- Dark night background -->
-<rect width="1200" height="1200" fill="#0a0011"/>
-
-<!-- Ambient light pools -->
-<circle cx="300" cy="300" r="400" fill="url(#neonPink)" opacity="0.05"/>
-<circle cx="900" cy="700" r="500" fill="url(#neonBlue)" opacity="0.05"/>
-<circle cx="600" cy="900" r="350" fill="url(#neonYellow)" opacity="0.03"/>
