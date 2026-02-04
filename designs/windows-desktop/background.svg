@@ -1,0 +1,8 @@
+<!-- Windows Desktop Background -->
+<rect width="1200" height="1400" fill="url(#desktopBg)"/>
+
+<!-- Subtle grid pattern overlay -->
+<rect width="1200" height="1400" fill="url(#windowsGrid)"/>
+
+<!-- Ambient light effect from top -->
+<rect width="1200" height="400" fill="url(#desktopBg)" opacity="0.1"/>

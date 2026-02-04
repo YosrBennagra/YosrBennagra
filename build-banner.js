@@ -27,6 +27,12 @@ const designs = [
         folder: 'neon-billboard',
         viewBox: '0 0 1200 1200',
         description: 'Bold neon signs with intense glows'
+    },
+    {
+        name: 'Windows Desktop',
+        folder: 'windows-desktop',
+        viewBox: '0 0 1200 1400',
+        description: 'Windows OS interface with application windows and taskbar'
     }
 ];
 

@@ -1,0 +1,70 @@
+<!-- Main Profile Window - "About Me.exe" -->
+<g transform="translate(80, 40)" filter="url(#windowShadow)">
+  
+  <!-- Window frame -->
+  <rect width="480" height="350" rx="8" fill="#ffffff"/>
+  
+  <!-- Title bar -->
+  <rect width="480" height="40" rx="8" fill="url(#windowTitleBar)"/>
+  <rect y="8" width="480" height="32" fill="url(#windowTitleBar)"/>
+  
+  <!-- Window icon -->
+  <circle cx="16" cy="20" r="8" fill="#0078d4"/>
+  <text x="16" y="26" text-anchor="middle" font-family="Segoe UI" font-size="14px" font-weight="700" fill="#ffffff">Y</text>
+  
+  <!-- Window title -->
+  <text x="32" y="25" class="windows-title">Profile - Yosr Ben Nagra</text>
+  
+  <!-- Window controls -->
+  <g transform="translate(380, 8)">
+    <!-- Minimize -->
+    <rect width="40" height="32" fill="transparent"/>
+    <rect x="12" y="15" width="16" height="2" fill="#000000" opacity="0.8"/>
+    
+    <!-- Maximize -->
+    <rect x="40" width="40" height="32" fill="transparent"/>
+    <rect x="52" y="11" width="16" height="16" fill="none" stroke="#000000" stroke-width="2" opacity="0.8"/>
+    
+    <!-- Close -->
+    <rect x="80" width="40" height="32" fill="transparent"/>
+    <rect x="80" width="40" height="32" rx="4" fill="#e81123" opacity="0"/>
+    <g opacity="0.8">
+      <line x1="92" y1="11" x2="108" y2="27" stroke="#000000" stroke-width="2"/>
+      <line x1="108" y1="11" x2="92" y2="27" stroke="#000000" stroke-width="2"/>
+    </g>
+  </g>
+  
+  <!-- Window content -->
+  <g transform="translate(0, 45)">
+    
+    <!-- Profile photo placeholder -->
+    <g transform="translate(30, 20)">
+      <rect width="100" height="100" rx="4" fill="#0078d4" opacity="0.1"/>
+      <circle cx="50" cy="50" r="38" fill="#0078d4" opacity="0.2"/>
+      <text x="50" y="68" text-anchor="middle" font-family="Segoe UI" font-size="42px" font-weight="700" fill="#0078d4">YB</text>
+    </g>
+    
+    <!-- Profile info -->
+    <g transform="translate(150, 20)">
+      <text x="0" y="20" class="windows-heading" font-size="24px">YOSR BEN NAGRA</text>
+      <text x="0" y="50" class="windows-body" font-size="15px">Full-Stack Developer</text>
+      <text x="0" y="72" class="windows-body" font-size="14px">UI/UX Designer • Open Source</text>
+      
+      <!-- Location and status -->
+      <g transform="translate(0, 90)">
+        <text x="0" y="0" class="windows-label">📍 Location:</text>
+        <text x="80" y="0" class="windows-body" font-size="13px">Tunisia 🇹🇳</text>
+        
+        <text x="0" y="22" class="windows-label">💼 Status:</text>
+        <circle cx="70" cy="-4" r="4" fill="#10b981"/>
+        <text x="80" y="22" class="windows-body" font-size="13px" fill="#10b981">Available for work</text>
+      </g>
+    </g>
+    
+    <!-- Bottom info bar -->
+    <rect y="290" width="480" height="1" fill="#e5e5e5"/>
+    <text x="30" y="275" class="windows-label">Senior Developer • 3 Languages • Full-Time + Freelance</text>
+    
+  </g>
+  
+</g>
