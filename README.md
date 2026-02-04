@@ -5,62 +5,40 @@
 
 <br/>
 
----
-
-<!-- GitHub Stats -->
-## 📊 GitHub Analytics
+## 📊 GitHub Stats
 
 <div align="center">
-  <img width="49%" height="195px" src="https://github-readme-stats-sigma-five.vercel.app/api?username=YosrBennagra&show_icons=true&count_private=true&hide_border=true&title_color=6366f1&icon_color=6366f1&text_color=c9d1d9&bg_color=0d1117&include_all_commits=true&rank_icon=github" alt="GitHub Stats" /> 
-  <img width="49%" height="195px" src="https://streak-stats.demolab.com/?user=YosrBennagra&theme=tokyonight&hide_border=true&stroke=0000&background=0D1117&ring=6366f1&fire=6366f1&currStreakLabel=6366f1" alt="GitHub Streak" />
-</div>
-
-<div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=YosrBennagra&custom_title=Contribution%20Graph&bg_color=0d1117&color=6366f1&line=6366f1&point=ffffff&area_color=6366f1&title_color=ffffff&area=true&hide_border=true" alt="Contribution Graph" width="98%"/>
+  <img width="49%" src="https://github-readme-stats-sigma-five.vercel.app/api?username=YosrBennagra&show_icons=true&count_private=true&hide_border=true&title_color=6366f1&icon_color=6366f1&text_color=c9d1d9&bg_color=0d1117&include_all_commits=true&rank_icon=github" alt="GitHub Stats" /> 
+  <img width="49%" src="https://streak-stats.demolab.com/?user=YosrBennagra&theme=tokyonight&hide_border=true&stroke=0000&background=0D1117&ring=6366f1&fire=6366f1&currStreakLabel=6366f1" alt="GitHub Streak" />
 </div>
 
 <br/>
 
----
-
-<!-- Featured Projects -->
 ## 🚀 Featured Projects
 
-<div align="center">
-
-| Project | Description | Tech |
-|---------|-------------|------|
-| 🌐 **[Portfolio](https://portfolio-yosr.vercel.app/)** | Modern multilingual portfolio | Next.js • TypeScript • Tailwind |
+| Project | Description | Tech Stack |
+|---------|-------------|------------|
+| 🌐 **[Portfolio](https://portfolio-yosr.vercel.app/)** | Modern multilingual portfolio | Next.js • TypeScript • Tailwind CSS |
 | 🏥 **[E-Health Platform](https://github.com/YosrBennagra/PFE_ITserv_Smart_EHealth_App)** | Healthcare management system | React • Node.js • MongoDB |
-| 🎯 **[3SC Application](https://github.com/YosrBennagra/3SC)** | Enterprise desktop app | C# • .NET • WPF |
+| 🎯 **[3SC Application](https://github.com/YosrBennagra/3SC)** | Enterprise desktop application | C# • .NET • WPF |
 | ⚡ **[NestJS Backend](https://github.com/YosrBennagra/Stage-nestjs)** | RESTful API project | NestJS • TypeScript • PostgreSQL |
 
-[![View All Repositories](https://img.shields.io/badge/View_All_31+_Repositories-6366f1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/YosrBennagra?tab=repositories)
+<br/>
+
+## 🤝 Let's Connect
+
+<div align="center">
+  
+[![Email](https://img.shields.io/badge/Email-6366f1?style=for-the-badge&logo=gmail&logoColor=white)](mailto:yosrbennagra@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yosrbennagra)
+[![Portfolio](https://img.shields.io/badge/Portfolio-6366f1?style=for-the-badge&logo=vercel&logoColor=white)](https://portfolio-yosr.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/YosrBennagra)
 
 </div>
 
 <br/>
 
----
-
-<!-- Trophies -->
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=YosrBennagra&theme=tokyonight&no-frame=true&no-bg=true&margin-w=4&row=1&column=6" alt="GitHub Trophies" />
-</div>
-
-<br/>
-
----
-
-<!-- Connect Section -->
-<div align="center">
-  <img src="./connect.svg" width="100%" alt="Connect" />
-</div>
-
-<br/>
-
-<!-- Footer -->
-<div align="center">
-  <img src="./footer.svg" width="100%" alt="Footer" />
+  <img src="https://komarev.com/ghpvc/?username=YosrBennagra&color=6366f1&style=flat-square" alt="Profile views" />
 </div>
 
