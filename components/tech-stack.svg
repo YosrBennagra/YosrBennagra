@@ -1,148 +1,196 @@
-<!-- ============================================ -->
-<!-- TECH STACK SECTION (450-680) -->
-<!-- ============================================ -->
+<!-- ========================================
+     TECH STACK SECTION (700-1100px) - MASSIVE 2x2 GRID
+     Technical expertise showcase
+     ======================================== -->
+<g id="tech-stack" transform="translate(0, 720)">
 
-<g transform="translate(0, 450)">
-  <!-- Divider -->
-  <line x1="100" y1="0" x2="1100" y2="0" stroke="url(#accent)" stroke-width="1" opacity="0.3" filter="url(#neon)"/>
-  
-  <!-- Section Title -->
-  <text x="600" y="40" text-anchor="middle" class="section-title">
-    <tspan fill="url(#accent)">💼</tspan> Technical Expertise
-  </text>
-  
-  <!-- Tech Stack Grid with modern cards -->
-  <g transform="translate(100, 70)">
-    <!-- Frontend Card -->
+  <!-- MASSIVE Section title with 3D effect -->
+  <g>
+    <!-- 3D shadow -->
+    <text x="600" y="42" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" 
+          font-size="42px" fill="#1E293B" opacity="0.5">
+      ⚡ Tech Stack
+    </text>
+    <!-- Glowing background -->
+    <text x="600" y="40" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" 
+          font-size="42px" fill="url(#accent)" opacity="0.25" filter="url(#glow)">
+      ⚡ Tech Stack
+    </text>
+    <!-- Sharp foreground -->
+    <text x="600" y="40" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" 
+          font-size="42px" fill="#F8FAFC">
+      <tspan fill="url(#accent)">⚡</tspan> <tspan fill="url(#accent)">Tech Stack</tspan>
+    </text>
+    <!-- Animated underline -->
+    <line x1="470" y1="56" x2="730" y2="56" stroke="url(#accent)" stroke-width="3" opacity="0.6" stroke-linecap="round">
+      <animate attributeName="stroke-dasharray" values="0 260;260 0" dur="4s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- MASSIVE Tech category cards in 2x2 grid -->
+  <g transform="translate(100, 100)">
+    
+    <!-- Frontend Card - MASSIVE -->
     <g>
-      <!-- Animated gradient background -->
-      <rect width="240" height="120" rx="16" fill="url(#glass)" opacity="0.7" filter="url(#shadow)"/>
-      <rect width="240" height="120" rx="16" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.3">
-        <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/>
+      <rect width="490" height="160" rx="24" fill="url(#glass)" opacity="0.7" filter="url(#depth3d)"/>
+      <rect width="490" height="160" rx="24" fill="none" stroke="url(#accent)" stroke-width="3" opacity="0.5">
+        <animate attributeName="opacity" values="0.5;0.8;0.5" dur="4s" repeatCount="indefinite"/>
       </rect>
       <!-- Scan line effect -->
-      <rect width="240" height="3" rx="1.5" fill="url(#accent)" opacity="0.4">
-        <animate attributeName="y" values="0;120;0" dur="5s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0;0.6;0" dur="5s" repeatCount="indefinite"/>
+      <rect width="490" height="4" rx="2" fill="url(#accent)" opacity="0.5">
+        <animate attributeName="y" values="0;160;0" dur="6s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0.7;0" dur="6s" repeatCount="indefinite"/>
       </rect>
-      <rect width="240" height="3" rx="16" fill="url(#accent)" opacity="0.7"/>
       
-      <text x="120" y="30" text-anchor="middle" class="tech-label">Frontend</text>
+      <!-- Category gradient line -->
+      <rect width="490" height="5" rx="2.5" fill="url(#accent)" opacity="0.6"/>
       
-      <!-- Tech icons -->
-      <g transform="translate(30, 50)">
-        <circle cx="0" cy="0" r="15" fill="#61DAFB" opacity="0.2"/>
-        <text x="0" y="5" text-anchor="middle" font-size="12">⚛️</text>
-        
-        <circle cx="60" cy="0" r="15" fill="#000000" opacity="0.2"/>
-        <text x="60" y="5" text-anchor="middle" font-size="11">▲</text>
-        
-        <circle cx="120" cy="0" r="15" fill="#DD0031" opacity="0.2"/>
-        <text x="120" y="5" text-anchor="middle" font-size="11">🅰️</text>
-        
-        <circle cx="180" cy="0" r="15" fill="#3178C6" opacity="0.2"/>
-        <text x="180" y="5" text-anchor="middle" font-size="10" fill="#3178C6" font-weight="bold">TS</text>
+      <!-- Category title -->
+      <text x="245" y="45" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="28px" fill="#F8FAFC">
+        Frontend
+      </text>
+      
+      <!-- Tech icons - BIGGER -->
+      <g transform="translate(60, 85)">
+        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
+        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">⚛️</text>
+      </g>
+      <g transform="translate(140, 85)">
+        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
+        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">📘</text>
+      </g>
+      <g transform="translate(220, 85)">
+        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
+        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">🎨</text>
+      </g>
+      <g transform="translate(300, 85)">
+        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
+        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">⚡</text>
+      </g>
+      <g transform="translate(380, 85)">
+        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
+        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">📦</text>
       </g>
       
-      <text x="120" y="95" text-anchor="middle" class="tech-item" font-size="11">
-        React • Next.js • Angular • TypeScript
+      <!-- Tech list -->
+      <text x="245" y="135" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="500" font-size="18px" fill="#94A3B8">
+        React • TypeScript • Tailwind • Next.js
       </text>
     </g>
-    
-    <!-- Backend Card -->
-    <g transform="translate(270, 0)">
-      <rect width="240" height="120" rx="16" fill="url(#glass)" opacity="0.7" filter="url(#shadow)"/>
-      <rect width="240" height="120" rx="16" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.3">
-        <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4.5s" repeatCount="indefinite"/>
+
+    <!-- Backend Card - MASSIVE -->
+    <g transform="translate(510, 0)">
+      <rect width="490" height="160" rx="24" fill="url(#glass)" opacity="0.7" filter="url(#depth3d)"/>
+      <rect width="490" height="160" rx="24" fill="none" stroke="url(#accent)" stroke-width="3" opacity="0.5">
+        <animate attributeName="opacity" values="0.5;0.8;0.5" dur="4.5s" repeatCount="indefinite"/>
       </rect>
-      <rect width="240" height="3" rx="1.5" fill="url(#accent)" opacity="0.4">
-        <animate attributeName="y" values="0;120;0" dur="5.5s" repeatCount="indefinite" begin="0.5s"/>
-        <animate attributeName="opacity" values="0;0.6;0" dur="5.5s" repeatCount="indefinite" begin="0.5s"/>
+      <rect width="490" height="4" rx="2" fill="url(#accent)" opacity="0.5">
+        <animate attributeName="y" values="0;160;0" dur="6.5s" repeatCount="indefinite" begin="0.5s"/>
+        <animate attributeName="opacity" values="0;0.7;0" dur="6.5s" repeatCount="indefinite" begin="0.5s"/>
       </rect>
-      <rect width="240" height="3" rx="16" fill="url(#accent)" opacity="0.7"/>
       
-      <text x="120" y="30" text-anchor="middle" class="tech-label">Backend</text>
+      <rect width="490" height="5" rx="2.5" fill="url(#accent)" opacity="0.6"/>
       
-      <g transform="translate(30, 50)">
-        <circle cx="0" cy="0" r="15" fill="#512BD4" opacity="0.2"/>
-        <text x="0" y="6" text-anchor="middle" font-size="10" fill="#8B5CF6" font-weight="bold">.N</text>
-        
-        <circle cx="60" cy="0" r="15" fill="#6DB33F" opacity="0.2"/>
-        <text x="60" y="5" text-anchor="middle" font-size="12">🍃</text>
-        
-        <circle cx="120" cy="0" r="15" fill="#E0234E" opacity="0.2"/>
-        <text x="120" y="5" text-anchor="middle" font-size="9" fill="#E0234E" font-weight="bold">Ne</text>
-        
-        <circle cx="180" cy="0" r="15" fill="#339933" opacity="0.2"/>
-        <text x="180" y="6" text-anchor="middle" font-size="11" fill="#68D391" font-weight="bold">N</text>
+      <text x="245" y="45" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="28px" fill="#F8FAFC">
+        Backend
+      </text>
+      
+      <g transform="translate(90, 85)">
+        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
+        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">🟢</text>
+      </g>
+      <g transform="translate(200, 85)">
+        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
+        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">🐍</text>
+      </g>
+      <g transform="translate(310, 85)">
+        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
+        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">🔥</text>
+      </g>
+      <g transform="translate(420, 85)">
+        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
+        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">⚙️</text>
       </g>
       
-      <text x="120" y="95" text-anchor="middle" class="tech-item" font-size="11">
-        .NET • Spring Boot • NestJS • Node.js
+      <text x="245" y="135" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="500" font-size="18px" fill="#94A3B8">
+        Node.js • Python • Express • REST
       </text>
     </g>
-    
-    <!-- Database Card -->
-    <g transform="translate(540, 0)">
-      <rect width="240" height="120" rx="16" fill="url(#glass)" opacity="0.7" filter="url(#shadow)"/>
-      <rect width="240" height="120" rx="16" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.3">
-        <animate attributeName="opacity" values="0.3;0.6;0.3" dur="5s" repeatCount="indefinite"/>
+
+    <!-- Database Card - MASSIVE, Second Row -->
+    <g transform="translate(0, 180)">
+      <rect width="490" height="160" rx="24" fill="url(#glass)" opacity="0.7" filter="url(#depth3d)"/>
+      <rect width="490" height="160" rx="24" fill="none" stroke="url(#accent)" stroke-width="3" opacity="0.5">
+        <animate attributeName="opacity" values="0.5;0.8;0.5" dur="5s" repeatCount="indefinite"/>
       </rect>
-      <rect width="240" height="3" rx="1.5" fill="url(#accent)" opacity="0.4">
-        <animate attributeName="y" values="0;120;0" dur="6s" repeatCount="indefinite" begin="1s"/>
-        <animate attributeName="opacity" values="0;0.6;0" dur="6s" repeatCount="indefinite" begin="1s"/>
+      <rect width="490" height="4" rx="2" fill="url(#accent)" opacity="0.5">
+        <animate attributeName="y" values="0;160;0" dur="7s" repeatCount="indefinite" begin="1s"/>
+        <animate attributeName="opacity" values="0;0.7;0" dur="7s" repeatCount="indefinite" begin="1s"/>
       </rect>
-      <rect width="240" height="3" rx="16" fill="url(#accent)" opacity="0.7"/>
       
-      <text x="120" y="30" text-anchor="middle" class="tech-label">Database</text>
+      <rect width="490" height="5" rx="2.5" fill="url(#accent)" opacity="0.6"/>
       
-      <g transform="translate(30, 50)">
-        <circle cx="0" cy="0" r="15" fill="#4EA94B" opacity="0.2"/>
-        <text x="0" y="5" text-anchor="middle" font-size="12">🍃</text>
-        
-        <circle cx="60" cy="0" r="15" fill="#336791" opacity="0.2"/>
-        <text x="60" y="6" text-anchor="middle" font-size="10" fill="#5FA3D0" font-weight="bold">PG</text>
-        
-        <circle cx="120" cy="0" r="15" fill="#00758F" opacity="0.2"/>
-        <text x="120" y="6" text-anchor="middle" font-size="9" fill="#00A9D4" font-weight="bold">My</text>
-        
-        <circle cx="180" cy="0" r="15" fill="#DC382D" opacity="0.2"/>
-        <text x="180" y="6" text-anchor="middle" font-size="12" fill="#DC382D" font-weight="bold">R</text>
+      <text x="245" y="45" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="28px" fill="#F8FAFC">
+        Database
+      </text>
+      
+      <g transform="translate(90, 85)">
+        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
+        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">🍃</text>
+      </g>
+      <g transform="translate(200, 85)">
+        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
+        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">🐘</text>
+      </g>
+      <g transform="translate(310, 85)">
+        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
+        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">🔴</text>
+      </g>
+      <g transform="translate(420, 85)">
+        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
+        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">🔥</text>
       </g>
       
-      <text x="120" y="95" text-anchor="middle" class="tech-item" font-size="11">
-        MongoDB • PostgreSQL • MySQL • Redis
+      <text x="245" y="135" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="500" font-size="18px" fill="#94A3B8">
+        MongoDB • PostgreSQL • Redis • Firebase
       </text>
     </g>
-    
-    <!-- DevOps Card -->
-    <g transform="translate(810, 0)">
-      <rect width="190" height="120" rx="16" fill="url(#glass)" opacity="0.7" filter="url(#shadow)"/>
-      <rect width="190" height="120" rx="16" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.3">
-        <animate attributeName="opacity" values="0.3;0.6;0.3" dur="5.5s" repeatCount="indefinite"/>
+
+    <!-- DevOps Card - MASSIVE, Second Row -->
+    <g transform="translate(510, 180)">
+      <rect width="490" height="160" rx="24" fill="url(#glass)" opacity="0.7" filter="url(#depth3d)"/>
+      <rect width="490" height="160" rx="24" fill="none" stroke="url(#accent)" stroke-width="3" opacity="0.5">
+        <animate attributeName="opacity" values="0.5;0.8;0.5" dur="5.5s" repeatCount="indefinite"/>
       </rect>
-      <rect width="190" height="3" rx="1.5" fill="url(#accent)" opacity="0.4">
-        <animate attributeName="y" values="0;120;0" dur="6.5s" repeatCount="indefinite" begin="1.5s"/>
-        <animate attributeName="opacity" values="0;0.6;0" dur="6.5s" repeatCount="indefinite" begin="1.5s"/>
+      <rect width="490" height="4" rx="2" fill="url(#accent)" opacity="0.5">
+        <animate attributeName="y" values="0;160;0" dur="7.5s" repeatCount="indefinite" begin="1.5s"/>
+        <animate attributeName="opacity" values="0;0.7;0" dur="7.5s" repeatCount="indefinite" begin="1.5s"/>
       </rect>
-      <rect width="190" height="3" rx="16" fill="url(#accent)" opacity="0.7"/>
       
-      <text x="95" y="30" text-anchor="middle" class="tech-label">DevOps</text>
+      <rect width="490" height="5" rx="2.5" fill="url(#accent)" opacity="0.6"/>
       
-      <g transform="translate(27, 50)">
-        <circle cx="0" cy="0" r="15" fill="#2496ED" opacity="0.2"/>
-        <text x="0" y="5" text-anchor="middle" font-size="12">🐳</text>
-        
-        <circle cx="55" cy="0" r="15" fill="#F05032" opacity="0.2"/>
-        <text x="55" y="6" text-anchor="middle" font-size="11" fill="#F05032" font-weight="bold">G</text>
-        
-        <circle cx="110" cy="0" r="15" fill="#000000" opacity="0.2"/>
-        <text x="110" y="5" text-anchor="middle" font-size="11">▲</text>
+      <text x="245" y="45" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="28px" fill="#F8FAFC">
+        DevOps
+      </text>
+      
+      <g transform="translate(140, 85)">
+        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
+        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">🐳</text>
+      </g>
+      <g transform="translate(260, 85)">
+        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
+        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">☸️</text>
+      </g>
+      <g transform="translate(380, 85)">
+        <circle r="22" fill="url(#glass)" opacity="0.9" filter="url(#neon)"/>
+        <text text-anchor="middle" dominant-baseline="middle" font-size="24px">📦</text>
       </g>
       
-      <text x="95" y="95" text-anchor="middle" class="tech-item" font-size="11">
-        Docker • Git • Vercel
+      <text x="245" y="135" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="500" font-size="18px" fill="#94A3B8">
+        Docker • Kubernetes • CI/CD
       </text>
     </g>
+
   </g>
+
 </g>

@@ -70,25 +70,28 @@
     </text>
   </g>
   
-  <!-- Name section with advanced effects -->
+  <!-- MASSIVE Name section with 3D effects -->
   <g>
+    <!-- 3D shadow layers -->
+    <text x="340" y="200" font-family="Space Grotesk, sans-serif" font-weight="800" font-size="82px" 
+          letter-spacing="-0.02em" fill="#1E293B" opacity="0.4">
+      <tspan x="340" y="202">Yosr Ben Nagra</tspan>
+    </text>
+    
     <!-- Glowing background for name -->
-    <text x="270" y="135" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="56px" 
-          letter-spacing="-0.02em" fill="url(#accent)" opacity="0.3" filter="url(#glow)">
+    <text x="340" y="200" font-family="Space Grotesk, sans-serif" font-weight="800" font-size="82px" 
+          letter-spacing="-0.02em" fill="url(#accent)" opacity="0.25" filter="url(#glow)">
       Yosr Ben Nagra
     </text>
     
-    <!-- Sharp, clear name text with gradient -->
-    <text x="270" y="135" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="56px" 
-          letter-spacing="-0.02em" fill="url(#accent)" style="paint-order: stroke; stroke: #0F172A; stroke-width: 1px;">
-      <tspan fill="#22D3EE">Y</tspan><tspan fill="#3CDCF5">o</tspan><tspan fill="#56D5F2">s</tspan><tspan fill="#6DCDEE">r</tspan>
-      <tspan dx="10"> </tspan>
-      <tspan fill="#7AC1EA">B</tspan><tspan fill="#87B5E6">e</tspan><tspan fill="#94A8E2">n</tspan>
-      <tspan dx="10"> </tspan>
-      <tspan fill="#A39BDE">N</tspan><tspan fill="#B08FDA">a</tspan><tspan fill="#BD82D6">g</tspan><tspan fill="#CA76D2">r</tspan><tspan fill="#D769CE">a</tspan>
-      
-      <!-- Animated shimmer effect on each character -->
-      <animate attributeName="opacity" values="1;0.9;1" dur="4s" repeatCount="indefinite"/>
+    <!-- Sharp, clear MASSIVE name text with per-character gradient -->
+    <text x="340" y="200" font-family="Space Grotesk, sans-serif" font-weight="800" font-size="82px" 
+          letter-spacing="-0.02em" style="paint-order: stroke; stroke: #0F172A; stroke-width: 2px;">
+      <tspan fill="#22D3EE">Y</tspan><tspan fill="#2ED8F3">o</tspan><tspan fill="#3ADDF0">s</tspan><tspan fill="#46E2ED">r</tspan>
+      <tspan dx="15"> </tspan>
+      <tspan fill="#5FD4EA">B</tspan><tspan fill="#72CCE7">e</tspan><tspan fill="#85C4E4">n</tspan>
+      <tspan dx="15"> </tspan>
+      <tspan fill="#98BCE1">N</tspan><tspan fill="#ABB4DE">a</tspan><tspan fill="#BEACDB">g</tspan><tspan fill="#D1A4D8">r</tspan><tspan fill="#E49CD5">a</tspan>
     </text>
     
     <!-- Decorative accent marks around name -->

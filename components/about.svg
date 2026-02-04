@@ -6,20 +6,26 @@
   <!-- Divider line with glow -->
   <line x1="100" y1="0" x2="1100" y2="0" stroke="url(#accent)" stroke-width="1" opacity="0.3" filter="url(#neon)"/>
   
-  <!-- Section title with holographic effect -->
+  <!-- MASSIVE Section title with 3D effect -->
   <g>
+    <!-- 3D shadow -->
+    <text x="600" y="42" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" 
+          font-size="42px" fill="#1E293B" opacity="0.5">
+      👨‍💻 About Me
+    </text>
     <!-- Glowing background -->
-    <text x="600" y="40" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" 
-          font-size="24px" fill="url(#accent)" opacity="0.2" filter="url(#glow)">
+    <text x="600" y="40" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" 
+          font-size="42px" fill="url(#accent)" opacity="0.25" filter="url(#glow)">
       👨‍💻 About Me
     </text>
     <!-- Sharp foreground -->
-    <text x="600" y="40" text-anchor="middle" class="section-title">
-      <tspan fill="url(#accent)">👨‍💻</tspan> About Me
+    <text x="600" y="40" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" 
+          font-size="42px" fill="#F8FAFC">
+      <tspan fill="url(#accent)">👨‍💻</tspan> <tspan fill="url(#accent)">About Me</tspan>
     </text>
     <!-- Animated underline -->
-    <line x1="520" y1="48" x2="680" y2="48" stroke="url(#accent)" stroke-width="2" opacity="0.5" stroke-linecap="round">
-      <animate attributeName="stroke-dasharray" values="0 160;160 0" dur="3s" repeatCount="indefinite"/>
+    <line x1="480" y1="56" x2="720" y2="56" stroke="url(#accent)" stroke-width="3" opacity="0.6" stroke-linecap="round">
+      <animate attributeName="stroke-dasharray" values="0 240;240 0" dur="4s" repeatCount="indefinite"/>
     </line>
   </g>
   

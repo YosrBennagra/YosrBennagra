@@ -118,6 +118,26 @@
     <feBlend mode="screen" in="rb" in2="b"/>
   </filter>
 
+  <!-- 3D depth effect -->
+  <filter id="depth3d">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur"/>
+    <feOffset in="blur" dx="0" dy="10" result="offsetBlur"/>
+    <feFlood flood-color="#6366F1" flood-opacity="0.5"/>
+    <feComposite in2="offsetBlur" operator="in"/>
+    <feMerge>
+      <feMergeNode/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+
+  <!-- Mesh gradient pattern -->
+  <pattern id="meshGradient" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+    <rect width="100" height="100" fill="url(#bgRadial)" opacity="0.3"/>
+    <path d="M 0,50 Q 25,25 50,50 T 100,50" stroke="url(#accent)" stroke-width="0.5" fill="none" opacity="0.2">
+      <animate attributeName="d" values="M 0,50 Q 25,25 50,50 T 100,50;M 0,50 Q 25,75 50,50 T 100,50;M 0,50 Q 25,25 50,50 T 100,50" dur="10s" repeatCount="indefinite"/>
+    </path>
+  </pattern>
+
   <!-- ============ STYLES ============ -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap');

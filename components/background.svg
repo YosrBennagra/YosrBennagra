@@ -1,12 +1,15 @@
 <!-- ============================================ -->
-<!-- BACKGROUND & PARTICLES -->
+<!-- BACKGROUND & PARTICLES - MASSIVE VERTICAL -->
 <!-- ============================================ -->
 
-<!-- Deep space background -->
-<rect width="1200" height="850" fill="url(#bgRadial)"/>
+<!-- Deep space background - TALLER -->
+<rect width="1200" height="1400" fill="url(#bgRadial)"/>
+
+<!-- Mesh gradient overlay -->
+<rect width="1200" height="1400" fill="url(#meshGradient)" opacity="0.3"/>
 
 <!-- Animated grain overlay -->
-<rect width="1200" height="850" filter="url(#grain)" opacity="0.4"/>
+<rect width="1200" height="1400" filter="url(#grain)" opacity="0.4"/>
 
 <!-- Connection lines (creating a network effect) -->
 <g opacity="0.15">
