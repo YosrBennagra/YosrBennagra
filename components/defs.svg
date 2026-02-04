@@ -1,0 +1,198 @@
+<!-- ============================================ -->
+<!-- DEFINITIONS: Gradients, Filters, Styles -->
+<!-- ============================================ -->
+
+<defs>
+  <!-- ============ GRADIENTS ============ -->
+  <!-- Main Background -->
+  <radialGradient id="bgRadial" cx="50%" cy="50%">
+    <stop offset="0%" stop-color="#0F172A"/>
+    <stop offset="50%" stop-color="#020617"/>
+    <stop offset="100%" stop-color="#000000"/>
+  </radialGradient>
+
+  <!-- Accent Gradient -->
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#06B6D4">
+      <animate attributeName="stop-color" values="#06B6D4;#22D3EE;#06B6D4" dur="8s" repeatCount="indefinite"/>
+    </stop>
+    <stop offset="50%" stop-color="#6366F1">
+      <animate attributeName="stop-color" values="#6366F1;#8B5CF6;#6366F1" dur="8s" repeatCount="indefinite"/>
+    </stop>
+    <stop offset="100%" stop-color="#C084FC">
+      <animate attributeName="stop-color" values="#C084FC;#E879F9;#C084FC" dur="8s" repeatCount="indefinite"/>
+    </stop>
+  </linearGradient>
+
+  <!-- Glassmorphism gradient -->
+  <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.15"/>
+    <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.05"/>
+  </linearGradient>
+
+  <!-- Neon Glow Gradient -->
+  <radialGradient id="neonGlow">
+    <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.8"/>
+    <stop offset="100%" stop-color="#6366F1" stop-opacity="0"/>
+  </radialGradient>
+
+  <!-- ============ FILTERS ============ -->
+  <!-- Glassmorphism blur -->
+  <filter id="glass-blur">
+    <feGaussianBlur stdDeviation="8" in="SourceGraphic"/>
+  </filter>
+
+  <!-- Neon glow effect -->
+  <filter id="neon">
+    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+    <feMerge>
+      <feMergeNode in="coloredBlur"/>
+      <feMergeNode in="coloredBlur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+
+  <!-- Strong glow -->
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="12" result="b"/>
+    <feMerge>
+      <feMergeNode in="b"/>
+      <feMergeNode in="b"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+
+  <!-- Soft shadow -->
+  <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
+    <feOffset dx="0" dy="5" result="offsetblur"/>
+    <feComponentTransfer>
+      <feFuncA type="linear" slope="0.3"/>
+    </feComponentTransfer>
+    <feMerge>
+      <feMergeNode/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+
+  <!-- Animated grain texture -->
+  <filter id="grain">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="2">
+      <animate attributeName="baseFrequency" values="0.9;0.95;0.9" dur="30s" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer>
+      <feFuncA type="linear" slope="0.08"/>
+    </feComponentTransfer>
+  </filter>
+
+  <!-- Text shadow for depth without blur -->
+  <filter id="textShadow" x="-50%" y="-50%" width="200%" height="200%">
+    <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#6366F1" flood-opacity="0.6"/>
+    <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#22D3EE" flood-opacity="0.4"/>
+  </filter>
+
+  <!-- Liquid morphing effect -->
+  <filter id="liquid">
+    <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="5" result="turbulence" seed="1">
+      <animate attributeName="baseFrequency" values="0.01;0.02;0.01" dur="20s" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+
+  <!-- Holographic effect -->
+  <filter id="holographic">
+    <feColorMatrix type="saturate" values="1.5"/>
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues="0 0.8 1"/>
+      <feFuncG type="table" tableValues="0 0.5 1"/>
+      <feFuncB type="table" tableValues="0.2 0.8 1"/>
+    </feComponentTransfer>
+  </filter>
+
+  <!-- Chromatic aberration -->
+  <filter id="chromatic" x="-50%" y="-50%" width="200%" height="200%">
+    <feOffset in="SourceGraphic" dx="2" dy="0" result="r"/>
+    <feOffset in="SourceGraphic" dx="-2" dy="0" result="b"/>
+    <feBlend mode="screen" in="r" in2="SourceGraphic" result="rb"/>
+    <feBlend mode="screen" in="rb" in2="b"/>
+  </filter>
+
+  <!-- ============ STYLES ============ -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap');
+    
+    .name {
+      font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 56px;
+      letter-spacing: -0.02em;
+      fill: url(#accent);
+      filter: url(#textShadow);
+    }
+    
+    .name-crisp {
+      font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 56px;
+      letter-spacing: -0.02em;
+      fill: #F8FAFC;
+      filter: url(#textShadow);
+    }
+    
+    .role {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      fill: #94A3B8;
+      text-transform: uppercase;
+    }
+    
+    .section-title {
+      font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      letter-spacing: -0.01em;
+      fill: #F8FAFC;
+    }
+    
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      fill: #CBD5E1;
+    }
+    
+    .tech-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      fill: url(#accent);
+    }
+    
+    .tech-item {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      fill: #E2E8F0;
+    }
+    
+    .about-text {
+      font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+      fill: #CBD5E1;
+    }
+    
+    .connect-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      fill: #F8FAFC;
+    }
+  </style>
+</defs>

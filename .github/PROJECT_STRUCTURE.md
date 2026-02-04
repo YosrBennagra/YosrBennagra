@@ -6,8 +6,33 @@
 YosrBennagra/
 ├── .github/
 │   └── PROJECT_STRUCTURE.md      # This file - project documentation
-├── profile-banner.svg            # Main profile banner (single unified SVG)
+├── components/                   # Modular SVG components
+│   ├── README.md                 # Component documentation
+│   ├── defs.svg                  # Gradients, filters, styles
+│   ├── background.svg            # Background & particles
+│   ├── header.svg                # Name, title, monogram
+│   ├── about.svg                 # About section
+│   ├── tech-stack.svg            # Tech expertise cards
+│   └── connect.svg               # Social links
+├── build-banner.js               # Build script to combine components
+├── profile-banner.svg            # Generated combined banner
 └── README.md                     # GitHub profile page
+```
+
+## 🔧 Modular Architecture
+
+The profile banner is built from **6 modular components** that are combined into a single SVG file. This provides:
+
+- ✅ **Easy Maintenance**: Edit sections independently
+- ✅ **Better Organization**: Clear separation of concerns
+- ✅ **Version Control**: Track changes per component
+- ✅ **Reusability**: Use components in other projects
+
+### Building the Banner
+
+```bash
+# Combine all components into profile-banner.svg
+node build-banner.js
 ```
 
 ## 🎨 Design System

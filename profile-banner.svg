@@ -1,571 +1,764 @@
 <svg viewBox="0 0 1200 850" width="100%" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <!-- ============ GRADIENTS ============ -->
-    <!-- Main Background -->
-    <radialGradient id="bgRadial" cx="50%" cy="50%">
-      <stop offset="0%" stop-color="#0F172A"/>
-      <stop offset="50%" stop-color="#020617"/>
-      <stop offset="100%" stop-color="#000000"/>
-    </radialGradient>
+<!-- ============================================ -->
+<!-- DEFINITIONS: Gradients, Filters, Styles -->
+<!-- ============================================ -->
 
-    <!-- Accent Gradient -->
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#06B6D4">
-        <animate attributeName="stop-color" values="#06B6D4;#22D3EE;#06B6D4" dur="8s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="50%" stop-color="#6366F1">
-        <animate attributeName="stop-color" values="#6366F1;#8B5CF6;#6366F1" dur="8s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="100%" stop-color="#C084FC">
-        <animate attributeName="stop-color" values="#C084FC;#E879F9;#C084FC" dur="8s" repeatCount="indefinite"/>
-      </stop>
-    </linearGradient>
+<defs>
+  <!-- ============ GRADIENTS ============ -->
+  <!-- Main Background -->
+  <radialGradient id="bgRadial" cx="50%" cy="50%">
+    <stop offset="0%" stop-color="#0F172A"/>
+    <stop offset="50%" stop-color="#020617"/>
+    <stop offset="100%" stop-color="#000000"/>
+  </radialGradient>
 
-    <!-- Glassmorphism gradient -->
-    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.05"/>
-    </linearGradient>
+  <!-- Accent Gradient -->
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#06B6D4">
+      <animate attributeName="stop-color" values="#06B6D4;#22D3EE;#06B6D4" dur="8s" repeatCount="indefinite"/>
+    </stop>
+    <stop offset="50%" stop-color="#6366F1">
+      <animate attributeName="stop-color" values="#6366F1;#8B5CF6;#6366F1" dur="8s" repeatCount="indefinite"/>
+    </stop>
+    <stop offset="100%" stop-color="#C084FC">
+      <animate attributeName="stop-color" values="#C084FC;#E879F9;#C084FC" dur="8s" repeatCount="indefinite"/>
+    </stop>
+  </linearGradient>
 
-    <!-- Neon Glow Gradient -->
-    <radialGradient id="neonGlow">
-      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#6366F1" stop-opacity="0"/>
-    </radialGradient>
+  <!-- Glassmorphism gradient -->
+  <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.15"/>
+    <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.05"/>
+  </linearGradient>
 
-    <!-- ============ FILTERS ============ -->
-    <!-- Glassmorphism blur -->
-    <filter id="glass-blur">
-      <feGaussianBlur stdDeviation="8" in="SourceGraphic"/>
-    </filter>
+  <!-- Neon Glow Gradient -->
+  <radialGradient id="neonGlow">
+    <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.8"/>
+    <stop offset="100%" stop-color="#6366F1" stop-opacity="0"/>
+  </radialGradient>
 
-    <!-- Neon glow effect -->
-    <filter id="neon">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+  <!-- ============ FILTERS ============ -->
+  <!-- Glassmorphism blur -->
+  <filter id="glass-blur">
+    <feGaussianBlur stdDeviation="8" in="SourceGraphic"/>
+  </filter>
 
-    <!-- Strong glow -->
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="12" result="b"/>
-      <feMerge>
-        <feMergeNode in="b"/>
-        <feMergeNode in="b"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+  <!-- Neon glow effect -->
+  <filter id="neon">
+    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+    <feMerge>
+      <feMergeNode in="coloredBlur"/>
+      <feMergeNode in="coloredBlur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
 
-    <!-- Soft shadow -->
-    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
-      <feOffset dx="0" dy="5" result="offsetblur"/>
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.3"/>
-      </feComponentTransfer>
-      <feMerge>
-        <feMergeNode/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+  <!-- Strong glow -->
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="12" result="b"/>
+    <feMerge>
+      <feMergeNode in="b"/>
+      <feMergeNode in="b"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
 
-    <!-- Animated grain texture -->
-    <filter id="grain">
-      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="2">
-        <animate attributeName="baseFrequency" values="0.9;0.95;0.9" dur="30s" repeatCount="indefinite"/>
-      </feTurbulence>
-      <feColorMatrix type="saturate" values="0"/>
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.08"/>
-      </feComponentTransfer>
-    </filter>
+  <!-- Soft shadow -->
+  <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
+    <feOffset dx="0" dy="5" result="offsetblur"/>
+    <feComponentTransfer>
+      <feFuncA type="linear" slope="0.3"/>
+    </feComponentTransfer>
+    <feMerge>
+      <feMergeNode/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
 
-    <!-- ============ STYLES ============ -->
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap');
-      
-      .name {
-        font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
-        font-weight: 700;
-        font-size: 56px;
-        letter-spacing: -0.02em;
-        fill: url(#accent);
-        filter: url(#neon);
-      }
-      
-      .role {
-        font-family: 'JetBrains Mono', monospace;
-        font-weight: 600;
-        font-size: 11px;
-        letter-spacing: 0.25em;
-        fill: #94A3B8;
-        text-transform: uppercase;
-      }
-      
-      .section-title {
-        font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
-        font-weight: 700;
-        font-size: 24px;
-        letter-spacing: -0.01em;
-        fill: #F8FAFC;
-      }
-      
-      .tag {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 12px;
-        font-weight: 600;
-        fill: #CBD5E1;
-      }
-      
-      .tech-label {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        fill: url(#accent);
-      }
-      
-      .tech-item {
-        font-family: 'Space Grotesk', system-ui, sans-serif;
-        font-size: 13px;
-        font-weight: 500;
-        fill: #E2E8F0;
-      }
-      
-      .about-text {
-        font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 1.6;
-        fill: #CBD5E1;
-      }
-      
-      .connect-label {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 13px;
-        font-weight: 700;
-        fill: #F8FAFC;
-      }
-      
-      /* Pulse animation for particles */
-      @keyframes pulse {
-        0%, 100% { opacity: 0.3; }
-        50% { opacity: 0.8; }
-      }
-      
-      @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
-      }
-    </style>
-  </defs>
+  <!-- Animated grain texture -->
+  <filter id="grain">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="2">
+      <animate attributeName="baseFrequency" values="0.9;0.95;0.9" dur="30s" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer>
+      <feFuncA type="linear" slope="0.08"/>
+    </feComponentTransfer>
+  </filter>
 
-  <!-- ============================================ -->
-  <!-- BASE LAYER -->
-  <!-- ============================================ -->
-  
-  <!-- Deep space background -->
-  <rect width="1200" height="850" fill="url(#bgRadial)"/>
-  
-  <!-- Animated grain overlay -->
-  <rect width="1200" height="850" filter="url(#grain)" opacity="0.4"/>
-  
-  <!-- ============================================ -->
-  <!-- PARTICLE CONSTELLATION NETWORK -->
-  <!-- ============================================ -->
-  
-  <!-- Connection lines (creating a network effect) -->
-  <g opacity="0.15">
-    <line x1="150" y1="100" x2="300" y2="180" stroke="url(#accent)" stroke-width="1">
-      <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite"/>
-    </line>
-    <line x1="300" y1="180" x2="500" y2="120" stroke="url(#accent)" stroke-width="1">
-      <animate attributeName="opacity" values="0.1;0.3;0.1" dur="5s" repeatCount="indefinite"/>
-    </line>
-    <line x1="800" y1="150" x2="950" y2="200" stroke="url(#accent)" stroke-width="1">
-      <animate attributeName="opacity" values="0.1;0.3;0.1" dur="6s" repeatCount="indefinite"/>
-    </line>
-    <line x1="200" y1="400" x2="350" y2="450" stroke="url(#accent)" stroke-width="1">
-      <animate attributeName="opacity" values="0.1;0.3;0.1" dur="5.5s" repeatCount="indefinite"/>
-    </line>
-    <line x1="700" y1="380" x2="900" y2="420" stroke="url(#accent)" stroke-width="1">
-      <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4.5s" repeatCount="indefinite"/>
-    </line>
-  </g>
-  
-  <!-- Floating particles with glow -->
-  <g filter="url(#neon)">
+  <!-- Text shadow for depth without blur -->
+  <filter id="textShadow" x="-50%" y="-50%" width="200%" height="200%">
+    <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#6366F1" flood-opacity="0.6"/>
+    <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#22D3EE" flood-opacity="0.4"/>
+  </filter>
+
+  <!-- Liquid morphing effect -->
+  <filter id="liquid">
+    <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="5" result="turbulence" seed="1">
+      <animate attributeName="baseFrequency" values="0.01;0.02;0.01" dur="20s" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+
+  <!-- Holographic effect -->
+  <filter id="holographic">
+    <feColorMatrix type="saturate" values="1.5"/>
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues="0 0.8 1"/>
+      <feFuncG type="table" tableValues="0 0.5 1"/>
+      <feFuncB type="table" tableValues="0.2 0.8 1"/>
+    </feComponentTransfer>
+  </filter>
+
+  <!-- Chromatic aberration -->
+  <filter id="chromatic" x="-50%" y="-50%" width="200%" height="200%">
+    <feOffset in="SourceGraphic" dx="2" dy="0" result="r"/>
+    <feOffset in="SourceGraphic" dx="-2" dy="0" result="b"/>
+    <feBlend mode="screen" in="r" in2="SourceGraphic" result="rb"/>
+    <feBlend mode="screen" in="rb" in2="b"/>
+  </filter>
+
+  <!-- ============ STYLES ============ -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap');
+    
+    .name {
+      font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 56px;
+      letter-spacing: -0.02em;
+      fill: url(#accent);
+      filter: url(#textShadow);
+    }
+    
+    .name-crisp {
+      font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 56px;
+      letter-spacing: -0.02em;
+      fill: #F8FAFC;
+      filter: url(#textShadow);
+    }
+    
+    .role {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      fill: #94A3B8;
+      text-transform: uppercase;
+    }
+    
+    .section-title {
+      font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      letter-spacing: -0.01em;
+      fill: #F8FAFC;
+    }
+    
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      fill: #CBD5E1;
+    }
+    
+    .tech-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      fill: url(#accent);
+    }
+    
+    .tech-item {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      fill: #E2E8F0;
+    }
+    
+    .about-text {
+      font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+      fill: #CBD5E1;
+    }
+    
+    .connect-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      fill: #F8FAFC;
+    }
+  </style>
+</defs>
+
+<!-- ============================================ -->
+<!-- BACKGROUND & PARTICLES -->
+<!-- ============================================ -->
+
+<!-- Deep space background -->
+<rect width="1200" height="850" fill="url(#bgRadial)"/>
+
+<!-- Animated grain overlay -->
+<rect width="1200" height="850" filter="url(#grain)" opacity="0.4"/>
+
+<!-- Connection lines (creating a network effect) -->
+<g opacity="0.15">
+  <line x1="150" y1="100" x2="300" y2="180" stroke="url(#accent)" stroke-width="1">
+    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite"/>
+  </line>
+  <line x1="300" y1="180" x2="500" y2="120" stroke="url(#accent)" stroke-width="1">
+    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="5s" repeatCount="indefinite"/>
+  </line>
+  <line x1="800" y1="150" x2="950" y2="200" stroke="url(#accent)" stroke-width="1">
+    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="6s" repeatCount="indefinite"/>
+  </line>
+  <line x1="200" y1="400" x2="350" y2="450" stroke="url(#accent)" stroke-width="1">
+    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="5.5s" repeatCount="indefinite"/>
+  </line>
+  <line x1="700" y1="380" x2="900" y2="420" stroke="url(#accent)" stroke-width="1">
+    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4.5s" repeatCount="indefinite"/>
+  </line>
+</g>
+
+<!-- Enhanced floating particles with trails -->
+<g filter="url(#neon)">
+  <!-- Particle with trail effect -->
+  <g opacity="0.8">
+    <ellipse rx="15" ry="1" fill="url(#accent)" opacity="0.2">
+      <animateMotion dur="8s" repeatCount="indefinite" path="M 150,100 Q 140,80 150,80 T 150,100"/>
+    </ellipse>
     <circle cx="150" cy="100" r="3" fill="#22D3EE">
       <animate attributeName="cy" values="100;80;100" dur="8s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0.3;1;0.3" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="3;4;3" dur="4s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="300" cy="180" r="2.5" fill="#6366F1">
-      <animate attributeName="cy" values="180;200;180" dur="7s" repeatCount="indefinite"/>
+  </g>
+  <circle cx="300" cy="180" r="2.5" fill="#6366F1">
+    <animate attributeName="cy" values="180;200;180" dur="7s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="500" cy="120" r="3.5" fill="#C084FC">
+    <animate attributeName="cy" values="120;100;120" dur="9s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="4.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="800" cy="150" r="2" fill="#22D3EE">
+    <animate attributeName="cy" values="150;130;150" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="950" cy="200" r="3" fill="#8B5CF6">
+    <animate attributeName="cy" values="200;220;200" dur="8.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="5.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="200" cy="400" r="2.5" fill="#06B6D4">
+    <animate attributeName="cy" values="400;380;400" dur="7.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="350" cy="450" r="3" fill="#6366F1">
+    <animate attributeName="cy" values="450;430;450" dur="8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="6s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="700" cy="380" r="2" fill="#C084FC">
+    <animate attributeName="cy" values="380;400;380" dur="9s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="900" cy="420" r="2.5" fill="#22D3EE">
+    <animate attributeName="cy" values="420;400;420" dur="7s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1050" cy="350" r="3" fill="#8B5CF6">
+    <animate attributeName="cy" values="350;370;350" dur="8.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4.5s" repeatCount="indefinite"/>
+  </circle>
+</g>
+
+<!-- ============================================ -->
+<!-- HEADER SECTION (0-280) -->
+<!-- ============================================ -->
+
+<!-- Large neon glow orb background -->
+<circle cx="200" cy="140" r="180" fill="url(#neonGlow)" opacity="0.15">
+  <animate attributeName="r" values="180;200;180" dur="10s" repeatCount="indefinite"/>
+</circle>
+
+<!-- Secondary glow orbs for depth -->
+<circle cx="900" cy="140" r="120" fill="url(#neonGlow)" opacity="0.08">
+  <animate attributeName="r" values="120;140;120" dur="8s" repeatCount="indefinite"/>
+</circle>
+
+<!-- Glassmorphism card -->
+<g filter="url(#shadow)">
+  <rect x="80" y="60" width="1040" height="180" rx="24" fill="url(#glass)" opacity="0.9"/>
+  <rect x="80" y="60" width="1040" height="180" rx="24" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
+  
+  <!-- Animated accent line on top -->
+  <rect x="80" y="60" width="1040" height="3" rx="24" fill="url(#accent)" opacity="0.8">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Animated accent line on bottom -->
+  <rect x="80" y="237" width="1040" height="3" rx="24" fill="url(#accent)" opacity="0.3">
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4s" repeatCount="indefinite"/>
+  </rect>
+</g>
+
+<!-- Profile content -->
+<g>
+  <!-- Monogram with ultra-enhanced design -->
+  <g filter="url(#neon)">
+    <!-- Outer glow ring -->
+    <circle cx="180" cy="150" r="70" fill="none" stroke="url(#accent)" stroke-width="0.5" opacity="0.2">
+      <animate attributeName="r" values="70;75;70" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.1;0.3;0.1" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Main circle background -->
+    <circle cx="180" cy="150" r="55" fill="#0F172A" opacity="0.9"/>
+    
+    <!-- Animated gradient border -->
+    <circle cx="180" cy="150" r="55" fill="none" stroke="url(#accent)" stroke-width="3">
+      <animate attributeName="stroke-dasharray" values="0 350;350 0" dur="15s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Inner pulsing ring -->
+    <circle cx="180" cy="150" r="45" fill="none" stroke="url(#accent)" stroke-width="1" opacity="0.4">
+      <animate attributeName="r" values="45;48;45" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Decorative orbit particles -->
+    <circle r="3" fill="#22D3EE" filter="url(#neon)">
+      <animateMotion dur="8s" repeatCount="indefinite" path="M 180,95 A 55,55 0 0,1 180,205 A 55,55 0 0,1 180,95"/>
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="2.5" fill="#C084FC" filter="url(#neon)">
+      <animateMotion dur="12s" repeatCount="indefinite" path="M 180,95 A 55,55 0 0,0 180,205 A 55,55 0 0,0 180,95"/>
       <animate attributeName="opacity" values="0.4;0.9;0.4" dur="5s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="500" cy="120" r="3.5" fill="#C084FC">
-      <animate attributeName="cy" values="120;100;120" dur="9s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.3;1;0.3" dur="4.5s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="800" cy="150" r="2" fill="#22D3EE">
-      <animate attributeName="cy" values="150;130;150" dur="6s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="950" cy="200" r="3" fill="#8B5CF6">
-      <animate attributeName="cy" values="200;220;200" dur="8.5s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="5.5s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="200" cy="400" r="2.5" fill="#06B6D4">
-      <animate attributeName="cy" values="400;380;400" dur="7.5s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="4s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="350" cy="450" r="3" fill="#6366F1">
-      <animate attributeName="cy" values="450;430;450" dur="8s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.3;1;0.3" dur="6s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="700" cy="380" r="2" fill="#C084FC">
-      <animate attributeName="cy" values="380;400;380" dur="9s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.5s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="900" cy="420" r="2.5" fill="#22D3EE">
-      <animate attributeName="cy" values="420;400;420" dur="7s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.4;1;0.4" dur="5s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1050" cy="350" r="3" fill="#8B5CF6">
-      <animate attributeName="cy" values="350;370;350" dur="8.5s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4.5s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-
-  <!-- ============================================ -->
-  <!-- HEADER SECTION (0-280) -->
-  <!-- ============================================ -->
-  
-  <!-- Large neon glow orb background -->
-  <circle cx="200" cy="140" r="180" fill="url(#neonGlow)" opacity="0.15">
-    <animate attributeName="r" values="180;200;180" dur="10s" repeatCount="indefinite"/>
-  </circle>
-  
-  <!-- Glassmorphism card -->
-  <g filter="url(#shadow)">
-    <rect x="80" y="60" width="1040" height="180" rx="24" fill="url(#glass)" opacity="0.9"/>
-    <rect x="80" y="60" width="1040" height="180" rx="24" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
     
-    <!-- Animated accent line on top -->
-    <rect x="80" y="60" width="1040" height="3" rx="24" fill="url(#accent)" opacity="0.8">
-      <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
-    </rect>
+    <!-- Letter Y with enhanced styling -->
+    <text x="180" y="170" text-anchor="middle" font-family="Space Grotesk, sans-serif" 
+          font-weight="700" font-size="42" fill="url(#accent)">
+      Y
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
+    </text>
   </g>
   
-  <!-- Profile content -->
+  <!-- Name section with advanced effects -->
   <g>
-    <!-- Monogram with enhanced design -->
-    <g filter="url(#neon)">
-      <circle cx="180" cy="150" r="55" fill="#0F172A" opacity="0.8"/>
-      <circle cx="180" cy="150" r="55" fill="none" stroke="url(#accent)" stroke-width="3">
-        <animate attributeName="stroke-dasharray" values="0 350;350 0" dur="15s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="180" cy="150" r="45" fill="none" stroke="url(#accent)" stroke-width="1" opacity="0.3">
-        <animate attributeName="r" values="45;48;45" dur="4s" repeatCount="indefinite"/>
+    <!-- Glowing background for name -->
+    <text x="270" y="135" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="56px" 
+          letter-spacing="-0.02em" fill="url(#accent)" opacity="0.3" filter="url(#glow)">
+      Yosr Ben Nagra
+    </text>
+    
+    <!-- Sharp, clear name text with gradient -->
+    <text x="270" y="135" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="56px" 
+          letter-spacing="-0.02em" fill="url(#accent)" style="paint-order: stroke; stroke: #0F172A; stroke-width: 1px;">
+      <tspan fill="#22D3EE">Y</tspan><tspan fill="#3CDCF5">o</tspan><tspan fill="#56D5F2">s</tspan><tspan fill="#6DCDEE">r</tspan>
+      <tspan dx="10"> </tspan>
+      <tspan fill="#7AC1EA">B</tspan><tspan fill="#87B5E6">e</tspan><tspan fill="#94A8E2">n</tspan>
+      <tspan dx="10"> </tspan>
+      <tspan fill="#A39BDE">N</tspan><tspan fill="#B08FDA">a</tspan><tspan fill="#BD82D6">g</tspan><tspan fill="#CA76D2">r</tspan><tspan fill="#D769CE">a</tspan>
+      
+      <!-- Animated shimmer effect on each character -->
+      <animate attributeName="opacity" values="1;0.9;1" dur="4s" repeatCount="indefinite"/>
+    </text>
+    
+    <!-- Decorative accent marks around name -->
+    <g opacity="0.6">
+      <!-- Left accent -->
+      <line x1="260" y1="135" x2="265" y2="135" stroke="url(#accent)" stroke-width="2" stroke-linecap="round">
+        <animate attributeName="x1" values="260;255;260" dur="3s" repeatCount="indefinite"/>
+      </line>
+      <circle cx="257" cy="135" r="2" fill="url(#accent)">
+        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
       </circle>
       
-      <!-- Letter Y -->
-      <text x="180" y="170" text-anchor="middle" font-family="Space Grotesk, sans-serif" 
-            font-weight="700" font-size="42" fill="url(#accent)">Y</text>
+      <!-- Right accent (positioned after name, approximate width) -->
+      <line x1="625" y1="135" x2="630" y2="135" stroke="url(#accent)" stroke-width="2" stroke-linecap="round">
+        <animate attributeName="x2" values="630;635;630" dur="3s" repeatCount="indefinite"/>
+      </line>
+      <circle cx="632" cy="135" r="2" fill="url(#accent)">
+        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+      </circle>
     </g>
-    
-    <!-- Name and title -->
-    <text x="270" y="135" class="name">Yosr Ben Nagra</text>
-    <text x="270" y="165" class="role">Full-Stack Software Engineer</text>
-    
-    <!-- Animated underline -->
+  </g>
+  
+  <!-- Title with enhanced styling -->
+  <text x="270" y="165" class="role">Full-Stack Software Engineer</text>
+  
+  <!-- Multi-layer animated underline -->
+  <g>
+    <!-- Main underline -->
     <rect x="270" y="178" width="450" height="3" rx="1.5" fill="url(#accent)" opacity="0.6">
       <animate attributeName="width" values="0;450" dur="2s" fill="freeze"/>
       <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite" begin="2s"/>
     </rect>
     
-    <!-- Tags with modern design -->
-    <g transform="translate(270, 205)">
-      <text class="tag">
-        <tspan>⚡ Systems</tspan>
-        <tspan dx="15">•</tspan>
-        <tspan dx="15">☁️ Cloud</tspan>
-        <tspan dx="15">•</tspan>
-        <tspan dx="15">🌐 Modern Web</tspan>
-        <tspan dx="15">•</tspan>
-        <tspan dx="15">🎨 Design</tspan>
-      </text>
-    </g>
-  </g>
-
-  <!-- ============================================ -->
-  <!-- ABOUT SECTION (280-450) -->
-  <!-- ============================================ -->
-  
-  <g transform="translate(0, 280)">
-    <!-- Divider line with glow -->
-    <line x1="100" y1="0" x2="1100" y2="0" stroke="url(#accent)" stroke-width="1" opacity="0.3" filter="url(#neon)"/>
+    <!-- Moving highlight on underline -->
+    <rect x="270" y="178" width="80" height="3" rx="1.5" fill="#22D3EE" opacity="0.8" filter="url(#glow)">
+      <animate attributeName="x" values="270;640;270" dur="6s" repeatCount="indefinite" begin="2s"/>
+      <animate attributeName="opacity" values="0;0.8;0" dur="6s" repeatCount="indefinite" begin="2s"/>
+    </rect>
     
-    <!-- Section title -->
+    <!-- Subtle shadow underline -->
+    <rect x="270" y="182" width="450" height="1" rx="0.5" fill="url(#accent)" opacity="0.2">
+      <animate attributeName="width" values="0;450" dur="2s" fill="freeze"/>
+    </rect>
+  </g>
+  
+  <!-- Tags with enhanced modern design -->
+  <g transform="translate(270, 205)">
+    <text class="tag">
+      <tspan>⚡</tspan>
+      <tspan dx="5">Systems</tspan>
+      <tspan dx="15" opacity="0.5">•</tspan>
+      <tspan dx="15">☁️</tspan>
+      <tspan dx="5">Cloud</tspan>
+      <tspan dx="15" opacity="0.5">•</tspan>
+      <tspan dx="15">🌐</tspan>
+      <tspan dx="5">Modern Web</tspan>
+      <tspan dx="15" opacity="0.5">•</tspan>
+      <tspan dx="15">🎨</tspan>
+      <tspan dx="5">Design</tspan>
+    </text>
+    
+    <!-- Animated highlight that sweeps across tags -->
+    <rect x="-5" y="-15" width="60" height="20" rx="10" fill="url(#accent)" opacity="0">
+      <animate attributeName="x" values="-5;380;-5" dur="10s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.15;0" dur="10s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Corner decorative elements -->
+  <g opacity="0.3">
+    <!-- Top right corner accent -->
+    <line x1="1090" y1="80" x2="1100" y2="80" stroke="url(#accent)" stroke-width="2" stroke-linecap="round"/>
+    <line x1="1100" y1="80" x2="1100" y2="90" stroke="url(#accent)" stroke-width="2" stroke-linecap="round"/>
+    
+    <!-- Bottom left corner accent -->
+    <line x1="100" y1="220" x2="100" y2="230" stroke="url(#accent)" stroke-width="2" stroke-linecap="round"/>
+    <line x1="100" y1="230" x2="110" y2="230" stroke="url(#accent)" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</g>
+
+<!-- ============================================ -->
+<!-- ABOUT SECTION (280-450) -->
+<!-- ============================================ -->
+
+<g transform="translate(0, 280)">
+  <!-- Divider line with glow -->
+  <line x1="100" y1="0" x2="1100" y2="0" stroke="url(#accent)" stroke-width="1" opacity="0.3" filter="url(#neon)"/>
+  
+  <!-- Section title with holographic effect -->
+  <g>
+    <!-- Glowing background -->
+    <text x="600" y="40" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" 
+          font-size="24px" fill="url(#accent)" opacity="0.2" filter="url(#glow)">
+      👨‍💻 About Me
+    </text>
+    <!-- Sharp foreground -->
     <text x="600" y="40" text-anchor="middle" class="section-title">
       <tspan fill="url(#accent)">👨‍💻</tspan> About Me
     </text>
+    <!-- Animated underline -->
+    <line x1="520" y1="48" x2="680" y2="48" stroke="url(#accent)" stroke-width="2" opacity="0.5" stroke-linecap="round">
+      <animate attributeName="stroke-dasharray" values="0 160;160 0" dur="3s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Content -->
+  <text x="600" y="75" text-anchor="middle" class="about-text">
+    Full Stack Software Engineer specializing in modern web technologies
+  </text>
+  <text x="600" y="100" text-anchor="middle" class="about-text">
+    Building scalable, production-grade applications with clean code &amp; performance focus
+  </text>
+  
+  <!-- Info badges with glassmorphism -->
+  <g transform="translate(600, 130)">
+    <!-- Tunisia -->
+    <g transform="translate(-360, 0)">
+      <rect x="0" y="0" width="100" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
+      <rect x="0" y="0" width="100" height="30" rx="15" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
+      <text x="50" y="20" text-anchor="middle" class="tag" font-size="11">🌍 Tunisia</text>
+    </g>
     
-    <!-- Content -->
-    <text x="600" y="75" text-anchor="middle" class="about-text">
-      Full Stack Software Engineer specializing in modern web technologies
-    </text>
-    <text x="600" y="100" text-anchor="middle" class="about-text">
-      Building scalable, production-grade applications with clean code &amp; performance focus
-    </text>
+    <!-- Open to Work -->
+    <g transform="translate(-240, 0)">
+      <rect x="0" y="0" width="140" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
+      <rect x="0" y="0" width="140" height="30" rx="15" fill="none" stroke="#22D3EE" stroke-width="1.5" opacity="0.6">
+        <animate attributeName="stroke-opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/>
+      </rect>
+      <circle cx="25" cy="15" r="4" fill="#22D3EE">
+        <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <text x="80" y="20" text-anchor="middle" class="tag" font-size="11">Open to Work</text>
+    </g>
     
-    <!-- Info badges with glassmorphism -->
-    <g transform="translate(600, 130)">
-      <!-- Tunisia -->
-      <g transform="translate(-360, 0)">
-        <rect x="0" y="0" width="100" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
-        <rect x="0" y="0" width="100" height="30" rx="15" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
-        <text x="50" y="20" text-anchor="middle" class="tag" font-size="11">🌍 Tunisia</text>
+    <!-- Full-time -->
+    <g transform="translate(-80, 0)">
+      <rect x="0" y="0" width="100" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
+      <rect x="0" y="0" width="100" height="30" rx="15" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
+      <text x="50" y="20" text-anchor="middle" class="tag" font-size="11">💼 Full-time</text>
+    </g>
+    
+    <!-- Freelance -->
+    <g transform="translate(40, 0)">
+      <rect x="0" y="0" width="105" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
+      <rect x="0" y="0" width="105" height="30" rx="15" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
+      <text x="52" y="20" text-anchor="middle" class="tag" font-size="11">🔧 Freelance</text>
+    </g>
+    
+    <!-- Languages -->
+    <g transform="translate(165, 0)">
+      <rect x="0" y="0" width="115" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
+      <rect x="0" y="0" width="115" height="30" rx="15" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
+      <text x="57" y="20" text-anchor="middle" class="tag" font-size="11">🗣 EN/FR/AR</text>
+    </g>
+  </g>
+</g>
+
+<!-- ============================================ -->
+<!-- TECH STACK SECTION (450-680) -->
+<!-- ============================================ -->
+
+<g transform="translate(0, 450)">
+  <!-- Divider -->
+  <line x1="100" y1="0" x2="1100" y2="0" stroke="url(#accent)" stroke-width="1" opacity="0.3" filter="url(#neon)"/>
+  
+  <!-- Section Title -->
+  <text x="600" y="40" text-anchor="middle" class="section-title">
+    <tspan fill="url(#accent)">💼</tspan> Technical Expertise
+  </text>
+  
+  <!-- Tech Stack Grid with modern cards -->
+  <g transform="translate(100, 70)">
+    <!-- Frontend Card -->
+    <g>
+      <!-- Animated gradient background -->
+      <rect width="240" height="120" rx="16" fill="url(#glass)" opacity="0.7" filter="url(#shadow)"/>
+      <rect width="240" height="120" rx="16" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.3">
+        <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/>
+      </rect>
+      <!-- Scan line effect -->
+      <rect width="240" height="3" rx="1.5" fill="url(#accent)" opacity="0.4">
+        <animate attributeName="y" values="0;120;0" dur="5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0.6;0" dur="5s" repeatCount="indefinite"/>
+      </rect>
+      <rect width="240" height="3" rx="16" fill="url(#accent)" opacity="0.7"/>
+      
+      <text x="120" y="30" text-anchor="middle" class="tech-label">Frontend</text>
+      
+      <!-- Tech icons -->
+      <g transform="translate(30, 50)">
+        <circle cx="0" cy="0" r="15" fill="#61DAFB" opacity="0.2"/>
+        <text x="0" y="5" text-anchor="middle" font-size="12">⚛️</text>
+        
+        <circle cx="60" cy="0" r="15" fill="#000000" opacity="0.2"/>
+        <text x="60" y="5" text-anchor="middle" font-size="11">▲</text>
+        
+        <circle cx="120" cy="0" r="15" fill="#DD0031" opacity="0.2"/>
+        <text x="120" y="5" text-anchor="middle" font-size="11">🅰️</text>
+        
+        <circle cx="180" cy="0" r="15" fill="#3178C6" opacity="0.2"/>
+        <text x="180" y="5" text-anchor="middle" font-size="10" fill="#3178C6" font-weight="bold">TS</text>
       </g>
       
-      <!-- Open to Work -->
-      <g transform="translate(-240, 0)">
-        <rect x="0" y="0" width="140" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
-        <rect x="0" y="0" width="140" height="30" rx="15" fill="none" stroke="#22D3EE" stroke-width="1.5" opacity="0.6">
-          <animate attributeName="stroke-opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/>
+      <text x="120" y="95" text-anchor="middle" class="tech-item" font-size="11">
+        React • Next.js • Angular • TypeScript
+      </text>
+    </g>
+    
+    <!-- Backend Card -->
+    <g transform="translate(270, 0)">
+      <rect width="240" height="120" rx="16" fill="url(#glass)" opacity="0.7" filter="url(#shadow)"/>
+      <rect width="240" height="120" rx="16" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.3">
+        <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4.5s" repeatCount="indefinite"/>
+      </rect>
+      <rect width="240" height="3" rx="1.5" fill="url(#accent)" opacity="0.4">
+        <animate attributeName="y" values="0;120;0" dur="5.5s" repeatCount="indefinite" begin="0.5s"/>
+        <animate attributeName="opacity" values="0;0.6;0" dur="5.5s" repeatCount="indefinite" begin="0.5s"/>
+      </rect>
+      <rect width="240" height="3" rx="16" fill="url(#accent)" opacity="0.7"/>
+      
+      <text x="120" y="30" text-anchor="middle" class="tech-label">Backend</text>
+      
+      <g transform="translate(30, 50)">
+        <circle cx="0" cy="0" r="15" fill="#512BD4" opacity="0.2"/>
+        <text x="0" y="6" text-anchor="middle" font-size="10" fill="#8B5CF6" font-weight="bold">.N</text>
+        
+        <circle cx="60" cy="0" r="15" fill="#6DB33F" opacity="0.2"/>
+        <text x="60" y="5" text-anchor="middle" font-size="12">🍃</text>
+        
+        <circle cx="120" cy="0" r="15" fill="#E0234E" opacity="0.2"/>
+        <text x="120" y="5" text-anchor="middle" font-size="9" fill="#E0234E" font-weight="bold">Ne</text>
+        
+        <circle cx="180" cy="0" r="15" fill="#339933" opacity="0.2"/>
+        <text x="180" y="6" text-anchor="middle" font-size="11" fill="#68D391" font-weight="bold">N</text>
+      </g>
+      
+      <text x="120" y="95" text-anchor="middle" class="tech-item" font-size="11">
+        .NET • Spring Boot • NestJS • Node.js
+      </text>
+    </g>
+    
+    <!-- Database Card -->
+    <g transform="translate(540, 0)">
+      <rect width="240" height="120" rx="16" fill="url(#glass)" opacity="0.7" filter="url(#shadow)"/>
+      <rect width="240" height="120" rx="16" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.3">
+        <animate attributeName="opacity" values="0.3;0.6;0.3" dur="5s" repeatCount="indefinite"/>
+      </rect>
+      <rect width="240" height="3" rx="1.5" fill="url(#accent)" opacity="0.4">
+        <animate attributeName="y" values="0;120;0" dur="6s" repeatCount="indefinite" begin="1s"/>
+        <animate attributeName="opacity" values="0;0.6;0" dur="6s" repeatCount="indefinite" begin="1s"/>
+      </rect>
+      <rect width="240" height="3" rx="16" fill="url(#accent)" opacity="0.7"/>
+      
+      <text x="120" y="30" text-anchor="middle" class="tech-label">Database</text>
+      
+      <g transform="translate(30, 50)">
+        <circle cx="0" cy="0" r="15" fill="#4EA94B" opacity="0.2"/>
+        <text x="0" y="5" text-anchor="middle" font-size="12">🍃</text>
+        
+        <circle cx="60" cy="0" r="15" fill="#336791" opacity="0.2"/>
+        <text x="60" y="6" text-anchor="middle" font-size="10" fill="#5FA3D0" font-weight="bold">PG</text>
+        
+        <circle cx="120" cy="0" r="15" fill="#00758F" opacity="0.2"/>
+        <text x="120" y="6" text-anchor="middle" font-size="9" fill="#00A9D4" font-weight="bold">My</text>
+        
+        <circle cx="180" cy="0" r="15" fill="#DC382D" opacity="0.2"/>
+        <text x="180" y="6" text-anchor="middle" font-size="12" fill="#DC382D" font-weight="bold">R</text>
+      </g>
+      
+      <text x="120" y="95" text-anchor="middle" class="tech-item" font-size="11">
+        MongoDB • PostgreSQL • MySQL • Redis
+      </text>
+    </g>
+    
+    <!-- DevOps Card -->
+    <g transform="translate(810, 0)">
+      <rect width="190" height="120" rx="16" fill="url(#glass)" opacity="0.7" filter="url(#shadow)"/>
+      <rect width="190" height="120" rx="16" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.3">
+        <animate attributeName="opacity" values="0.3;0.6;0.3" dur="5.5s" repeatCount="indefinite"/>
+      </rect>
+      <rect width="190" height="3" rx="1.5" fill="url(#accent)" opacity="0.4">
+        <animate attributeName="y" values="0;120;0" dur="6.5s" repeatCount="indefinite" begin="1.5s"/>
+        <animate attributeName="opacity" values="0;0.6;0" dur="6.5s" repeatCount="indefinite" begin="1.5s"/>
+      </rect>
+      <rect width="190" height="3" rx="16" fill="url(#accent)" opacity="0.7"/>
+      
+      <text x="95" y="30" text-anchor="middle" class="tech-label">DevOps</text>
+      
+      <g transform="translate(27, 50)">
+        <circle cx="0" cy="0" r="15" fill="#2496ED" opacity="0.2"/>
+        <text x="0" y="5" text-anchor="middle" font-size="12">🐳</text>
+        
+        <circle cx="55" cy="0" r="15" fill="#F05032" opacity="0.2"/>
+        <text x="55" y="6" text-anchor="middle" font-size="11" fill="#F05032" font-weight="bold">G</text>
+        
+        <circle cx="110" cy="0" r="15" fill="#000000" opacity="0.2"/>
+        <text x="110" y="5" text-anchor="middle" font-size="11">▲</text>
+      </g>
+      
+      <text x="95" y="95" text-anchor="middle" class="tech-item" font-size="11">
+        Docker • Git • Vercel
+      </text>
+    </g>
+  </g>
+</g>
+
+<!-- ============================================ -->
+<!-- CONNECT SECTION (680-850) -->
+<!-- ============================================ -->
+
+<g transform="translate(0, 680)">
+  <!-- Divider -->
+  <line x1="100" y1="0" x2="1100" y2="0" stroke="url(#accent)" stroke-width="1" opacity="0.3" filter="url(#neon)"/>
+  
+  <!-- Multiple layered background glow orbs -->
+  <circle cx="600" cy="85" r="150" fill="url(#neonGlow)" opacity="0.12">
+    <animate attributeName="r" values="150;170;150" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="600" cy="85" r="120" fill="#22D3EE" opacity="0.05">
+    <animate attributeName="r" values="120;140;120" dur="6s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="600" cy="85" r="90" fill="#C084FC" opacity="0.08">
+    <animate attributeName="r" values="90;110;90" dur="7s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Section Title -->
+  <text x="600" y="40" text-anchor="middle" class="section-title">
+    <tspan fill="url(#accent)">🤝</tspan> Let's Connect
+  </text>
+  
+  <!-- Social Links - Modern Buttons -->
+  <g transform="translate(600, 80)">
+    <!-- Email Button -->
+    <a href="mailto:yosrbennagra@gmail.com">
+      <g transform="translate(-310, 0)">
+        <rect width="140" height="45" rx="22.5" fill="url(#glass)" opacity="0.8" filter="url(#shadow)"/>
+        <rect width="140" height="45" rx="22.5" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.5">
+          <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
         </rect>
-        <circle cx="25" cy="15" r="4" fill="#22D3EE">
-          <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
-        </circle>
-        <text x="80" y="20" text-anchor="middle" class="tag" font-size="11">Open to Work</text>
+        <text x="70" y="28" text-anchor="middle" class="connect-label" font-size="14">
+          📧 Email
+        </text>
       </g>
-      
-      <!-- Full-time -->
-      <g transform="translate(-80, 0)">
-        <rect x="0" y="0" width="100" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
-        <rect x="0" y="0" width="100" height="30" rx="15" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
-        <text x="50" y="20" text-anchor="middle" class="tag" font-size="11">💼 Full-time</text>
+    </a>
+    
+    <!-- LinkedIn Button -->
+    <a href="https://linkedin.com/in/yosrbennagra">
+      <g transform="translate(-150, 0)">
+        <rect width="140" height="45" rx="22.5" fill="url(#glass)" opacity="0.8" filter="url(#shadow)"/>
+        <rect width="140" height="45" rx="22.5" fill="none" stroke="#0077B5" stroke-width="2" opacity="0.6">
+          <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+        </rect>
+        <text x="70" y="28" text-anchor="middle" class="connect-label" font-size="14">
+          💼 LinkedIn
+        </text>
       </g>
-      
-      <!-- Freelance -->
-      <g transform="translate(40, 0)">
-        <rect x="0" y="0" width="105" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
-        <rect x="0" y="0" width="105" height="30" rx="15" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
-        <text x="52" y="20" text-anchor="middle" class="tag" font-size="11">🔧 Freelance</text>
+    </a>
+    
+    <!-- Portfolio Button -->
+    <a href="https://portfolio-yosr.vercel.app/">
+      <g transform="translate(10, 0)">
+        <rect width="140" height="45" rx="22.5" fill="url(#glass)" opacity="0.8" filter="url(#shadow)"/>
+        <rect width="140" height="45" rx="22.5" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.5">
+          <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite" begin="1s"/>
+        </rect>
+        <text x="70" y="28" text-anchor="middle" class="connect-label" font-size="14">
+          🌐 Portfolio
+        </text>
       </g>
-      
-      <!-- Languages -->
-      <g transform="translate(165, 0)">
-        <rect x="0" y="0" width="115" height="30" rx="15" fill="url(#glass)" opacity="0.8"/>
-        <rect x="0" y="0" width="115" height="30" rx="15" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.4"/>
-        <text x="57" y="20" text-anchor="middle" class="tag" font-size="11">🗣 EN/FR/AR</text>
+    </a>
+    
+    <!-- GitHub Button -->
+    <a href="https://github.com/YosrBennagra">
+      <g transform="translate(170, 0)">
+        <rect width="140" height="45" rx="22.5" fill="url(#glass)" opacity="0.8" filter="url(#shadow)"/>
+        <rect width="140" height="45" rx="22.5" fill="none" stroke="#818CF8" stroke-width="2" opacity="0.6">
+          <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+        </rect>
+        <text x="70" y="28" text-anchor="middle" class="connect-label" font-size="14">
+          🐙 GitHub
+        </text>
       </g>
-    </g>
+    </a>
   </g>
-
-  <!-- ============================================ -->
-  <!-- TECH STACK SECTION (450-680) -->
-  <!-- ============================================ -->
   
-  <g transform="translate(0, 450)">
-    <!-- Divider -->
-    <line x1="100" y1="0" x2="1100" y2="0" stroke="url(#accent)" stroke-width="1" opacity="0.3" filter="url(#neon)"/>
-    
-    <!-- Section Title -->
-    <text x="600" y="40" text-anchor="middle" class="section-title">
-      <tspan fill="url(#accent)">💼</tspan> Technical Expertise
-    </text>
-    
-    <!-- Tech Stack Grid with modern cards -->
-    <g transform="translate(100, 70)">
-      <!-- Frontend Card -->
-      <g>
-        <rect width="240" height="120" rx="16" fill="url(#glass)" opacity="0.7" filter="url(#shadow)"/>
-        <rect width="240" height="120" rx="16" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.3"/>
-        <rect width="240" height="3" rx="16" fill="url(#accent)" opacity="0.7"/>
-        
-        <text x="120" y="30" text-anchor="middle" class="tech-label">Frontend</text>
-        
-        <!-- Tech icons -->
-        <g transform="translate(30, 50)">
-          <circle cx="0" cy="0" r="15" fill="#61DAFB" opacity="0.2"/>
-          <text x="0" y="5" text-anchor="middle" font-size="12">⚛️</text>
-          
-          <circle cx="60" cy="0" r="15" fill="#000000" opacity="0.2"/>
-          <text x="60" y="5" text-anchor="middle" font-size="11">▲</text>
-          
-          <circle cx="120" cy="0" r="15" fill="#DD0031" opacity="0.2"/>
-          <text x="120" y="5" text-anchor="middle" font-size="11">🅰️</text>
-          
-          <circle cx="180" cy="0" r="15" fill="#3178C6" opacity="0.2"/>
-          <text x="180" y="5" text-anchor="middle" font-size="10" fill="#3178C6" font-weight="bold">TS</text>
-        </g>
-        
-        <text x="120" y="95" text-anchor="middle" class="tech-item" font-size="11">
-          React • Next.js • Angular • TypeScript
-        </text>
-      </g>
-      
-      <!-- Backend Card -->
-      <g transform="translate(270, 0)">
-        <rect width="240" height="120" rx="16" fill="url(#glass)" opacity="0.7" filter="url(#shadow)"/>
-        <rect width="240" height="120" rx="16" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.3"/>
-        <rect width="240" height="3" rx="16" fill="url(#accent)" opacity="0.7"/>
-        
-        <text x="120" y="30" text-anchor="middle" class="tech-label">Backend</text>
-        
-        <g transform="translate(30, 50)">
-          <circle cx="0" cy="0" r="15" fill="#512BD4" opacity="0.2"/>
-          <text x="0" y="6" text-anchor="middle" font-size="10" fill="#8B5CF6" font-weight="bold">.N</text>
-          
-          <circle cx="60" cy="0" r="15" fill="#6DB33F" opacity="0.2"/>
-          <text x="60" y="5" text-anchor="middle" font-size="12">🍃</text>
-          
-          <circle cx="120" cy="0" r="15" fill="#E0234E" opacity="0.2"/>
-          <text x="120" y="5" text-anchor="middle" font-size="9" fill="#E0234E" font-weight="bold">Ne</text>
-          
-          <circle cx="180" cy="0" r="15" fill="#339933" opacity="0.2"/>
-          <text x="180" y="6" text-anchor="middle" font-size="11" fill="#68D391" font-weight="bold">N</text>
-        </g>
-        
-        <text x="120" y="95" text-anchor="middle" class="tech-item" font-size="11">
-          .NET • Spring Boot • NestJS • Node.js
-        </text>
-      </g>
-      
-      <!-- Database Card -->
-      <g transform="translate(540, 0)">
-        <rect width="240" height="120" rx="16" fill="url(#glass)" opacity="0.7" filter="url(#shadow)"/>
-        <rect width="240" height="120" rx="16" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.3"/>
-        <rect width="240" height="3" rx="16" fill="url(#accent)" opacity="0.7"/>
-        
-        <text x="120" y="30" text-anchor="middle" class="tech-label">Database</text>
-        
-        <g transform="translate(30, 50)">
-          <circle cx="0" cy="0" r="15" fill="#4EA94B" opacity="0.2"/>
-          <text x="0" y="5" text-anchor="middle" font-size="12">🍃</text>
-          
-          <circle cx="60" cy="0" r="15" fill="#336791" opacity="0.2"/>
-          <text x="60" y="6" text-anchor="middle" font-size="10" fill="#5FA3D0" font-weight="bold">PG</text>
-          
-          <circle cx="120" cy="0" r="15" fill="#00758F" opacity="0.2"/>
-          <text x="120" y="6" text-anchor="middle" font-size="9" fill="#00A9D4" font-weight="bold">My</text>
-          
-          <circle cx="180" cy="0" r="15" fill="#DC382D" opacity="0.2"/>
-          <text x="180" y="6" text-anchor="middle" font-size="12" fill="#DC382D" font-weight="bold">R</text>
-        </g>
-        
-        <text x="120" y="95" text-anchor="middle" class="tech-item" font-size="11">
-          MongoDB • PostgreSQL • MySQL • Redis
-        </text>
-      </g>
-      
-      <!-- DevOps Card -->
-      <g transform="translate(810, 0)">
-        <rect width="190" height="120" rx="16" fill="url(#glass)" opacity="0.7" filter="url(#shadow)"/>
-        <rect width="190" height="120" rx="16" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.3"/>
-        <rect width="190" height="3" rx="16" fill="url(#accent)" opacity="0.7"/>
-        
-        <text x="95" y="30" text-anchor="middle" class="tech-label">DevOps</text>
-        
-        <g transform="translate(27, 50)">
-          <circle cx="0" cy="0" r="15" fill="#2496ED" opacity="0.2"/>
-          <text x="0" y="5" text-anchor="middle" font-size="12">🐳</text>
-          
-          <circle cx="55" cy="0" r="15" fill="#F05032" opacity="0.2"/>
-          <text x="55" y="6" text-anchor="middle" font-size="11" fill="#F05032" font-weight="bold">G</text>
-          
-          <circle cx="110" cy="0" r="15" fill="#000000" opacity="0.2"/>
-          <text x="110" y="5" text-anchor="middle" font-size="11">▲</text>
-        </g>
-        
-        <text x="95" y="95" text-anchor="middle" class="tech-item" font-size="11">
-          Docker • Git • Vercel
-        </text>
-      </g>
-    </g>
-  </g>
+  <!-- Footer text -->
+  <text x="600" y="150" text-anchor="middle" class="tag" font-size="10" opacity="0.5">
+    ⚡ Building the future, one commit at a time ⚡
+  </text>
+</g>
 
-  <!-- ============================================ -->
-  <!-- CONNECT SECTION (680-850) -->
-  <!-- ============================================ -->
-  
-  <g transform="translate(0, 680)">
-    <!-- Divider -->
-    <line x1="100" y1="0" x2="1100" y2="0" stroke="url(#accent)" stroke-width="1" opacity="0.3" filter="url(#neon)"/>
-    
-    <!-- Background glow orb -->
-    <circle cx="600" cy="85" r="150" fill="url(#neonGlow)" opacity="0.12">
-      <animate attributeName="r" values="150;170;150" dur="8s" repeatCount="indefinite"/>
-    </circle>
-    
-    <!-- Section Title -->
-    <text x="600" y="40" text-anchor="middle" class="section-title">
-      <tspan fill="url(#accent)">🤝</tspan> Let's Connect
-    </text>
-    
-    <!-- Social Links - Modern Buttons -->
-    <g transform="translate(600, 80)">
-      <!-- Email Button -->
-      <a href="mailto:yosrbennagra@gmail.com">
-        <g transform="translate(-310, 0)">
-          <rect width="140" height="45" rx="22.5" fill="url(#glass)" opacity="0.8" filter="url(#shadow)"/>
-          <rect width="140" height="45" rx="22.5" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.5">
-            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
-          </rect>
-          <text x="70" y="28" text-anchor="middle" class="connect-label" font-size="14">
-            📧 Email
-          </text>
-        </g>
-      </a>
-      
-      <!-- LinkedIn Button -->
-      <a href="https://linkedin.com/in/yosrbennagra">
-        <g transform="translate(-150, 0)">
-          <rect width="140" height="45" rx="22.5" fill="url(#glass)" opacity="0.8" filter="url(#shadow)"/>
-          <rect width="140" height="45" rx="22.5" fill="none" stroke="#0077B5" stroke-width="2" opacity="0.6">
-            <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite" begin="0.5s"/>
-          </rect>
-          <text x="70" y="28" text-anchor="middle" class="connect-label" font-size="14">
-            💼 LinkedIn
-          </text>
-        </g>
-      </a>
-      
-      <!-- Portfolio Button -->
-      <a href="https://portfolio-yosr.vercel.app/">
-        <g transform="translate(10, 0)">
-          <rect width="140" height="45" rx="22.5" fill="url(#glass)" opacity="0.8" filter="url(#shadow)"/>
-          <rect width="140" height="45" rx="22.5" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.5">
-            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite" begin="1s"/>
-          </rect>
-          <text x="70" y="28" text-anchor="middle" class="connect-label" font-size="14">
-            🌐 Portfolio
-          </text>
-        </g>
-      </a>
-      
-      <!-- GitHub Button -->
-      <a href="https://github.com/YosrBennagra">
-        <g transform="translate(170, 0)">
-          <rect width="140" height="45" rx="22.5" fill="url(#glass)" opacity="0.8" filter="url(#shadow)"/>
-          <rect width="140" height="45" rx="22.5" fill="none" stroke="#818CF8" stroke-width="2" opacity="0.6">
-            <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite" begin="1.5s"/>
-          </rect>
-          <text x="70" y="28" text-anchor="middle" class="connect-label" font-size="14">
-            🐙 GitHub
-          </text>
-        </g>
-      </a>
-    </g>
-    
-    <!-- Footer text -->
-    <text x="600" y="150" text-anchor="middle" class="tag" font-size="10" opacity="0.5">
-      ⚡ Building the future, one commit at a time ⚡
-    </text>
-  </g>
+
 </svg>
