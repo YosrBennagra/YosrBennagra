@@ -1,8 +1,6 @@
-<!-- Header -->
+<!-- Profile Banner -->
 <div align="center">
-  <img src="./header.svg" width="100%" alt="Yosr Ben Nagra - Full Stack Software Engineer" />
-  <img src="./about.svg" width="100%" alt="About Me" />
-  <img src="./tech-stack.svg" width="100%" alt="Technical Expertise" />
+  <img src="./profile-banner.svg" width="100%" alt="Yosr Ben Nagra - Full Stack Software Engineer Profile" />
 </div>
 
 <br/>
