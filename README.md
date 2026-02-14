@@ -33,3 +33,7 @@
     <img alt="GitHub Contribution Snake" src="https://raw.githubusercontent.com/YosrBennagra/YosrBennagra/output/github-contribution-grid-snake.svg">
   </picture>
 </div>
+---
+## Recent Activity
+<!--START_SECTION:activity-->
+<!--END_SECTION:activity-->
