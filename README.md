@@ -9,7 +9,7 @@ I'm the creator of [**Veinpal**](https://www.veinpal.tech/) — a solo project d
 ### What I'm up to
 
 - 🖥️ Building **Windows apps & games** — like [Trayline](https://www.veinpal.tech/apps/trayline) and more coming soon
-- 🤖 Creating **open-source AI developer tools** at [Veinpal-OpenSource](https://github.com/Veinpal-OpenSource) — including [Universal Ai Library](uail.veinpal.tech/) (production-grade AI agent skills) and [ShipKit](https://github.com/Veinpal-OpenSource/shipkit) (zero-to-production web app guide)
+- 🤖 Creating **open-source AI developer tools** at [Veinpal-OpenSource](https://github.com/Veinpal-OpenSource) — including [Universal Ai Library](https://uail.veinpal.com/) (production-grade AI agent skills) and [ShipKit](https://github.com/Veinpal-OpenSource/shipkit) (zero-to-production web app guide)
 - 🎮 Making games in **C#/Unity** 
 - 🌐 Working with **TypeScript, Next.js, and modern web tech**
 
