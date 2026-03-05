@@ -9,9 +9,18 @@ I'm the creator of [**Veinpal**](https://www.veinpal.com/) — a solo project de
 ### What I'm up to
 
 - 🖥️ Building **Windows apps & games** — like [Trayline](https://www.veinpal.com/apps/trayline) and more coming soon
-- 🤖 Creating **open-source AI developer tools** at [Veinpal-OpenSource](https://github.com/Veinpal-OpenSource) — including [Universal Ai Library](https://uail.veinpal.com/) (production-grade AI agent skills) 
-- 🎮 Making games in **C#/Unity** 
-- 🌐 Working with **TypeScript, Next.js, and modern web tech**
+- 🤖 Creating **open-source AI developer tools** at [Veinpal-OpenSource](https://github.com/Veinpal-OpenSource) — including [Universal Ai Library](https://uail.veinpal.com/) (production-grade AI agent skills)
+- 🌐 Building **free web tools** — file conversion, favicon generation, typing games, and more
+- 🎮 Making games in **C#/Unity**
+- 💻 Working with **TypeScript, React, and modern web tech**
+
+---
+
+### Web Tools
+
+- ⌨️ **[TypeW](https://typew.veinpal.com)** — Typing speed game to test and improve your typing skills
+- ⚡ **[AllYourTypes](https://allurtypes.veinpal.com)** — Free file converter for images, video, and audio — 100% in your browser ([source](https://github.com/YosrBennagra/AllYourTypes))
+- 🎨 **[GetIconFav](https://gifav.veinpal.com)** — Free favicon.ico generator — drag, preview, and download ([source](https://github.com/YosrBennagra/GetIconFav))
 
 ---
 
