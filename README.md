@@ -42,7 +42,7 @@ If you enjoy what I build, consider supporting me — it keeps the lights on and
 
 <p>
   <a href="https://github.com/sponsors/YosrBennagra"><img src="https://img.shields.io/badge/Sponsor_on_GitHub-EA4AAA?style=for-the-badge&logo=githubsponsors&logoColor=white" alt="GitHub Sponsors"/></a>
-  <a href="https://buymeacoffee.com/veinpal"><img src="https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=black" alt="Buy Me A Coffee"/></a>
+  <a href="https://buymeacoffee.com/yosrbennagra"><img src="https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=black" alt="Buy Me A Coffee"/></a>
 </p>
 
 ---
