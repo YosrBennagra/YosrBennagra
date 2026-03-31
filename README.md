@@ -18,6 +18,7 @@ I'm the creator of [**Veinpal**](https://www.veinpal.com/) — a solo project de
 
 ### Web Tools
 
+- 🖥️ **[OverlayOS](https://overlayos.veinpal.com/)** — Customize your desktop with widgets, drawers, wallpaper and other utilities (live)
 - ⌨️ **[TypeW](https://typew.veinpal.com)** — Typing speed game to test and improve your typing skills
 - ⚡ **[AllYourTypes](https://allurtypes.veinpal.com)** — Free file converter for images, video, and audio — 100% in your browser ([source](https://github.com/YosrBennagra/AllYourTypes))
 - 🎨 **[GetIconFav](https://gifav.veinpal.com)** — Free favicon.ico generator — drag, preview, and download ([source](https://github.com/YosrBennagra/GetIconFav))
