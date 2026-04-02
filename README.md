@@ -4,6 +4,8 @@ I'm **Yosr** — I build Windows apps, games, and tools with passion. One person
 
 I'm the creator of [**Veinpal**](https://www.veinpal.com/) — a solo project dedicated to crafting polished software that truly matters. From desktop utilities to open-source developer tools, I love turning ideas into real products.
 
+📘 **Read more:** [Veinpal Ecosystem Overview](./docs/veinpal-ecosystem-overview.md)
+
 ---
 
 ### What I'm up to
