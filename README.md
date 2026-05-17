@@ -1,4 +1,4 @@
-## Hey there! 👋
+## Hey there!
 
 I'm **Yosr** — I build Windows apps, games, and tools with passion. One person, big ambitions.
 
