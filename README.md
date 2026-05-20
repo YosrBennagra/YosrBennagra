@@ -49,5 +49,4 @@ If you enjoy what I build, consider supporting me — it keeps the lights on and
 </p>
 
 ---
-
 <p align="center"><i>"Each day is better than yesterday. Always learning, always building."</i></p>
