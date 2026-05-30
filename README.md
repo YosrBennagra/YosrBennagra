@@ -38,6 +38,7 @@ I'm the creator of [**Veinpal**](https://www.veinpal.com/) — a solo project de
 </p>
 
 ---
+
 ### Support my work
 
 If you enjoy what I build, consider supporting me — it keeps the lights on and the ideas flowing!
