@@ -9,6 +9,7 @@ Five unique designs for the GitHub profile README. All use the same content (Vei
 | 3 | [Dashboard](./design-3-dashboard.md) | Colorful, dynamic | Animated wave banner, GitHub stats cards, streak, skill icons, project status table |
 | 4 | [Retro RPG Quest](./design-4-retro-quest.md) | Playful, 8-bit | ASCII banner, character sheet, stat bars, projects as completed quests |
 | 5 | [Ecosystem Map](./design-5-ecosystem-map.md) | Structured, informative | Mermaid mindmap of the Veinpal ecosystem, two-column card grid |
+| 6 | [Signature](./design-6-signature.md) ⭐ | Simple but impressive | Theme-adaptive typing animation, one-line project strip, airy centered layout — **currently applied as the profile README** |
 
 ## How to apply one
 
